@@ -1,0 +1,13 @@
+<view class="tab-warp">
+	<Tab class="tab-coupon" list="{{['全部类型','兑换券','单品券','全场券']}}" bind:change="toggleTab" />
+</view>
+<view class="coupon-content" wx:if="{{items.length >0}}">
+	<Scrolls hasmore="{{hasMore}}" listloading="{{loading}}" bindrefresherrefresh="refresh">
+		<view class="coupon-lists">
+		<Coupon data="{{item}}" wx:for="{{items}}" wx:key="st" />
+		</view>
+	</Scrolls>
+</view>
+<view class="empty-inner" wx:else>
+  <Empty icon="icon-ecoupon" msg="没有优惠卡券" />
+</view>

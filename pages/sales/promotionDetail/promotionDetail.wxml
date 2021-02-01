@@ -1,0 +1,92 @@
+<Contents loading="{{loading}}">
+  <image src="{{bgImg}}" class="coupon-img" mode="widthFix"></image>
+  <view class="pages">
+  <view class="box-info">
+    <view class="goods-name">{{title}}</view>
+    <view class="f-c-sb">
+      <view>
+        <view class="price"><text class="un">¥</text> {{payPrice}}</view>
+        <view class="price-un" wx:if="{{originalPrice>payPrice}}"><text class="un">原价</text> {{originalPrice}}</view>
+      </view>
+      <view class="goods-amt">{{quantity>20 ? '数量充足' : '剩余'+quantity}}</view>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="bline box-title">卡券说明</view>
+    <view class="des">
+		  <view><label> 优惠说明：</label><view>{{rules}}</view></view>
+      <view><label>有效日期：</label>
+        <view class='content-item-content'>
+          <text wx:if="{{dateType == 1}}">{{beginTime}} 至 {{endTime}}</text>
+          <text wx:elif="{{dateType == 2}}">领取后{{fixedTerm}}天有效</text>
+          <text wx:elif="{{dateType == 0}}">不限日期</text>
+        </view>
+      </view>
+      <view><label>领取说明：</label>
+        <view> {{notice}}</view>
+      </view>
+      <view><label>使用须知：</label>
+        <view>{{description}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="box"  wx:if="{{goodItems.length}}">
+    <view class="f-c-sb bline box-title" bindtap="togglePanels" data-id="goodsPanel">适用商品<view class="arr">{{goodItems.length}}件</view></view>
+    <block wx:for="{{goodItems}}" wx:key="goodItems" >
+      <view class="f-c-sb sku-item "  wx:if="{{index<1}}">
+        <view>{{item.itemName}}</view>
+        <view class="price">¥{{item.itemPrice}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="box" wx:if="{{merchantList.length>0}}">
+    <view class="bline f-c-sb box-title" bindtap="togglePanel" data-id="merchantPanel">适用门店<view class="arr">{{merchantList.length}}家</view></view>
+    <view>
+    <block wx:for="{{merchantList}}" wx:key="merchantList" >
+      <view class="{{merchantList.length == index+1 ? '' : 'line'}} merchant-item"  wx:if="{{index<1}}">
+        <view>{{item.merchantName}}</view>
+        <view class="merchant-address">{{item.address}}</view>
+      </view>
+    </block>
+
+    </view>
+  </view>
+  <view wx:if="{{cardTextImages.length}}" class="box">
+    <view class="bline box-title">图文说明</view>
+    <view wx:for="{{cardTextImages}}" wx:key="cardTextImages" class="image-item">
+      <image mode="widthFix" src="{{item.imgUrl}}" />
+      <view class="goods-text">{{item.text}}</view>
+    </view>
+  </view>
+  </view>
+  <Bar><view bindtap="sharePost" class="button">赚{{commission}}元 立即推广</view></Bar>
+  <canvas class="codes" bindtap="previewImg" style="width:250px;height:250px;" canvas-id="ewmCode" />
+  <!-- <image src="{{tempImg}}"></image> -->
+	<SharePost id="sharePost" post="{{post}}" />
+  <PagePanel id="goodsPanel" wx:if="{{goodItems.length>0}}" title="适用商品" zindex="100" bottom="0">
+    <view class="scroll-warp">
+      <scroll-view class="page-scroll" scroll-y>
+        <view class="box-lists">
+          <view wx:for="{{goodItems}}" class="f-c-sb bline sku-item {{goodItems.length == index+1 ? '' : 'bline'}}" wx:key="goodsItemsPanel">
+            <view>{{item.itemName}}</view>
+            <view class="price">¥{{item.itemPrice}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </PagePanel>
+  <PagePanel id="merchantPanel" wx:if="{{merchantList.length>0}}" title="适用门店" zindex="100" bottom="0">
+  <view class="scroll-warp">
+    <scroll-view class="page-scroll" scroll-y>
+      <view class="box-lists">
+        <view  wx:for="{{merchantList}}" wx:key="merchantListest" class="{{merchantList.length == index+1 ? '' : 'bline'}} merchant-item">
+          <view>{{item.merchantName}}</view>
+          <view class="merchant-address">{{item.address}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    </view>
+  </PagePanel>
+</Contents>
+

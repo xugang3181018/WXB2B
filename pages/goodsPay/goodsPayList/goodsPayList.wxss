@@ -1,0 +1,289 @@
+/* pages/goodsPay/goodsPayList/goodsPayList.wxss */
+@import "../../../iconfont.wxss";
+
+.goods-pay-list-box {
+  height: 100%;
+  padding: 0 30rpx;
+  /* background: #fff; */
+}
+
+.shop-title {
+  height: 106rpx;
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  color: #101010;
+  border-bottom: 1px solid#EDF1F2;
+}
+
+.goods-name {
+  width: 400rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+}
+
+.iconfont {
+  font-size: 28rpx;
+  color: #ccc;
+  margin-left: 10rpx;
+  margin-top: 4rpx;
+}
+
+.deleteicon {
+  font-size: 40rpx;
+  color: #101010;
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx;
+}
+
+.dianpu-icon{
+  font-size:60rpx;
+  margin-right: 10rpx;
+  color:#00bb9c;
+}
+
+/* .dianpubao-img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+} */
+
+.redact-img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+.empty-img-box {
+  height: 650rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #c3c3c9;
+}
+
+.empty-img {
+  width: 274rpx;
+  height: 274rpx;
+  margin-bottom: 60rpx;
+}
+
+.btn-box {
+  background: #fff;
+  font-size: 32rpx;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+
+.btn-box .btn {
+  width: 100vw;
+  height: 130rpx;
+  box-sizing: border-box;
+  background: #f9f9fb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.number-btn {
+  width: 240rpx;
+  height: 90rpx;
+  border: 1px solid #edf1f2;
+  border-radius: 8rpx;
+  color: #00bb9c;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.scan-btn {
+  width: 360rpx;
+  height: 90rpx;
+  background: #00bb9c;
+  color: #fff;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 90rpx;
+  border-radius: 8rpx;
+}
+
+.saoma-icon{
+  font-size:50rpx;
+  color:#fff;
+  margin-top:12rpx;
+  /* margin-right:6rpx; */
+}
+
+/* .saoma-img {
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+} */
+
+.account-box {
+  height: 130rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.account-money-box {
+  font-size: 32rpx;
+  color: #101010;
+}
+
+.account-money-box .account-money {
+  color: #ff9502;
+  font-weight: 600;
+}
+
+.account-box .account-btn {
+  width: 210rpx;
+  height: 86rpx;
+  background: #54cfaa;
+  border-radius: 86rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 86rpx;
+}
+
+.goods-list-content {
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #edf1f2;
+}
+
+.goods-title {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carnum {
+  height: 54rpx;
+}
+
+.carnum view {
+  border: 1px solid #a4a4a4;
+  width: 84rpx;
+  text-align: center;
+  height: 100%;
+  line-height: 54rpx;
+  color: #a4a4a4;
+  font-size: 45rpx;
+}
+
+.acea-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.acea-row.row-middle {
+  align-items: center;
+}
+
+.carnum .reduce {
+  border-right: 0;
+  border-radius: 6rpx 0 0 6rpx;
+  line-height: 48rpx;
+}
+
+.carnum .reduce.on {
+  border-color: #e3e3e3;
+  color: #dedede;
+}
+
+.carnum .num {
+  color: #282828;
+  font-size: 28rpx;
+}
+
+.carnum .plus {
+  border-left: 0;
+  border-radius: 0 6rpx 6rpx 0;
+  line-height: 46rpx;
+}
+
+.carnum .plus.on {
+  border-color: #e3e3e3;
+  color: #dedede;
+}
+
+.goods-price {
+  height: 106rpx;
+  display: flex;
+  align-items: center;
+  background: #fbfbfb;
+  border: 1px solid #f7f7f7;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+}
+
+.unit-price {
+  width: 160rpx;
+  margin-left: 30rpx;
+  color: #101010;
+}
+
+.total-price {
+  flex: 1;
+  text-align: right;
+  margin-right: 30rpx;
+  color: #ff9502;
+}
+
+.pay-way-box {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.pay-way {
+  width: 100%;
+  height: 400rpx;
+  position: absolute;
+  background: #fff;
+  bottom: 0;
+}
+
+.pay-way-title {
+  font-size: 36rpx;
+  color: #101010;
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.pay-way-btn {
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pay-btn {
+  width: 300rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+}
+
+.cash-pay-btn {
+  background: #ff9502;
+}
+
+.scan-pay-btn {
+  background: #00bb9c;
+}

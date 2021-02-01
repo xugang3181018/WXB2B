@@ -1,0 +1,90 @@
+/* pages/preauth/preauth.wxss */
+.preauth{
+	
+}
+.preauth-item{
+	background:#fff;
+	padding:40rpx;
+	color:#444;
+}
+.preauth-info{
+	padding:50rpx;
+	font-size:24rpx;
+	color:#999;
+}
+.p{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40rpx;
+}
+.p::after{
+    content: '';
+    border:2px solid #ccc;
+    width:12rpx;
+    height:12rpx;
+    border-left:none;
+    border-bottom:none;
+    transform:rotate(45deg);
+    margin-left:20rpx;
+}
+.p-cont{
+    flex:1;
+    font-size:24rpx;
+     color:#999;
+}
+.p-name{
+    font-size:32rpx;
+    margin-bottom:10rpx;
+    color:#444;
+}
+.p-type{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    font-size:22rpx;
+    margin-right:20rpx;
+    color:#999;
+}
+.p-amt{
+    font-weight:800;
+}
+.p-type .ico{
+    font-size:60rpx;
+    margin-bottom:8rpx;
+}
+.p-amt{
+    font-size:32rpx;
+    text-align:right;
+    margin-bottom:10rpx;
+    color:#ff6655;
+}
+.p-bar{
+    font-size:24rpx;
+    display: flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+    flex-direction: column;
+}
+.p-status{
+    font-size: 22rpx;
+    text-align:right;
+    color:#999;
+}
+.tab{
+    margin:30rpx 20rpx;
+}
+.tab>view{
+    padding:6rpx 30rpx !important;
+    color: #20A1E6;
+}
+.alipay{
+    color:#20A1E6;
+}
+.weixin{
+    color:#44B549;
+}
+.vip{
+    color:#FF7A3E;
+}

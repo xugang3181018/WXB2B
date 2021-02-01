@@ -1,0 +1,122 @@
+/* pages/retail/supplier/newSupplier/newSupplier.wxss */
+@import "../../supplierList/supplierList.wxss";
+page{
+  background:#fff;
+  font-size:32rpx;
+}
+.head{
+  z-index:-1;
+}
+.flex{
+  display: flex;
+  height:100rpx;
+  align-items: center;
+}
+.flex input{
+  flex:1;
+  display: inline-block;
+  text-align: right;
+  margin:0 10rpx 0 30rpx;
+  z-index:0;
+}
+
+.flex .new-account{
+  flex:1;
+  text-align: right;
+  margin:0 10rpx 0 30rpx;
+  z-index: -1;
+}
+  
+.greenColor{
+  color:#00BFA5
+}
+.btn-box{
+  position:fixed;
+  width:691rpx;
+  height:120rpx;
+  bottom:0;
+  background:#fff;
+}
+.submit-btn{
+  background:#00cc99;
+  color:#fff;
+}
+.lnventory-detail-content {
+  height:60rpx;
+  display: flex;
+  background:#fff;
+}
+
+.lnventory-detail-content-right {
+  flex: 1;
+  text-align: right;
+}
+
+.lnventory-detail-list {
+  height: 120rpx;
+  display: flex;
+  padding:20rpx 0;
+}
+
+.goods-list-content {
+  flex: 1;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+
+.goods-list-img {
+  width: 120rpx;
+  height:120rpx;
+  margin-right: 30rpx;
+  border: 1px solid #ebebeb;
+}
+
+.hide-info{
+  font-size:28rpx;
+  line-height:60rpx;
+}
+
+.hide-info::after{
+  content:"";
+  display: inline-block;
+  width:12rpx;
+  height:12rpx;
+  border-right:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  margin-left:10rpx;
+  margin-bottom:6rpx;
+  transform: rotate(45deg);
+}
+.show-info::after{
+  margin-bottom:0;
+  transform: rotate(-135deg);
+}
+
+.supplier-site{
+  display: flex;
+  padding:30rpx 0;
+}
+
+.supplier-site .site-title{
+  width:120rpx;
+}
+
+.site-content{
+  flex:1;
+  text-align: right;
+  margin-right:10rpx;
+}
+
+.button{
+  height:90rpx;
+  line-height:90rpx;
+}
+
+.page-bar{
+  padding:20rpx 0;
+  background:#ffffff;
+} 
+
+.ban-color{
+  color:#999999;
+}

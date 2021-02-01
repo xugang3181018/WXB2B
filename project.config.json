@@ -1,0 +1,115 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": false,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.0",
+  "appid": "wx9785e4edfb5ab220",
+  "projectname": "xjl",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "盘点",
+          "pathName": "pages/retail/Inventory/trueCheck/trueCheck",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "实物盘点筛选",
+          "pathName": "pages/retail/Inventory/screen/screen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "新建盘点单",
+          "pathName": "pages/retail/Inventory/lnventoryDetail/lnventoryDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "新建供应商",
+          "pathName": "pages/retail/supplier/newSupplier/newSupplier",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/scanOrder/HandleShop/index",
+          "pathName": "pages/scanOrder/HandleShop/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageDishes/pages/dishes/dishes",
+          "pathName": "packageDishes/pages/dishes/dishes",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

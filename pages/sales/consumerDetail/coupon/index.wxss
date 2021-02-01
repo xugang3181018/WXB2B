@@ -1,0 +1,18 @@
+.tab-coupon .tab-item{
+	padding:0 0;
+}
+.coupon-content{
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	top:50px;
+}
+.coupon-lists{
+	margin:30rpx 0;
+}
+/* .tab-warp{
+	position: sticky;
+	top:0;
+	z-index: 10;
+} */

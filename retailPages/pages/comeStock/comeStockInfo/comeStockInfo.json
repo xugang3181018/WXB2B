@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "supplierList":"../../supplierList/supplierList",
+    "popUpBtn":"../../popUpBtn/popUpBtn"
+  }
+}

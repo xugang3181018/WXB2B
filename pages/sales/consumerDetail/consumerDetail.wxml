@@ -1,0 +1,255 @@
+<Contents loading="{{loading}}">
+  <view class="page-vh" wx:if="{{member}}">
+    <view class="head">
+      <view class="f-c-sb">
+        <view class="f-c">
+          <image class="head-img" wx:if="{{member.headImgUrl}}" src="{{member.headImgUrl}}" />
+          <view class="head-img f-c-c ico icon-user-sel" wx:else src="{{member.headImgUrl}}"></view>
+          <view class="head-content">
+            <view class="f-c user">{{member.memberName}}
+              <view class="phone">{{member.mobile}}</view>
+            </view>
+            <view class="f-c">
+              <view class="level">
+                <view class="ico icon-level"></view> {{member.levelName}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="edit f-c" data-index="{{5}}" bindtap="login">
+          <view class="ico icon-eidtor"></view>编辑</view>
+      </view>
+      <view class="tabs" bindtap="toggleTab">
+        <view hover-class="touch" class="{{current == index ? 'active':''}}" wx:for="{{['信息','卡券','次卡','余额','积分']}}" wx:key="infotab" id="{{index}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class="contents {{current != 0 ? ' hasbar' : ''}}" style="bottom:{{current != 0 ? (isPX? '84':'50'):'0' }}px">
+      <point wx:if="{{current ==4}}" />
+      <coupon id="couponPage" wx:elif="{{current ==1}}" />
+      <banlance wx:elif="{{current ==3}}" />
+      <time id="timeCardPage" wx:elif="{{current ==2}}" />
+      <block wx:elif="{{current ==0}}" hasmore="{{false}}">
+        <Scrolls listloading="{{loading}}">
+          <view class="box">
+            <view class="box-title bline">会员资产</view>
+            <view class="box-list grid">
+              <view>
+                <view class="ico icon-bag" />
+                <view>
+                  <text>总余额</text>
+                  <view>{{member.totalBalance}}</view>
+                </view>
+              </view>
+              <view>
+                <view class="ico icon-moneys" />
+                <view>
+                  <text>实际金额</text>
+                  <view>{{member.caBalance}}</view>
+                </view>
+              </view>
+              <view>
+                <view class="ico icon-gift" />
+                <view>
+                  <text>赠送金额</text>
+                  <view>{{member.giftBalance}}</view>
+                </view>
+              </view>
+              <view>
+                <view class="ico icon-fee" />
+                <view>
+                  <text>积分</text>
+                  <view>{{member.point}}</view>
+                </view>
+              </view>
+              <view>
+                <view class="ico icon-orderes" />
+                <view>
+                  <text>经验值</text>
+                  <view>{{member.exp}}</view>
+                </view>
+              </view>
+              <view>
+                <view class="ico icon-scoupon" />
+                <view>
+                  <text>优惠券</text>
+                  <view>{{member.couponCount}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="box">
+            <view class="box-title bline">标签信息</view>
+            <view class="box-list">
+              <view class="f-c">
+                <view class="tags" wx:for="{{memberCrowd}}">{{item.crowdName}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="box">
+            <view class="box-title bline">基础信息</view>
+            <view class="box-list">
+              <view>
+                <text>会员卡号：</text>
+                <view>{{member.memberCardNo}}</view>
+              </view>
+              <view>
+                <text>所属门店：</text>
+                <view>{{member.merchantName}}</view>
+              </view>
+              <view>
+                <text>会员性别：</text>
+                <view>{{sex[member.sex]}}</view>
+              </view>
+              <view>
+                <text>会员生日：</text>
+                <view>{{member.birthday}}</view>
+              </view>
+              <view>
+                <text>注册日期：</text>
+                <view>{{member.openCardDate}}</view>
+              </view>
+              <view>
+                <text>会员绑定：</text>
+                <view>{{member.memberCardNo}}</view>
+              </view>
+              <view>
+                <text>所在城市：</text>
+                <view>{{member.province}}{{member.city}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="box">
+            <view class="box-title bline">最近消费</view>
+            <view class="box-list grids">
+              <view>
+                <text>最近消费门店</text>
+                <view>{{member.lastConsumShopName ?member.lastConsumShopName : '--'}}</view>
+              </view>
+              <view>
+                <text>最近消费金额</text>
+                <view>{{member.lastConsumAmount}}</view>
+              </view>
+              <view>
+                <text>最近购买商品数量</text>
+                <view>{{member.lastBuyGoodsNum}}</view>
+              </view>
+              <view>
+                <text>最近消费时间</text>
+                <view>{{member.lastConsumDate}}</view>
+              </view>
+              <view>
+                <text>最近充值时间</text>
+                <view>{{member.rechargeTimes}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="box">
+            <view class="box-title bline">消费统计</view>
+            <view class="box-list grids">
+              <view>
+                <text>累计消费金额</text>
+                <view>{{member.accumulationConsume}}</view>
+              </view>
+              <view>
+                <text>累计充值金额</text>
+                <view>{{member.accumulationRecharge}}</view>
+              </view>
+              <view>
+                <text>累计充值赠送金额</text>
+                <view>{{member.accumulationGiveRecharge}}</view>
+              </view>
+              <view>
+                <text>累计消费笔数</text>
+                <view>{{member.consumTimes}}</view>
+              </view>
+              <view>
+                <text>累计使用积分</text>
+                <view>{{member.accumulationRecharge}}</view>
+              </view>
+              <!-- 	<view><text>累计退款金额</text> <view>{{member.accumulationRecharge}}</view></view>
+              <view><text>累计退款次数</text> <view>{{member.accumulationRecharge}}</view></view>
+              <view><text>累计获得优惠券</text> <view>{{member.accumulationRecharge}}</view></view>
+              <view><text>累计使用优惠券</text> <view>{{member.accumulationRecharge}}</view></view>
+              <view><text>累计获得红包</text> <view>{{member.birthday}}</view></view>
+              <view><text>累计使用红包</text> <view>{{member.birthday}}</view></view> -->
+            </view>
+          </view>
+        </Scrolls>
+      </block>
+    </view>
+    <Bar wx:if="{{current == 1}}">
+      <view class="f-c-sb page-bar-inner">
+        <view class="button button-b" bindtap="login" data-index="{{1}}" hover-class="touch">赠送优惠券</view>
+      </view>
+    </Bar>
+    <Bar wx:if="{{current == 2}}">
+      <view class="f-c-sb page-bar-inner">
+        <view class="button  button-b" bindtap="login" data-index="{{2}}" hover-class="touch">赠送次卡</view>
+      </view>
+    </Bar>
+    <Bar wx:if="{{current == 3}}">
+      <view class="f-c-sb page-bar-inner">
+        <view class="button button-line" bindtap="login" data-type="0" data-id="{{id}}" data-index="{{3}}" hover-class="touch">手动消费</view>
+        <view class="button" bindtap="login" data-type="1" data-id="{{id}}" data-index="{{3}}" hover-class="touch">现金充值</view>
+      </view>
+    </Bar>
+    <!-- //&& canpoint -->
+    <Bar wx:if="{{current == 4}}">
+      <view class="f-c-sb page-bar-inner">
+        <view class="button button-line" data-id="{{id}}" data-type="0" data-index="{{4}}" bindtap="login" hover-class="touch">减少积分</view>
+        <view class="button" data-type="1" data-id="{{id}}" data-index="{{4}}" bindtap="login" hover-class="touch">新增积分</view>
+      </view>
+    </Bar>
+  </view>
+  <PagePanel id="sendCoupon" title="赠送优惠券" bottom="0" zindex="100">
+    <view class="coupon-list">
+      <Scrolls hasmore="{{couponHasMore}}" listloading="{{couponLoading}}" bind:scrolltolower="couponList" bind:scrolltoupper="couponToupper">
+        <view class="f-c-sb coupon-item bline" wx:key="coupons" wx:for="{{list.items}}">
+          <view>
+            <view class="coupon-title">{{item.cardTemplate.title}}</view>
+            <view class="coupon-item-sub">{{item.cardTemplate.subTitle}}</view>
+          </view>
+          <view class="f-c cart" bindtap="couponCart" data-index="{{index}}">
+            <block wx:if="{{item.count>0}}">
+              <view class="ico icon-min" id="0" hover-class="touch" />
+              <view>{{item.count}}</view>
+            </block>
+            <view class="ico icon-add" id="1" hover-class="touch" />
+          </view>
+        </view>
+      </Scrolls>
+    </view>
+    <view class="button-bar">
+      <view class="button button-block" bindtap="sendPrize" id="giveCoupon">确认赠送</view>
+    </view>
+  </PagePanel>
+  <PagePanel id="timeCardList" title="赠送次卡" bottom="0" zindex="100">
+    <view class="coupon-list">
+      <Scrolls hasmore="{{couponHasMore}}" listloading="{{couponLoading}}" bind:scrolltolower="timesCardList" bind:scrolltoupper="couponToupper">
+        <!-- <Coupon wx:for="{{coupons.items}}" data="{{item}}" wx:key="st{{index}}"  /> -->
+        <view class="coupon-item bline" wx:key="coupons" wx:for="{{list.items}}">
+          <image class="coupon-logo" src="{{item.logo}}" />
+          <view class="time-content">
+            <view class="coupon-title">{{item.title}}</view>
+            <view wx:for-item="itm" wx:for-index="idx" wx:for="{{item.cardTimeLimits}}" class="f-c-sb time-item" bindtap="timeCardCheck" data-index="{{index}}" data-id="{{idx}}" wx:key="cardTimeLimts">
+              <view class="f-c-sb f1 coupon-title-sub">
+                <view class="f1 f-c">
+                  现价：{{itm.price}}
+                  <block wx:if="{{itm.originalPrice > itm.price}}">
+                    原价：{{itm.originalPrice}}
+                  </block>
+                </view>
+                次数：{{itm.times}}
+              </view>
+              <view class="coupon-check icon-check{{itm.checked ? 'ed active':''}}"></view>
+            </view>
+          </view>
+        </view>
+      </Scrolls>
+    </view>
+    <view class="button-bar">
+      <view class="button button-block" bindtap="sendTimePrize">确认赠送</view>
+    </view>
+  </PagePanel>
+</Contents>

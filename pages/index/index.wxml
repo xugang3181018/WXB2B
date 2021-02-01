@@ -1,0 +1,364 @@
+<Contents loading="{{loading}}" error="{{error}}" error-msg="{{errorMsg}}">
+	<view class="head-box" style="height:{{role == 0 || headOfficeStaff == 2?(isPX?'500rpx':'402rpx'):(isPX?'586rpx':'538rpx')}}">
+		<view class="{{isPX?'isPX-shop-name':'shop-name'}}">{{merchantName}}</view>
+		<view style="font-size:28rpx;margin-top:20rpx">今日实收</view>
+		<view style="font-size:82rpx;margin:16rpx">{{totalTradeAmt}}</view>
+		<view style="font-size:24rpx;">
+			<text style="margin-right:40rpx;">新增会员：{{count}}</text>
+			<text>订单笔数：{{totalTradeCnt}}</text>
+		</view>
+		<view class="template-box" wx:if="{{!(role == 0 || headOfficeStaff == 2)}}">
+			<navigator url='/pages/pos/pos'>
+				<view class='ico icons-new-posMoney'></view>收款
+			</navigator>
+			<navigator url='/pages/goodsPay/goodsPayList/goodsPayList'>
+				<view class='ico icons-new-scan'></view>扫码商品
+			</navigator>
+			<navigator url='/pages/checkCoupon/checkCoupon'>
+				<view class='ico icons-new-checkCoupon'></view>核销
+			</navigator>
+			<navigator url='/pages/sales/staffSalse/staffSalse'>
+				<view class='ico icons-new-shares'></view>分销
+			</navigator>
+		</view>
+	</view>
+	<block wx:if="{{role == 0 || headOfficeStaff == 2}}">
+		<view style="height:{{isPX?'500rpx':'402rpx'}}"></view>
+	</block>
+	<view wx:else style="height:{{isPX?'586rpx':'538rpx'}}"></view>
+	<view class="head-background"></view>
+	<!-- 总部账号:role==0
+功能：
+门店管理：订单中心、数据看板、老板助手、销售报表、到账查询、员工管理、
+网店管理：[外卖]
+营销管理：会员管理、次卡管理
+经营赋能：数字学院 -->
+	<block wx:if="{{role == 0}}">
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">门店管理</text>
+				<text class="title-text">打通线下，数字化经营</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/orderRecord/allShop/allShop?id=2' hover-class='nav-touch'>
+					<view class='ico icons-new-order'></view>订单中心
+				</navigator>
+				<navigator url='/pages/report/report' open-type='switchTab' hover-class='nav-touch'>
+					<view class='ico icons-new-report'></view>数据看板
+				</navigator>
+				<navigator url='/pages/orderRecord/allShop/allShop?id=1' hover-class='nav-touch'>
+					<view class='iconfont icon-zizhulipei'></view>老板助手
+				</navigator>
+				<navigator url='/pages/sales/report/report' hover-class='nav-touch'>
+					<view class='ico icons-new-news'></view>销售报表
+				</navigator>
+				<navigator url='/pages/accountRecord/accountRecord' hover-class='nav-touch'>
+					<view class='ico icons-new-account'></view>到账查询
+				</navigator>
+				<navigator url='/pages/staff/staff' hover-class='nav-touch'>
+					<view class='ico icons-new-staff'></view>员工管理
+				</navigator>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">网店管理</text>
+				<text class="title-text">融合线上，全渠道销售</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-takeout'></view>外卖
+				</view>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">营销管理</text>
+				<text class="title-text">连接客户，构建私域流量</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/sales/consumer/consumer' hover-class='nav-touch'>
+					<view class='ico icons-new-vip'></view>会员管理
+				</navigator>
+				<navigator url='/pages/timesCard/timesCard' hover-class='nav-touch'>
+					<view class='ico icons-new-timecoupon'></view>次卡管理
+				</navigator>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">经营赋能</text>
+				<text class="title-text">数字服务，商户整店赋能</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-school'></view>数字学院
+				</view>
+			</view>
+		</view>
+	</block>
+	<!-- 总部员工账号：headOfficeStaff = 2
+功能：
+门店管理：订单中心、数据看板、老板助手
+网店管理：[外卖]-敬请期待
+营销管理：次卡管理（显示所有次卡）
+经营赋能：数字学院 -->
+	<block wx:elif="{{headOfficeStaff == 2}}">
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">门店管理</text>
+				<text class="title-text">打通线下，数字化经营</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/orderRecord/allShop/allShop?id=2' hover-class='nav-touch'>
+					<view class='ico icons-new-order'></view>订单中心
+				</navigator>
+				<navigator url='/pages/report/report' open-type='switchTab' hover-class='nav-touch'>
+					<view class='ico icons-new-report'></view>数据看板
+				</navigator>
+				<navigator url='/pages/orderRecord/allShop/allShop?id=1' hover-class='nav-touch'>
+					<view class='iconfont icon-zizhulipei'></view>老板助手
+				</navigator>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">网店管理</text>
+				<text class="title-text">融合线上，全渠道销售</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-takeout'></view>外卖
+				</view>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">营销管理</text>
+				<text class="title-text">连接客户，构建私域流量</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/timesCard/timesCard' hover-class='nav-touch'>
+					<view class='ico icons-new-timecoupon'></view>次卡管理
+				</navigator>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">经营赋能</text>
+				<text class="title-text">数字服务，商户整店赋能</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-school'></view>数字学院
+				</view>
+			</view>
+		</view>
+	</block>
+	<!-- 员工账号：headOfficeStaff != 2 role == 2
+功能：收款、收押金、核销、分销
+门店管理：订单中心、数据看板、盘点、交接班）、码牌管理、门店设备
+网店管理：[外卖]-敬请期待、扫码点餐
+营销管理：次卡管理
+经营赋能：数字学院 -->
+	<block wx:elif="{{headOfficeStaff != 2 && role == 2}}">
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">门店管理</text>
+				<text class="title-text">打通线下，数字化经营</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/orderSing/orderSing' hover-class='nav-touch'>
+					<view class='ico icons-new-order'></view>订单中心
+				</navigator>
+				<navigator url='/pages/report/report' open-type='switchTab' hover-class='nav-touch'>
+					<view class='ico icons-new-report'></view>数据看板
+				</navigator>
+				<view bindtap='checkTimesCard' hover-class='nav-touch'>
+					<view class='ico icons-new-giftbag'></view>计次卡核销
+				</view>
+				<block wx:if="{{sysVersion == 6 || sysVersion == 7 || sysVersion == 8}}">
+					<navigator url='/retailPages/pages/Inventory/trueCheck/trueCheck' hover-class='nav-touch'>
+						<view class='iconfont icon-pandian'></view>盘点
+					</navigator>
+					<navigator url='/retailPages/pages/fastCheck/fastCheckList/fastCheck' hover-class='nav-touch'>
+						<view class='iconfont icon-pandian2'></view>快速盘点
+					</navigator>
+					<navigator url='/retailPages/pages/stock/stockList/stockList' hover-class='nav-touch'>
+						<view class='iconfont icon-jinhuodan'></view>进货
+					</navigator>
+					<navigator url='/retailPages/pages/refund/refundOrderList/refundOrderList' hover-class='nav-touch'>
+						<view class='iconfont icon-iconfont0063'></view>退货
+					</navigator>
+					<navigator url='/retailPages/pages/supplier/supplierList/supplierList' hover-class='nav-touch'>
+						<view class='iconfont icon-gongyingshang'></view>供应商
+					</navigator>
+					<navigator url='/retailPages/pages/comeStock/comeStockList/coneStockList' hover-class='nav-touch'>
+						<view class='iconfont icon-chuku'></view>库存调整
+					</navigator>
+				</block>
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-changepos'></view>交接班
+				</view>
+				<navigator url='/pages/payCard/payCard' hover-class='nav-touch'>
+					<view class='ico icons-new-poscode'></view>码牌管理
+				</navigator>
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-tools'></view>门店设备
+				</view>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">网店管理</text>
+				<text class="title-text">融合线上，全渠道销售</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-takeout'></view>外卖
+				</view>
+				<navigator url='/packageDishes/pages/scanOrderIndex/index' hover-class='nav-touch'>
+					<view class='ico blackColor icons-new-scanmenu'></view>扫码点餐
+				</navigator>
+				<!-- <navigator url='/packageDishes/pages/dishes/dishes' hover-class='nav-touch'>
+					<view class='ico blackColor icons-new-scanmenu'></view>菜品
+				</navigator> -->
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">营销管理</text>
+				<text class="title-text">连接客户，构建私域流量</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/timesCard/timesCard' hover-class='nav-touch'>
+					<view class='ico icons-new-timecoupon'></view>次卡管理
+				</navigator>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">经营赋能</text>
+				<text class="title-text">数字服务，商户整店赋能</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-school'></view>数字学院
+				</view>
+			</view>
+		</view>
+	</block>
+	<!-- 
+门店账号、店长账号
+功能：收款、收押金、核销、分销
+门店管理：订单中心、数据看板、老板助手、销售报表、盘点、到账查询、交接班、员工管理、码牌管理、门店设备
+网店管理：[外卖]-敬请期待、扫码点餐
+营销管理：会员管理、次卡管理
+经营赋能：数字学院
+ -->
+	<block wx:else>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">门店管理</text>
+				<text class="title-text">打通线下，数字化经营</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/orderSing/orderSing' hover-class='nav-touch'>
+					<view class='ico icons-new-order'></view>订单中心
+				</navigator>
+				<navigator url='/pages/report/report' open-type='switchTab' hover-class='nav-touch'>
+					<view class='ico icons-new-report'></view>数据看板
+				</navigator>
+				<navigator url='/pages/bossAide/board/board' hover-class='nav-touch'>
+					<view class='iconfont icon-zizhulipei'></view>老板助手
+				</navigator>
+				<navigator url='/pages/sales/report/report' hover-class='nav-touch'>
+					<view class='ico icons-new-news'></view>销售报表
+				</navigator>
+				<view bindtap='checkTimesCard' hover-class='nav-touch'>
+					<view class='ico icons-new-giftbag'></view>计次卡核销
+				</view>
+				<block wx:if="{{sysVersion == 6 || sysVersion == 7 || sysVersion == 8}}">
+					<navigator url='/retailPages/pages/Inventory/trueCheck/trueCheck' hover-class='nav-touch'>
+						<view class='iconfont icon-pandian'></view>盘点
+					</navigator>
+					<navigator url='/retailPages/pages/fastCheck/fastCheckList/fastCheck' hover-class='nav-touch'>
+						<view class='iconfont icon-pandian2'></view>快速盘点
+					</navigator>
+					<navigator url='/retailPages/pages/stock/stockList/stockList' hover-class='nav-touch'>
+						<view class='iconfont icon-jinhuodan'></view>进货
+					</navigator>
+					<navigator url='/retailPages/pages/refund/refundOrderList/refundOrderList' hover-class='nav-touch'>
+						<view class='iconfont icon-iconfont0063'></view>退货
+					</navigator>
+					<navigator url='/retailPages/pages/supplier/supplierList/supplierList' hover-class='nav-touch'>
+						<view class='iconfont icon-gongyingshang'></view>供应商
+					</navigator>
+					<navigator url='/retailPages/pages/comeStock/comeStockList/coneStockList' hover-class='nav-touch'>
+						<view class='iconfont icon-chuku'></view>库存调整
+					</navigator>
+				</block>
+				<navigator url='/pages/accountRecord/accountRecord' hover-class='nav-touch'>
+					<view class='ico icons-new-account'></view>到账查询
+				</navigator>
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-changepos'></view>交接班
+				</view>
+				<navigator url='/pages/staff/staff' hover-class='nav-touch'>
+					<view class='ico icons-new-staff'></view>员工管理
+				</navigator>
+				<navigator url='/pages/payCard/payCard' hover-class='nav-touch'>
+					<view class='ico icons-new-poscode'></view>码牌管理
+				</navigator>
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-tools'></view>门店设备
+				</view>
+				<!-- <view bindtap="onSkip" hover-class='nav-touch'>
+					<view class='ico icons-new-tools'></view>跳转小程序
+				</view> -->
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">网店管理</text>
+				<text class="title-text">融合线上，全渠道销售</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-takeout'></view>外卖
+				</view>
+				<navigator url='/packageDishes/pages/scanOrderIndex/index' hover-class='nav-touch'>
+					<view class='ico blackColor icons-new-scanmenu'></view>扫码点餐
+				</navigator>
+				<!-- <navigator url='/packageDishes/pages/dishes/dishes' hover-class='nav-touch'>
+					<view class='ico blackColor icons-new-scanmenu'></view>菜品
+				</navigator> -->
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">营销管理</text>
+				<text class="title-text">连接客户，构建私域流量</text>
+			</view>
+			<view class="template-box">
+				<navigator url='/pages/sales/consumer/consumer' hover-class='nav-touch'>
+					<view class='ico icons-new-vip'></view>会员管理
+				</navigator>
+				<navigator url='/pages/timesCard/timesCard' hover-class='nav-touch'>
+					<view class='ico icons-new-timecoupon'></view>次卡管理
+				</navigator>
+			</view>
+		</view>
+		<view class="content-box">
+			<view class="title-box">
+				<text class="title-name">经营赋能</text>
+				<text class="title-text">数字服务，商户整店赋能</text>
+			</view>
+			<view class="template-box">
+				<view bindtap="onClickEvent" hover-class='nav-touch'>
+					<view class='ico icons-new-school'></view>数字学院
+				</view>
+			</view>
+		</view>
+	</block>
+</Contents>

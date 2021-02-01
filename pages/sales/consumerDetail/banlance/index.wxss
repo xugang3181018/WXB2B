@@ -1,0 +1,24 @@
+.title{
+	font-size:28rpx;
+	font-weight:600;
+}
+.banlance-list{
+  position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
+  top:50px;
+}
+.h2{
+	font-weight:600;
+	font-size:28rpx;
+  margin-bottom:10rpx;
+}
+.h3{
+	color:#999;
+}
+.list-item .ico{
+	font-size:48rpx;
+	color:#00cc99;
+	margin-right:20rpx;
+}

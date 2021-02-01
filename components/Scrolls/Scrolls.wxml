@@ -1,0 +1,23 @@
+<!-- 通用滚动自定义页面列表 -->
+<scroll-view class='scrolls' 
+bindscrolltolower="scrolltolower"
+bindscrolltoupper="scrolltoupper"
+bindrefresherrefresh="bindrefresherrefresh"
+bindrefresherpulling="bindrefresherpulling"
+bindscroll="scroll"
+style='top:{{top}}px;bottom:{{bottom}}px;height:100%;'
+scroll-y scroll-with-animation>
+    <!-- <view class='scroll-top' wx:if="{{istoupper}}">
+        <Load wx:if="{{refreshing}}">下拉加载更多</Load>
+        <view class='scrolls-state' wx:else>没有更多了</view>
+    </view> -->
+    <view class='f-c-c' wx:if="{{listloading}}" style='position:absolute;left:0;right:0;top:0;bottom:0;display:flex;width:100%;height:100%;'>
+        <Load color="#999" />
+    </view>
+    <slot wx:else />
+    <!-- wx:if="{{istolower}}" -->
+    <view wx:if="{{load}}" class='scroll-bottom'>
+        <Load wx:if="{{hasmore}}" />
+        <view class='scrolls-state' wx:else>没有更多了</view>
+    </view>
+</scroll-view>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "userpoint": "/pages/sales/consumerDetail/point/index"
+  }
+}

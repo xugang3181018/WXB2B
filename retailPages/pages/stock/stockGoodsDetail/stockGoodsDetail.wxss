@@ -1,0 +1,72 @@
+/* pages/retail/stock/stockGoodsDetail/stockGoodsDetail.wxss */
+page{
+  background:#fff;
+  padding:20rpx 30rpx 0;
+  color:#999999;
+}
+
+.goods-content-border{
+  border-bottom: 1px solid #ebebeb;
+}
+
+.lnventory-goods{
+  height:184rpx;
+  display: flex;
+}
+.goods-code{
+  width:184rpx;
+  height:100%;
+  border:1px solid #ebebeb;
+  margin-right:40rpx;
+}
+.goods-lnventory{
+  flex: 1;
+  line-height: 92rpx;
+  text-align: right;
+  white-space: nowrap;
+}
+.goods-name{
+  width:460rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lnventory-content{
+  display: flex;
+  align-items: center;
+  height:128rpx;
+}
+
+.lnventory-number{
+  flex: 1;
+  text-align: right;
+}
+
+.symbol{
+  color:#333;
+  margin-left:15rpx;
+}
+
+.arrows::after{
+  content: '';
+  display:inline-block;
+  width:15rpx;
+  height:15rpx;
+  border-right:4rpx solid #999;
+  border-bottom:4rpx solid #999;
+  transform:translateY(-6rpx) rotate(45deg);
+  margin-left:15rpx;
+}
+
+.button{
+  height:90rpx;
+  line-height:90rpx;
+}
+
+.page-bar{
+  padding:20rpx 0;
+  background:#ffffff;
+} 
+
+.place-color{
+  color:#101010
+}

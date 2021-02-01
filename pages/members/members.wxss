@@ -1,0 +1,167 @@
+/* pages/members/members.wxss */
+
+.lists-img image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 90px;
+}
+
+.lists>view {
+    display: flex;
+    align-items: center;
+}
+
+.lists-conts {
+    flex: 1;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.lists-img {
+    margin-right: 30rpx;
+}
+
+.lists-img .ico {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 90px;
+    background: #eee;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55rpx;
+}
+
+.lists-bar {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.lists-bar>view {
+    display: block;
+    text-align: center;
+    margin-right: 20rpx;
+}
+
+.lists-bar>view view {
+    display: inline-block;
+    color: #444;
+}
+
+.name {
+    color: #444;
+    font-size: 30rpx;
+}
+
+/* /// */
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60rpx 40rpx;
+    background: #00cc99;
+    padding-bottom: 90rpx;
+    margin: -40rpx;
+    border-radius: 10rpx 10rpx 0 0;
+}
+.head .userimg{
+    width: 110rpx;
+    height: 110rpx;
+	border-radius:90px;
+	background:#fff;
+	color:#00cc99;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	margin-bottom:10rpx;
+	opacity:.95;
+	font-size:55rpx;
+}
+.head .button {
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+}
+
+.head-info {
+    font-size: 28rpx;
+    color: #fff;
+    flex: 1;
+    text-align: center;
+}
+
+.head image {
+    width: 110rpx;
+    height: 110rpx;
+	margin-bottom:10rpx;
+    border-radius: 90px;
+}
+
+.head-name {
+    font-size: 40rpx;
+    color: #fff;
+}
+
+.head-name text {
+    font-size: 24rpx;
+}
+
+.head-level {
+    display: flex;
+    align-items: center;
+    padding: 6rpx 12rpx;
+    border: 1rpx solid rgba(255, 255, 255, 0.8);
+    color: #fff;
+    justify-content: center;
+    width: 160rpx;
+    border-radius: 4rpx;
+    margin-top: 17rpx;
+}
+
+.head-level .ico {
+    margin-right: 10rpx;
+}
+
+.member-col {
+    display: flex;
+    justify-content: space-between;
+    padding: 40rpx 10rpx;
+    text-align: center;
+    background: #fff;
+    flex-wrap: wrap;
+    margin: 0 -40rpx -40rpx;
+    border-radius: 0 0 10rpx 10rpx;
+}
+
+.member-col>view {
+    text-align: center;
+    font-size: 24rpx;
+    color: #444;
+    width: 25%;
+}
+
+.member-col .value {
+    font-size: 34rpx;
+    color: #00cc99;
+    margin-top: 10rpx;
+}
+
+.button-bar {
+    margin: 0 40rpx;
+}
+.page-bar{
+    height:120rpx !important;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.page-bar .button{
+    width:640rpx;
+    margin-top:0;
+}
+.panel-button{
+    margin:0;
+}

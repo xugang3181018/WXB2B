@@ -1,0 +1,21 @@
+<view class='form'>
+  <view class='form-item'>
+    <view class='form-attr'>开始时间</view>
+    <view class='form-input'>
+      <picker id="startDate" mode="date" value="{{startDate}}" start="2015-09-01" end="{{taday}}" bindchange='changeDate'>
+        <view class='picker-value'>{{startDate || '选择开始时间'}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='form-item' bindtap="{{startDate ? '' : 'allowTouch'}}">
+    <view class='form-attr'>结束时间</view>
+    <view class='form-input'>
+      <picker id="endDate" mode="date" value="{{startDate}}" start="{{startDate}}" end="{{taday}}" bindchange='changeDate' disabled="{{startDate ? '' : 'true'}}">
+        <view class='picker-value'>{{endDate || '选择结束时间'}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class="page-button">
+  <view class='button' hover-class='button-touch' bindtap="goBack">确定选择</view>
+</view>

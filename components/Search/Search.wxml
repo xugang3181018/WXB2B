@@ -1,0 +1,7 @@
+<view class='search bline'>
+     <view bindtap='search' class='ico icon-search'></view>
+    <view class='search-input'>
+        <input maxlength='{{maxlength}}' type="{{types}}" placeholder='{{placeholder}}' bindconfirm='confim' bindblur='blur' bindinput='input' type='text' value="{{value}}" confirm-type="{{confimtext}}"></input>
+    </view>
+     <view wx:if="{{value}}" bindtap='clearSearch' class='ico icon-clear clear'></view>
+</view>

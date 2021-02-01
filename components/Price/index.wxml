@@ -1,0 +1,7 @@
+<view class="page-price {{size}}">
+  <view class="price-inner price " wx:if="{{nums}}">
+    <view class="un">¥</view>
+    <view class="val">{{nums}}</view>
+  </view>
+  <view class="price-other" wx:if="{{other}}">{{other}}</view>
+</view>

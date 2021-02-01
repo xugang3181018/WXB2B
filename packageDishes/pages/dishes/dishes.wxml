@@ -1,0 +1,42 @@
+<!--菜品 -->
+<view class="dishes_box">
+	<view class="title">录菜</view>
+	<view class="option_box">
+		<view class="option">
+			<view class="iconfont icon-zizhulipei"></view>
+			<view class="text_content">添加菜品</view>
+		</view>
+		<view class="option">
+
+		</view>
+		<view class="option">
+
+		</view>
+		<view class="option">
+
+		</view>
+	</view>
+</view>
+<view class="dishes_box">
+	<view class="title">管理</view>
+	<view class="option_box">
+		<view class="option">
+			<navigator url='/pages/scanOrder/scanOrderIndex/index' hover-class='nav-touch'>
+				<view class="iconfont icon-zizhulipei"></view>
+				<view class="text_content">我的菜单</view>
+			</navigator>
+		</view>
+		<view class="option">
+			<view class="iconfont icon-zizhulipei"></view>
+			<view class="text_content">分类管理</view>
+		</view>
+		<view class="option">
+			<view class="iconfont icon-zizhulipei"></view>
+			<view class="text_content">套餐分组</view>
+		</view>
+		<view class="option">
+			<view class="iconfont icon-zizhulipei"></view>
+			<view class="text_content">加料配菜</view>
+		</view>
+	</view>
+</view>

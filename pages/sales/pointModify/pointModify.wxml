@@ -1,0 +1,28 @@
+<form bindsubmit="memberModify">
+  <input name="memberId" value='{{id}}' hidden />
+  <input name="operatorId" value='{{operatorId}}' hidden />
+  <input name="merchantCode" value='{{appId}}' hidden />
+  <input name="shopNo" value='{{appId}}' hidden />
+  <view class="form">
+    <view class='form-item'>
+      <view class='form-attr'>积分</view>
+      <view class='form-input'>
+        <input name="modPoint" type='number' placeholder='积分数量' class="price" />
+      </view>
+    </view>
+    <view class='form-item'>
+      <view class='form-attr'>备注：</view>
+      <view class='form-textarea'>
+        <textarea class="form-textarea" placeholder="输入手动消费备注" maxlength="99" name="remark" bindinput="remarkChange" value="{{remark}}" />
+        <view class="form-length">{{remark.length}}/99个字</view>
+      </view>
+    </view>
+    <view class="r-info">
+      <view class="ico icon-info" />
+      <view>内容会通过微信消息，呈现给会员，为保证微信模板消息的正常使用，请注意不要违反微信公众号发送内容规范</view>
+    </view>
+    <view class="page-button">
+      <button class='button' hover-class='button-touch' form-type='submit'>保存</button>
+    </view>
+  </view>
+</form>

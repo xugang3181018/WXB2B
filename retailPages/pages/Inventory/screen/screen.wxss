@@ -1,0 +1,77 @@
+/* pages/Inventory/screen/screen.wxss */
+
+.form{
+  height:100vh;
+  background:#fff;
+}
+
+.form-input .price{
+  font-weight:500;
+  font-size:30rpx;
+}
+
+.form-item .calendar{
+  flex: 1;
+  text-align: right;
+}
+
+.form-item .calendar:after{
+  content: "";
+  display: inline-block;
+  width:15rpx;
+  height:15rpx;
+  border-right:4rpx solid #ccc;
+  border-top:4rpx solid #ccc;
+  transform: rotate(45deg);
+  margin-left:10rpx;
+}
+
+.operator{
+  width:144rpx;
+  height:60rpx;
+  margin:30rpx 40rpx 0;
+  text-align: center;
+  line-height:60rpx;
+  border:1rpx solid #ebebeb;
+  border-radius:10rpx;
+  color:#999;
+}
+
+.inventory-status{
+  padding:0 40rpx;
+}
+
+.inventory-status-title{
+  line-height:100rpx;
+}
+
+.inventory-status-btn{
+  display: flex;
+}
+
+.status-btn{
+  width:144rpx;
+  height:70rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  color:#999999;
+  text-align: center;
+  line-height:70rpx;
+  border:1px solid #ebebeb;
+  margin-right:20rpx;
+}
+
+.pitch{
+  background:#00BFA5;
+  color:#fff;
+}
+
+.button{
+  height:90rpx;
+  line-height:90rpx;
+}
+
+.page-bar{
+  padding:20rpx 0;
+  background:#ffffff;
+} 

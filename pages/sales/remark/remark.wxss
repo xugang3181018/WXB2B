@@ -1,0 +1,25 @@
+.mark{
+  padding: 40rpx;
+  background: #fff;
+}
+.mark-title{
+  padding:30rpx 0;
+  margin-bottom:20rpx;
+  font-weight:600;
+  font-size:28rpx;
+}
+.mark-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.mark-list>view{
+  padding:10rpx 20rpx;
+  margin:0 20rpx 20rpx 0;
+  background: #fafafa;
+  border-radius:90px;
+  font-size:24rpx;
+}
+.mark-item.active{
+  background: #00cc99;
+  color:#fff;
+}

@@ -1,0 +1,58 @@
+/* pages/goodsPay/goodsIform/goodsIform.wxss */
+.sign-color{
+  color: #F06E6C;
+}
+
+.goods-iform{
+  height:100vh;
+  background:#fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:#101010;
+}
+
+.goods-title{
+  margin-top:84rpx;
+  font-size:44rpx;
+}
+
+.goods-hint{
+  margin-top:18rpx;
+  margin-bottom:32rpx;
+  font-size:30rpx;
+  color:#9a9a9a;
+}
+
+.code-input{
+  margin-top:24rpx;
+  width: 688rpx;
+  height:104rpx;
+  display: flex;
+  border:1px solid #F8F8F8;
+  border-radius: 8rpx;
+  align-items: center;
+  padding-right:30rpx;
+  /* justify-content:space-between; */
+}
+
+.input-title{
+  margin-left:30rpx;
+  width:200rpx;
+}
+
+.input-text{
+  text-align: right;
+  flex: 1;
+}
+
+.confirm-btn{
+  margin-top:50rpx;
+  width:688rpx;
+  height:100rpx;
+  border-radius:100rpx;
+  background:#54CFAA;
+  text-align: center;
+  line-height:100rpx;
+  color:#fff;
+}

@@ -1,0 +1,7 @@
+{
+    "disableScroll": true,
+    "navigationBarTitleText": "收款",
+    "usingComponents": {
+        "load": "/components/loading/loading"
+    }
+}

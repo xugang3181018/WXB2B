@@ -1,0 +1,35 @@
+<view class='head'>
+    <view class='img'>
+        <image src='{{member.headImgUrl}}'></image>
+    </view>
+    <view class='head-info'>
+        <view class='head-name'>{{member.memberName}}
+            <text>{{member.mobile}}</text> </view>
+        <view class='head-level'>
+            <view class='ico icon-level'></view> {{member.levelName}}</view>
+    </view>
+    <view class='button button-mini' id='{{member.memberId}}' bindtap='memberEdit'>编辑</view>
+</view>
+<view class='member-col'>
+    <view wx:for="{{tab}}" class='{{toggle == index?"active":""}}' data-id="{{index}}" wx:key="memberdetailtab" bindtap='toggleList' wx:if="{{member[index]}}"> {{item}}
+        <view class='value'>{{member[index]}}</view>
+    </view>
+    <!-- <view data-id="1" bindtap='toggleList'> 余额
+        <view class='value'>{{member.totalBalance}}</view>
+    </view>
+    <view data-id="2" bindtap='toggleList'> 卡券
+        <view class='value'>{{member.couponCount}}</view>
+    </view>
+    <view data-id="3" bindtap='toggleList'> 消费
+        <view class='value'>{{member.lastConsumAmount}}</view>
+    </view>
+    <view data-id="4" bindtap='toggleList'> 次/月卡
+        <view class='value'>{{member.timesCardCount}}</view>
+    </view> -->
+</view>
+<Scrolls listloading="{{listloading}}" hasmore="{{hasmore}}" top="200" bottom="0" bind:scrolltolower="scrollToLower">
+    <CouponItem coupon="{{coupon.items}}" />
+</Scrolls>
+<Bar style="display:none">
+    <view class='button button-bar' hover-class='touch'>积分变更</view>
+</Bar>

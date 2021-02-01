@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "分销推广",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "Coupons": "/components/coupons/index"
+  }
+}

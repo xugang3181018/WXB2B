@@ -1,0 +1,65 @@
+<Search placeholder="输入手机号查询" types="number" maxlength="11" bind:clear="clearSearch" bind:confim="searchConfim" />
+<Contents loading="{{loading}}">
+    <Scrolls listloading="{{listloading}}" top="50" bottom="{{ispx?'84':'50'}}" bind:scrolltolower="tolower" hasmore="{{hasmore}}">
+        <view class='lists' wx:if="{{list.length>0}}">
+            <view bindtap='memberDetail' data-no="{{item.memberCardNo}}" data-id="{{item.memberId}}" data-mobile="{{item.mobile}}" data-unid="{{item.unionId}}" class='lists-item bline' wx:for="{{list}}" wx:key="memberlist">
+                <view class='lists-img'>
+                    <image wx:if="{{item.headImgUrl}}" src='{{item.headImgUrl}}' lazy-load=''></image>
+                    <view class='ico icon-user-sel' wx:else></view>
+                </view>
+                <view class='lists-conts'>
+                    <view class='name'>{{item.memberName}}</view>
+                    <view>{{item.mobile}} / {{item.levelName}}</view>
+                    <view class='lists-bar'>
+                        <view>余额：
+                            <view>{{item.giftBalance}}</view>
+                        </view>
+                        <view>积分：
+                            <view>{{item.point}}</view>
+                        </view>
+                        <view>消费次数：
+                            <view>{{item.consumTimes}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <Empty wx:else icon="icon-members" msg="未查找到会员" />
+    </Scrolls>
+</Contents>
+<Bar>
+    <view class='button' hover-class='button-touch' bindtap='addMembers'>添加会员</view>
+</Bar>
+<Panel wx:if="{{code}}" bind:close="closeCode">
+
+</Panel>
+<Panel wx:if="{{member}}" bind:close="closePanel">
+    <view class='head'>
+        <view class='img'>
+            <image wx:if="{{member.headImgUrl}}" src='{{member.headImgUrl}}'></image>
+			 <view class='ico userimg icon-user-sel' wx:else></view>
+        </view>
+        <view class='head-info'>
+            <view class='head-name'>{{member.memberName}}
+            </view>
+            <view>{{member.mobile}}</view>
+            <view class='head-level'>
+                <view class='ico icon-level'></view> {{member.levelName}}</view>
+        </view>
+        <view class='button button-mini' data-id='{{member.memberId}}' bindtap='memberEdit'>编辑</view>
+    </view>
+    <view class='member-col'>
+        <view class='rline'> 积分
+            <view class='value'>{{member.point}}</view>
+        </view>
+        <view class='rline'> 余额
+            <view class='value'>{{member.totalBalance}}元</view>
+        </view>
+        <view class='rline'> 卡券
+            <view class='value'>{{member.couponCount}}张</view>
+        </view>
+        <view> 消费金额
+            <view class='value'>{{member.accumulationConsume}}</view>
+        </view>
+    </view>
+</Panel>

@@ -1,0 +1,33 @@
+<!--pages/retail/stock/filtrate/filtrate.wxml-->
+<view class="form">
+	<view class='form-item'>
+		<view class='form-attr'>时间范围：</view>
+		<view class="calendar" bindtap="otherDate">
+			<text>{{date.startDate}}</text> — <text>{{date.endDate}}</text>
+		</view>
+	</view>
+	<view class='inventory-status'>
+		<view class='inventory-status-title'>订单状态</view>
+		<view class="inventory-status-btn">
+			<view class="status-btn {{index==0?'pitch':''}}" bindtap="statusScreen" data-value="待提交" data-index="{{0}}">待提交</view>
+			<view class="status-btn {{index==1?'pitch':''}}" bindtap="statusScreen" data-value="待审核" data-index="{{1}}">待审核</view>
+			<view class="status-btn {{index==2?'pitch':''}}" bindtap="statusScreen" data-value="已完成" data-index="{{2}}">已完成</view>
+		</view>
+	</view>
+	<view wx:if="{{type == 1}}" class="page-section">
+		<view style="margin:20rpx 0">订单类型</view>
+		<radio-group bindchange="radioChange">
+			<label class="weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+				<radio value="{{item.value}}" />
+				<view class="weui-cell__bd">{{item.name}}</view>
+			</label>
+		</radio-group>
+	</view>
+	<Bar>
+		<view class="f-c-sb page-bar-inner">
+			<view class="button button-line" bindtap="reset" hover-class="touch">重置</view>
+			<view class="button" bindtap="onConfirm" hover-class="touch">确定筛选</view>
+		</view>
+	</Bar>
+</view>
+<Calendar status="{{false}}" wx:if="{{showCal}}" bindchange="changeCalendar" />

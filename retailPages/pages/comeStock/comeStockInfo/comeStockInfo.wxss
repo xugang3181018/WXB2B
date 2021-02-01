@@ -1,0 +1,2 @@
+/* pages/retail/comeStock/comeStockInfo/comeStockInfo.wxss */
+@import '../../stock/stockOrderInfor/stockOrderInfor.wxss'

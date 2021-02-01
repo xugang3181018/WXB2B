@@ -1,0 +1,35 @@
+<!-- <wxs src="../../app.wxs" module="app" /> -->
+<!-- <Contents loading="{{loading}}"> -->
+  <!-- <view class="list" wx:if="{{accountList.length>0}}">
+        <view class='card-item' wx:for="{{accountList}}" data-index="{{index}}" wx:key="accountlist" bindtap='toAccountList'>
+            <view class='card-name'>{{item.accountHolder}}</view>
+            <view class='card-bank'>{{item.bankName}}</view>
+            <view class='card-number'>{{app.cardNumber(item.balanceAccount)}}</view>
+        </view>
+    </view> -->
+    <view class="lists-title">
+      <text>打款时间</text>|
+      <text>结算金额</text>|
+      <text>状态</text>
+    </view>
+    <view class='date' bindtap="otherDate">
+      <text>{{date.startDate}}</text> 至
+      <text>{{date.endDate}}</text>
+    </view>
+    <block wx:if="{{accountList.length>0}}">
+    <view>
+      <view class='card-item' wx:for="{{accountList}}" data-index="{{index}}" wx:key="accountlist" bindtap='toAccountList'>
+        <view class='card-date' style="color:{{item.status == 0?'#FF9800':''}}">{{item.dateTime || '待确定'}}</view>
+        <view class='card-money'>{{item.amount}}</view>
+        <view class='date-es {{item.status == 1?"color1":(item.status == 2?"color2":"")}}'>{{status[item.status]}}</view>
+      </view>
+    </view>
+    <view class="hint">
+      <text>*</text>
+      <text>默认查询最近一周的打款状态，如需查询更多，请点击日期，选择日期进行查询</text>
+    </view>
+  </block>
+  <Empty wx:else icon="icon-analysis" msg="没有通道账户" />
+
+<!-- </Contents> -->
+<Calendar wx:if="{{showCal}}" bindchange="changeCalendar" />

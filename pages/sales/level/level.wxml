@@ -1,0 +1,74 @@
+<view class="l-card">
+  <view class="f-c-sb">
+    <view class="f-c">
+      <view class="l-userimg">
+        <image src="{{salesInfo.headImgUrl}}" wx:if="{{salesInfo.headImgUrl}}" />
+        <open-data type="userAvatarUrl" wx:else />
+      </view>
+      <view class="f-c-sb">
+        <view>
+          <view class="l-name">{{salesInfo.wechatName}}</view>
+          <view class="l-shopname" >{{salesInfo.merchantName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="f-c"> <view class=" level"><view class="ico icon-level" /><text> {{salesInfo.levelName}}</text></view></view>
+
+  </view>
+  <view class="f-c l-level">
+    <view class="{{salesInfo.levelId == item.id ? 'active' : ''}}" wx:for="{{level.levels}}" wx:key="levels"><text> {{item.levelName}}</text></view>
+  </view>
+</view>
+<view class="r-info">
+  <view class="ico icon-info"></view>
+  <view>
+    <view>佣金会通过微信零钱的形式发放分销员微信零钱账户</view>
+    <view>微信佣金到账时间会在支付后1小时内到账</view>
+  </view>
+</view>
+<view class="box">
+  <view class="box-title bline">等级规则</view>
+  <view wx:for="{{level.levels}}" wx:for-item="act" wx:key="levelsdetail" class="bline l-item {{act.status ? 'use' : ''}}">
+    <view class="f-c level-name">{{act.levelName}}</view>
+    <view class="l-title">等级介绍</view>
+    <view class="l-col l-col-block">
+      <view wx:if="{{act.totalCommission}}">累积佣金达<text>{{act.totalCommission}}元</text></view>
+      <view wx:if="{{act.totalCostCommission}}">累积佣金与消费总额<text>{{act.totalCostCommission}}元</text></view>
+      <view wx:if="{{act.totalMemberCount}}">累积会员人数达 <text> {{act.totalMemberCount}}人</text></view>
+      <view wx:if="{{act.totalSalesmanCount}}">累积分销员人数<text>{{act.totalSalesmanCount}}人</text></view>
+			<view wx:else>默认成为分销员后即是该等级</view>
+    </view>
+    <view class="l-title">佣金比例</view>
+    <view class="l-col">
+      <view>会员买卡{{act.memberPayCardScale}}%</view>
+      <view>会员充值{{act.memberRechargeScale}}%</view>
+      <view>付费买券{{act.couponScale}}%</view>
+      <view>付费次卡{{act.timesCardScale}}%</view>
+      <view>礼包{{act.giftBagScale}}%</view>
+      <view>收银{{act.payScale}}%</view>
+    </view>
+  </view>
+</view>
+<!-- 
+levelName	
+[string]		等级名称 默认普通等级	
+totalCommission	
+[number]		级别条件 - 累积佣金	
+totalCostCommission	
+[number]		级别条件 - 累积佣金与消费总额	
+totalMemberCount	
+[number]		级别条件 - 累积会员人数	
+totalSalesmanCount	
+[number]		级别条件 - 累积分销员人数	
+memberPayCardScale	
+[number]		提成比例 - 会员买卡	
+memberRechargeScale	
+[number]		提成比例 - 会员充值	
+couponScale复制
+[number]		提成比例 - 付费买券	
+timesCardScale	
+[number]		提成比例 - 付费次卡	
+giftBagScale	
+[number]		提成比例 - 礼包	
+payScale	
+[number]		提成比例 - 收银 -->

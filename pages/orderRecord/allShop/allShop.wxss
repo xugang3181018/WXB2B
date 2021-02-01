@@ -1,0 +1,285 @@
+/* pages/orderRecord/allShop/allShop.wxss */
+
+.interval {
+  padding: 0 30rpx;
+}
+
+/* title样式 */
+
+.all-shop {
+  width: 100vw;
+  font-size: 14px;
+  font-family: PingFangSC-regular;
+  background: rgb(249, 249, 249);
+}
+
+/* 头部实收总计 */
+
+.collect-data {
+  height: 64px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  line-height: 26px;
+  background: #fa6d6c;
+}
+
+.collect-data-title {
+  font-size: 24rpx;
+  color: #e0e0e0;
+}
+
+.collect-data-number {
+  font-size: 32rpx;
+  color: #fff;
+}
+
+/* 分组 */
+
+.packet {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #9a9a9a;
+}
+
+.packet-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+
+.all-packet {
+  margin-left: 20px;
+}
+
+.tab-color {
+  color: #000;
+}
+
+/* 排序 */
+
+.orderingRule {
+  /* width:200rpx; */
+  padding: 0 20rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 50rpx;
+  border: 1px solid rgb(224, 224, 224);
+}
+
+.option-style::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 12rpx solid #fff;
+  border-top: 12rpx solid rgba(0, 0, 0, 0.5);
+  transform: translate(20%, 45%);
+}
+
+.shopType{
+  margin-right:20rpx;
+}
+
+/* 列表 */
+
+.shop-list-box{
+  padding: 20rpx 0;
+  margin:0 30rpx;
+  border-bottom:1px solid #eee;
+}
+
+.collect-list-title {
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  background: #f0eeee;
+}
+
+.shop-title {
+  width: 340rpx;
+}
+
+.shop-number {
+  flex: 1;
+  text-align: right;
+  font-size:24rpx;
+}
+
+.shop-list {
+  /* height: 180rpx; */
+  background: #fff;
+  /* padding: 20rpx 0; */
+}
+
+.group-list {
+  /* height: 180rpx; */
+  background: #fff;
+}
+
+.shop-list-name {
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #f2fbfa;
+  padding: 0 30rpx;
+  color: #00bb9c;
+  font-size: 28rpx;
+  font-weight: 600;
+  /* margin-bottom: 10rpx; */
+  position: relative;
+}
+
+.grrows::after {
+  content: '';
+  display: inline-block;
+  width: 15rpx;
+  height: 15rpx;
+  border: 2px solid #ccc;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(-45deg);
+  position: absolute;
+  right: 40rpx;
+  top: 40rpx;
+}
+
+.grrows-bottom::after{
+  transform:rotate(135deg);
+  position:relative;
+  top:-2.5px;
+  right:-4px;
+}
+
+.list-bottom-grrows::after{
+  transform:rotate(135deg);
+  top:30rpx;
+}
+
+.shop-list-data {
+  display: flex;
+  font-size: 28rpx;
+}
+
+.group-border{
+  border-bottom:1px solid #f0eeee;
+}
+
+.practical {
+  padding-bottom: 10rpx;
+}
+
+.practical-title {
+  color: #101010;
+  font-weight: 600;
+}
+
+.practical-title-color {
+  color: #101010;
+}
+
+.practical-money {
+  color: #151515;
+}
+
+.yesterday-contrast {
+  background: #f2f2f7;
+  color: #151515;
+  text-align: center;
+  margin-left: 20rpx;
+  border-radius: 6rpx;
+}
+
+.typeface-color1 {
+  color: #00bb9c;
+}
+
+.color-status1 {
+  background: #00bb9c;
+  color: #fff;
+}
+
+.typeface-color2 {
+  color: #ff6200;
+}
+
+.color-status2 {
+  background: #ff6200;
+  color: #fff;
+}
+
+.practical-count {
+  font-size: 24rpx;
+  color: #9a9a9a;
+}
+
+.shopList {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.shopList:last-child {
+  border: none;
+}
+
+.shopList-text {
+  flex: 1;
+  margin: 20rpx 0;
+  position: relative;
+}
+
+.shopList-icon {
+  width: 10rpx;
+  height: 48rpx;
+  background: #0ec695;
+  margin-right: 20rpx;
+}
+
+.sign::before {
+  content: '';
+  display: inline-block;
+  width: 10rpx;
+  height: 48rpx;
+  background: #00bb9c;
+  position:absolute;
+  top:18rpx;
+  left:0;
+  /* margin-right:20rpx; */
+}
+
+.shopList-text:nth-child(3) {
+  padding-right: 45rpx;
+  text-align: right;
+}
+
+.shopList-text:last-child {
+  text-align: right;
+  padding-right: 20rpx;
+}
+
+.shopList-text:last-child::after {
+  content: '';
+  display: inline-block;
+  width: 15rpx;
+  height: 15rpx;
+  border: 2px solid #ccc;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+  margin-left: 10rpx;
+}
+
+/* 滚动条的样式 */
+
+/* .summary-scroll{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+} */

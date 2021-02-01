@@ -1,0 +1,23 @@
+<!--手动选择-->
+<Search bind:confim="searchMember" placeholder="请输入商品名称/条码" bind:clear="clearSearch" />
+<view class='select-classify'>
+	<picker range='{{list}}' bindchange='changeMerchant' range-key='goodsCategoryName' name="goodsCategoryName" mode="selector" value="{{index}}">
+		<view class='picker-value {{index ==0 || nameIndex ? "":"disable"}}'>{{list[index].goodsCategoryName || "全部分类"}}</view>
+	</picker>
+</view>
+<Scrolls top='{{100}}' load="{{false}}" hasmore="{{hasMore}}" listloading="{{loading}}">
+	<block wx:for="{{goodsList}}" wx:key="index">
+		<view class="lnventory-detail-list goods-content-border" id="{{index}}" style="margin-left:32rpx;margin-right:32rpx;" bindtap="onCheckGoods">
+			<view class="goods-list-img">
+				<image style="width:100%;height:100%;" src="{{item.goodsImgs || '../../../../assets/images/empty.png'}}" />
+			</view>
+			<view class="goods-list-content">
+				<view class="goods-list-content-title color1">
+					<view class="title">{{item.goodsName}}</view>
+				</view>
+				<view>{{item.goodsBarcode}}</view>
+				<view style="margin-top:10rpx;color:#00BFA5;">系统库存：{{item.stock}}个</view>
+			</view>
+		</view>
+	</block>
+</Scrolls>

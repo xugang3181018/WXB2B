@@ -1,0 +1,34 @@
+<!--退款商品-->
+<wxs src="../../../app.wxs" module="app"></wxs>
+<view style="padding:20rpx 0">
+	<checkbox-group bindchange="checkboxChange">
+		<label class="label-box">
+			<view class="options-value" wx:for="{{goodsList}}" wx:key="index">
+				<checkbox value="{{}}" checked="{{true}}" />
+				<view class="goods-content">
+					<image class="goods-img" src="{{item.goodsImgUrl}}" />
+					<view>
+						<view class="goods-name">{{item.goodsName}}</view>
+						<view class="goods-spec">
+            	<text wx:if="{{item.spec}}">{{item.spec}}</text>
+							<text wx:if="{{item.attributes.length}}">{{','+item.attributes[0].value}}</text>
+            </view>
+						<view class="goods-price">退款:￥{{app.moneyStr(item.totalAmount) || '0.00'}}</view>
+						<view class="num-btn-box">
+							<text class="num-btn">-</text>
+							<input class="goods-num" value="{{item.goodsQuantity}}">1</input>
+							<text class="num-btn">+</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</label>
+	</checkbox-group>
+</view>
+<view>
+	<view>
+		<view></view>
+		<text>全选 合计:￥56.03</text>
+	</view>
+	<view>退款</view>
+</view>

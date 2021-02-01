@@ -1,0 +1,53 @@
+<wxs module="base">
+	module.exports = {
+		active: function(value, type) {
+			var num = value.indexOf(type);
+			return num;
+		},
+	}
+</wxs>
+
+<Contents loading="{{loading}}">
+
+	<view class="tab-bar bline">
+		<view bindtap="listSort" wx:for="{{tab}}" data-index="{{index}}" wx:key="tabs" class="{{base.active(changeTitleList,index) != -1 ? 'active':''}}">
+			{{item}}
+			<view class="ico icon-fliter" wx:if="{{index>1}}"></view>
+		</view>
+	</view>
+	<view wx:if="{{base.active(changeTitleList,1) != -1}}">
+		<view class="list-title">
+			<view class="list-inner-title">优惠券 <text>({{list.length}}张)</text></view>
+			<view>分享给朋友，对方领取并购买后你可获得佣金</view>
+		</view>
+		<Coupons coupon="{{list}}" />
+		<view class="no-more">没有更多可分享的优惠券</view>
+	</view>
+	<view wx:if="{{base.active(changeTitleList,0) != -1}}">
+		<block wx:if="{{listGoods && listGoods.length > 0}}">
+			<view class="commodity" wx:for="{{listGoods}}" wx:key="lisg" data-goods-id="{{item.goodsId}}" data-commission="{{item.commission}}" bindtap="toProGoodsDetail">
+				<view class="commodity-img">
+					<image src="{{item.goodsImgs[0]}}"></image>
+				</view>
+				<view class="commodity-msg">
+					<view class="name">
+						<view>{{item.goodsName}}</view>
+					</view>
+
+					<view class="buttonStyle">
+						<Price num="{{item.goodsMinPrice}}" other="{{item.goodsMaxPrice}}" />
+						<!-- <view class="catetag">秒杀</view> -->
+					</view>
+					<view>
+						<view class="expect-Price">
+							<view>预计赚 ￥{{item.commission}}
+							</view>
+							<!-- <view class="commodity-share" catchtap="getPagePanel">分享</view> -->
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+		<Empty wx:else icon="icon-ecoupon" msg="没有更多商品" />
+	</view>
+</Contents>

@@ -1,0 +1,72 @@
+/* pages/retail/stock/stockList/stockList.wxss */
+page{
+  background:#fff;
+  padding:0 30rpx;
+  color:#999999;
+  font-size:30rpx;
+}
+
+.location{
+  position: fixed;
+  right:40rpx;
+  left:40rpx;
+  top:0;
+  z-index: 1000;
+ }
+
+.screen-box{
+  position: relative;
+}
+
+.screen{
+  position:absolute;
+  right:0;
+  top:35rpx;
+  z-index:10;
+  color:#333;
+}
+
+.screen::after{
+  content:"";
+  display:inline-block;
+  width:15rpx;
+  height:15rpx;
+  border-top:4rpx solid #999;
+  border-right:4rpx solid #999;
+  transform:rotate(45deg);
+  margin-left:10rpx;
+}
+
+.color1 {
+  color: #333;
+  font-weight: 600;
+}
+
+.goods-content-border {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.lnventory-detail{
+  padding:30rpx 0; 
+  margin:0 40rpx;
+}
+
+.lnventory-detail-content {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.lnventory-detail-content-right {
+  flex: 1;
+  text-align: right;
+}
+
+.button{
+  height:90rpx;
+  line-height:90rpx;
+}
+
+.page-bar{
+  padding:20rpx 0;
+  background:#ffffff;
+} 

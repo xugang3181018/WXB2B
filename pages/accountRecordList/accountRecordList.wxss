@@ -1,0 +1,95 @@
+/* pages/accountRecordList/accountRecordList.wxss */
+
+.card {
+    background: #00cc99;
+    color: #fff;
+    padding: 50rpx;
+}
+
+.item {
+    padding:30rpx 40rpx 40rpx;
+}
+.date-es{
+	padding:10rpx 26rpx;
+	display: flex;
+	align-items:center;
+}
+.date-es::after{
+	content:'';
+	display: block;
+	width:15rpx;
+	height:15rpx;
+	border: 2px solid #ccc;
+	border-left:none;
+	border-bottom:none;
+	transform:rotate(45deg) scale(.8);
+	margin-left:10rpx;
+}
+.item>view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-name {
+    font-size:28rpx;
+    margin-bottom: 20rpx;
+}
+
+.card-number {
+    margin-bottom: 20rpx;
+    font-weight:800;
+}
+
+.item-cont {
+    flex: 1;
+    font-size: 24rpx;
+    color: #999;
+    padding:20rpx 0;
+}
+
+.date {
+    padding:30rpx 40rpx;
+	border-radius:8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25rpx;
+    background: #eee;
+    color: #444;
+	position: relative;
+	z-index:20;
+}
+
+.tip {
+    font-size: 23rpx;
+    display: flex;
+    align-items: center;
+    border-top:1px dashed rgba(255, 255, 255, .3);
+    padding-top:30rpx;
+}
+
+.tip .ico {
+    margin-right: 14rpx;
+    font-size:40rpx;
+}
+
+.item-amt {
+    font-size: 35rpx;
+    color: #ff6655;
+    font-weight: 800;
+}
+
+.item-tag {
+    font-size: 25rpx;
+    color: #444;
+    background: #eee;
+    text-align: center;
+    padding: 12rpx 0;
+    width: 150rpx;
+}
+
+.item-dt {
+    font-size: 24rpx;
+    color: #999;
+}

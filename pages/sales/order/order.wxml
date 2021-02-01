@@ -1,0 +1,52 @@
+<Contents loading="{{loading}}">
+  <view class="tabs bline">
+    <DateTab id="dateTab" bind:click="tabClick" current="{{tabCurrent}}" dateValue="{{dateValue}}"/>
+  </view>
+	<view class="order-date" wx:if="{{dateValue}}">
+    <view class="icon-dates"></view>
+    {{dateValue ? dateValue :''}}
+	</view>
+  <view class="order-col">
+    <view class="rline bline ml">
+      <view class="ico icon-bag" />
+      <view>
+        <text>{{detail.totalProfitsharAmt}}</text> 收益(元)
+      </view>
+    </view>
+    <view class="bline">
+      <view class="ico icon-moneys" />
+      <view>
+        <text>{{detail.totalOrderAmount}}</text> 交易金额(元)</view>
+      </view>
+    <view class="rline ml">
+      <view class="ico icon-orderes" />
+      <view>
+        <text>{{detail.totalOrderCount}}</text> 订单(笔)</view>
+      </view>
+    <view>
+      <view class="ico icon-users" />
+      <view>
+        <text>{{detail.inviteMemberCnt}}</text> 客户(人)</view>
+      </view>
+  </view>
+  <view wx:if="{{list.length>0}}">
+    <ListItem wx:for="{{list}}" index="{{index}}" wx:key="orderlist">
+      <view class="item" bindtap="toDetail"  data-url="/pages/billDetail/billDetail?id={{item.orderNo}}">
+        <view class="f-c-sb">
+          <view class="f-c">
+            <image src="{{item.headImgUrl}}" />
+            <view class="item-info">
+              <view class="item-name">{{item.userName}}</view>
+              <view>订单金额<text>{{item.orderAmount}}元</text>
+              </view>
+            </view>
+          </view>
+          <view class="item-amt">佣金<text> ¥{{item.profitsharAmount}}</text></view>
+        </view>
+      </view>
+    </ListItem>
+  </view>
+	<view class="emptys"  wx:else>
+	<Empty icon="icon-bill" msg="无业绩" />
+	</view>
+</Contents>

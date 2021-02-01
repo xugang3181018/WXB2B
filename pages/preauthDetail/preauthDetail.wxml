@@ -1,0 +1,79 @@
+<Contents loading="{{loading}}">
+    <view class='d-head'>
+        <view class='d-type'>
+            <block wx:if="{{detail.payType == 'ALIPAY'}}">
+                <view class='ico alipay icon-alipay '></view>
+            </block>
+            <block wx:elif="{{detail.payType == 'WXPAY'}}">
+                <view class='ico weixin icon-weixin'></view>
+            </block>
+            <block wx:elif="{{detail.payType == 'MPAY'}}">
+                <view class='ico vip icon-vip '></view>
+            </block>
+            <view>{{payType[detail.payType]}}</view>
+        </view>
+        <view class='d-total'>实收 <view class='d-amt'>{{detail.receiptAmount}}</view></view> 
+    </view>
+    <view class='timeline'>
+        <view class='t-item'>
+            <view class='t-item-title'> 押金支付</view>
+            <view class='t-cont'>
+                <view class='t-amt'> ¥{{detail.totalAmount}}</view>
+                <view class='t-time'>{{detail.payTime}}</view>
+            </view>
+        </view>
+        <view class='t-item'>
+            <view class='t-item-title'> 押金消费</view>
+            <view class='t-cont'>
+                <view class='t-amt'> ¥{{detail.receiptAmount}}</view>
+                <view class='t-time'>{{detail.payTime}}</view>
+            </view>
+        </view>
+        <view class='t-item'>
+            <view class='t-item-title'> 押金退款</view>
+            <view class='t-cont'>
+                <view class='t-amt'> ¥{{detail.settleAmount}}</view>
+                <view class='t-time'>{{detail.payTime}}</view>
+            </view>
+        </view>
+    </view>
+    <view class='lists '>
+        <view class='list-item '>
+            <view class='attr '> 交易状态</view>
+            <view class='value '>{{orderStatus[detail.orderStatus]}}</view>
+        </view>
+        <view class='list-item '>
+            <view class='attr '> 订单编号</view>
+            <view class='value '> {{detail.outTradeNo}}</view>
+        </view>
+        <view class='list-item '>
+            <view class='attr '> 订单来源</view>
+            <view class='value '> {{orderSource[detail.orderSource]}}</view>
+        </view>
+        <view class='list-item '>
+            <view class='attr '> 预授权操作</view>
+            <view class='value '> 支付成功</view>
+        </view>
+        <view class='list-item '>
+            <view class='attr '>操作员工 </view>
+            <view class='value '> {{detail.operatorName}}</view>
+        </view>
+        <view class='list-item '>
+            <view class='attr '>会员信息 </view>
+            <view class='value '>{{detail.memberName}}/{{detail.mobile}}</view>
+        </view>
+
+        <view class='list-item '>
+            <view class='attr '>服务星级 </view>
+            <view class='value '> 支付成功</view>
+        </view>
+        <view class='list-item '>
+            <view class='attr '>服务评价 </view>
+            <view class='value '> 支付成功</view>
+        </view>
+        <view class='list-item '>
+            <view class='attr '>备注 </view>
+            <view class='value '> 支付成功</view>
+        </view>
+    </view>
+</Contents>

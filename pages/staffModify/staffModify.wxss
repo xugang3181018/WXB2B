@@ -1,0 +1,7 @@
+/* pages/staffModify/staffModify.wxss */
+
+
+
+.button {
+    margin: 40rpx;
+}

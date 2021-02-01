@@ -1,0 +1,2 @@
+/* pages/retail/refund/refundOrderInfo/refundOrderInfo.wxss */
+@import '../../stock/stockOrderInfor/stockOrderInfor.wxss'

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sendcoupon": "../pages/sales/consumerDetail/sendCoupon/index"
+  },
+	"navigationBarTitleText": "会员卡券"
+}

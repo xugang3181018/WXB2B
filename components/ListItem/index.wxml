@@ -1,0 +1,6 @@
+<!-- <view animation="{{anmData}}" class="anm">
+    <slot />
+</view> -->
+<view class="anm">
+    <slot />
+</view>

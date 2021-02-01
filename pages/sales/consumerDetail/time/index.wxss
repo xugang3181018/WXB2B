@@ -1,0 +1,10 @@
+/* pages/sales/consumerDetail/time/index.wxss */
+.card-title{
+	font-size:32rpx;
+	font-weight:600;
+	color:#00cc99;
+}
+.card-date{
+	color:#999;
+	margin-top:15rpx;
+}

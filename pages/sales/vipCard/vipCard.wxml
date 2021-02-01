@@ -1,0 +1,33 @@
+<view class="page">
+<Contents loading="{{loading}}">
+<view class="card-warp" wx:if="{{title}}">
+	<view class="card" style="background-color:{{color}};background-image:url({{cardBgImg}})">
+		<view class="f-c card-head">
+			<image class="card-logo" src="{{logo}}" />
+			<view class="card-sub">
+					<view>{{title}}</view>
+					<view class="card-sub-txt">{{subTitle}}</view>
+			</view>
+		</view>
+		<view class="mask"></view>
+	</view>
+	<view class="canvas">
+		<view class="canvas-ewm">
+			<canvas class="cav" canvas-id="cardId"></canvas>
+		</view>
+		<view class="canvas-txt">加入商家会员 享受更多权益</view>
+	</view>
+	<!-- <view class="detail">
+		<view>特权说明：{{prerogative}}</view>
+		<view>有效日期：永久有效</view>
+		<view>使用须知：{{description}}</view>
+	</view> -->
+</view>
+<!-- <view class="page-button">
+	<view class="button button-block">
+		<view class="ico icon-download" />
+		保存
+	</view>
+</view> -->
+</Contents>
+</view>

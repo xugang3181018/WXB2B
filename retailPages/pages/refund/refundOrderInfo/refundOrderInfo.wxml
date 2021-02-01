@@ -1,0 +1,78 @@
+<!--退货订单的信息-->
+<wxs src="../../../../app.wxs" module="app" />
+<view class="lnventory-detail-box">
+	<view wx:if="{{recordId}}" class="lnventory-detail goods-content-border">
+			<view class=" lnventory-detail-content">
+				<view class="color1">供货商：{{goodsDetail.supplierName || goodsDetail.selectSupplier}}</view>
+				<view class="lnventory-detail-content-right">{{orderStatus[goodsDetail.status]}}</view>
+			</view>
+			<view class=" lnventory-detail-content">
+				<view>编辑人：</view>
+				<view>{{goodsDetail.operatorName}}</view>
+			</view>
+			<view class=" lnventory-detail-content">
+				<view>单号：</view>
+				<view>{{goodsDetail.recordNo}}</view>
+			</view>
+			<view class=" lnventory-detail-content">
+				<view>上次修改的时间：</view>
+				<view>{{goodsDetail.createTime}}</view>
+			</view>
+			<view class=" lnventory-detail-content">
+				<view>退货金额：</view>
+				<view>{{amount || goodsDetail.amount}}元</view>
+			</view>
+	</view>
+	<view wx:else class="goods-content-border">
+			<view wx:if="{{supplierName && goodsDetailList.length}}" class='lnventory-detail-content contentInterval'>
+				<view class='color1'>供货商：</view>
+				<view class='lnventory-detail-content-right picker-text' style="padding-right:20rpx">{{supplierName}}</view>
+			</view>
+			<block wx:else>
+      	<supplierList title="供货商" bind:getSupplier="getSupplier" />
+			</block>
+	</view>
+	<view class="column {{isFixedTop?'fixed':''}}" id="navbar">
+		<view class=" lnventory-detail-content" style="padding:30rpx 0 10rpx;">
+			<view class="color1">退货商品</view>
+			<view wx:if="{{goodsDetail.status == 0 || goodsDetail.status == 1 || !recordId}}" class="lnventory-detail-content-right color1" style="font-size:80rpx;line-height:30rpx;font-weight:100" bindtap="onAdd">+</view>
+		</view>
+	</view>
+	<block wx:for="{{goodsDetailList}}" wx:key="index">
+		<view class="lnventory-detail-list border-bottom" style="padding-bottom:30rpx;" bindtap="redactGoods" data-item="{{item}}">
+			<view class="goods-list-img">
+				<image style="width:100%;height:100%" src="{{item.goodsImgs || '../../../../assets/images/empty.png'}}" />
+			</view>
+			<view class="goods-list-content">
+				<view class="goods-list-content-title color1">
+					<view class="title">{{item.goodsName}}</view>
+					<view wx:if="{{!recordId || (goodsDetail.status == 0 || goodsDetail.status == 1) && goodsDetailList.length>1}}" class='clear iconfont icon-shanchu-copy' id="{{index}}" catchtap="delete"></view>
+				</view>
+				<view style="height:30rpx">{{}}</view>
+				<view>退货数：{{item.stockSum || item.stock || item.purchaseCnt}}{{item.packageResponseList[0].goodsUnitName || item.selectPacege?item.selectPacege.goodsUnit:item.goodsUnit}}</view>
+				<view class="practical-number">
+					<view>退货金额：{{item.amount || item.purchaseAmt}}元</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view wx:if="{{!goodsDetailList.length}}" class="empty-img-box">
+		<image class="empty-img" src="../../../../assets/images/empty.png" />
+		<view>还没有商品，请先添加</view>
+	</view>
+</view>
+<popUpBtn wx:if="{{cpmBtn}}" btnList="{{['扫码退货','手动选择','取消']}}" bind:onScan='onScan' bind:onManual='onManual' bind:onDeselect='onDeselect' />
+<block  wx:if="{{!recordId || goodsDetail.status == 0 || goodsDetail.status == 1}}">
+	<view style="height:220rpx;"></view>
+	<view class="check-lnventory {{isPX?'loction':''}}">
+		<view>退货数：{{app.getTotalSum(goodsDetailList)}}</view>
+		<view>退货金额：{{amount || goodsDetail.amount || 0}}元</view>
+	</view>
+	<Bar>
+		<view class="f-c-sb page-bar-inner">
+		  <button wx:if="{{recordId}}" class="button1 button-red" style="color:#fff" bindtap="deleteStock" hover-class="touch">删除</button>
+			<button class="button-line {{recordId?'button1':'button'}} {{((recordId && !alter) || (!recordId && !goodsDetailList.length) || !goodsDetailList.length)?'disabledStyle':''}}" bindtap="save" disabled="{{(recordId && !alter) || (recordId && !goodsDetailList.length && !alter) || (!recordId && !goodsDetailList.length)}}" hover-class="touch">{{alter && recordId?'修改':'提交'}}</button>
+			<button class="button-line-touch {{recordId?'button1':'button'}}" bindtap="onSubmit" hover-class="touch" disabled="{{recordId && alter || !recordId}}" >审核</button>
+		</view>
+	</Bar>
+</block>

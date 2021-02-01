@@ -1,0 +1,41 @@
+<!--pages/orderRecord/refundDetail/refundDetail.wxml-->
+<wxs src="../../../app.wxs" module="app" />
+<view class="detail-box">
+  <view class="detail">
+    <text class="title">退款金额</text>
+    <text class="text text-color arrows {{refundStatus?'arrows-top':'arrows-bottom'}}">{{-refund.refundAmount}}</text>
+  </view>
+  <view class="detail">
+    <text class="title">退款时间</text>
+    <text class="text">{{refund.time || '--'}}</text>
+  </view>
+  <view class="detail">
+    <text class="title">退款状态</text>
+    <text class="text">{{orderStatus[detail.orderStatus] || '--'}}</text>
+  </view>
+  <view class="detail">
+    <text class="title">退款类型</text>
+    <view class="payType">
+      <view wx:if="{{detail.payType == 'WXPAY'}}" class='ico icon-weixin weixin'></view>
+      <view wx:if="{{detail.payType == 'ALIPAY'}}" class='ico icon-alipay alipay'></view>
+      <view wx:if="{{detail.payType == 'MPAY'}}" class='ico icon-vip vip'></view>
+      <view wx:if="{{detail.payType == 'BANK'}}" class='iconfont icon-pos'></view>
+      <image class='ico ico-img' src="../../../assets/images/quick-pass.png" wx:if="{{detail.payType == 'UNIONPAY'}}" />
+      <view wx:if="{{detail.payType == 'CASH'}}" class='iconfont font-icon vip icon-xianjin'></view>
+      <!-- <image class='ico ico-img' src="../../../assets/images/money.png" wx:elif="{{detail.payType == 'CASH'}}" /> -->
+      <text class="text">{{payType[detail.payType]}}</text>
+    </view>
+  </view>
+  <view class="detail">
+    <text class="title">操作人员</text>
+    <text class="text">{{detail.operatorName || detail.terminalName || detail.merchantName}}</text>
+  </view>
+  <view class="detail">
+    <text class="title">退款编号</text>
+    <text class="iconfont icon-fuzhi line-feed text">{{refund.refundNo}}</text>
+  </view>
+  <view class="detail" wx:if="{{detail.orderRemark}}">
+    <text class="title">退款原因</text>
+    <text class="line-feed text">{{detail.orderRemark}}</text>
+  </view>
+</view>

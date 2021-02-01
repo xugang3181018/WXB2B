@@ -1,0 +1,23 @@
+<!--pages/retail/stock/selectStockGoods/selectStockGoods.wxml-->
+<Search bind:blur="searchMember" placeholder="请输入商品名称" bind:clear="clearSearch" />
+<view class='select-classify'>
+	<picker range='{{classifyList}}' bindchange='changeMerchant' range-key='categoryName' name="categoryName" mode="selector" value="{{index}}">
+		<view class='picker-value {{index ==0 || index ? "":"disable"}}'>{{classifyList[index].categoryName || "全部分类"}}</view>
+	</picker>
+</view>
+<Scrolls load="{{false}}" top='{{100}}' hasmore="{{hasMore}}" listloading="{{loading}}" bind:scrolltolower="listMore">
+	<block wx:for="{{goodsList}}" wx:key="index">
+			<view class="lnventory-detail-list goods-content-border" data-item="{{item}}" style="margin-left:32rpx;margin-right:32rpx;" bindtap="onCheckGoods">
+				<view class="goods-list-img">
+					<image style="width:100%;height:100%;" src="{{item.goodsImgs || '../../../../assets/images/empty.png'}}" />
+				</view>
+				<view class="goods-list-content">
+					<view class="goods-list-content-title color1">
+						<view class="title">{{item.goodsName}}</view>
+					</view>
+					<view>库存：{{item.goodsStock || item.stockCnt || item.stock}}</view>
+					<view style="margin-top:10rpx;color:#00BFA5;">进价：{{(item.goodsCostPrice == 0 || item.goodsCostPrice)?item.goodsCostPrice:item.goodsPrice}}元</view>
+				</view>
+			</view>
+	</block>
+</Scrolls>

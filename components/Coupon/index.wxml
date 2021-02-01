@@ -1,0 +1,22 @@
+<view bindtap='detail' data-index="{{index}}" class='coupon-item {{data.checked ? "active" : ""}}' wx:key="couponList" wx:if="{{data.couponStatus == 1 || all}}" data-type="{{data.cardTemplate.type}}" hover-class='touch'>
+  <view class='coupon-num' style='background:{{data.cardTemplate.color}}'>
+    <!-- style='background:{{data.cardTemplate.color}}' -->
+    <!-- <image class="coupon-num-img"  mode="aspectFill" wx:if="{{data.cardTemplate.bgImg}}" src="{{data.cardTemplate.bgImg}}" /> -->
+    <view wx:if="{{data.cardTemplate.type == 0 || data.cardTemplate.type == 9  ||  data.cardTemplate.type == 5 ||  data.cardTemplate.type == -1 ||  data.cardTemplate.type == 8}}">
+      <text>¥</text> {{data.cardTemplate.specialPrice || data.cardTemplate.reduceCost}} </view>
+    <view wx:elif="{{data.cardTemplate.type == 1 || data.cardTemplate.type == 7  }}">{{data.cardTemplate.discount}}
+      <text>折</text>
+    </view>
+    <view wx:elif="{{data.cardTemplate.type == 2}}" class='ico icon-gift' />
+    <view class='coupon-least' wx:if="{{data.cardTemplate.leastCost>0}}">满{{data.cardTemplate.leastCost>0 ? data.cardTemplate.leastCost : ""}}元可用</view>
+  </view>
+  <view class='coupon-content'>
+    <view>
+      <view class='coupon-title'>{{data.cardTemplate.title}}</view>
+      <view class='coupon-type'>{{couponType[data.cardTemplate.type]}}</view>
+    </view>
+    <view class='coupon-date'>有效期至 {{data.endDate}} {{data.status}}</view>
+    <view class="" wx:if="{{data.status===1}}">已失效</view>
+  </view>
+  <slot />
+</view>

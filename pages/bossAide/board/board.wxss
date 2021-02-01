@@ -1,0 +1,416 @@
+/* pages/bossAide/board/board.wxss */
+@import "../../../iconfont.wxss";
+
+.interval {
+  padding: 0 36rpx;
+}
+
+.interval-bottom {
+  margin-bottom: 40rpx;
+}
+
+/* 头部日期选择器样式 */
+
+.select-box {
+  width: 100vw;
+  height: 80px;
+  box-sizing: border-box;
+  background: #0ec695;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.select-time {
+  display: flex;
+}
+
+.select-time>text {
+  width: 88rpx;
+  height: 88rpx;
+  font-size: 36rpx;
+  background: #07f3b4;
+  margin-right: 24rpx;
+  border-radius: 6rpx;
+  text-align: center;
+  line-height: 88rpx;
+}
+
+.select-time .tabBorer {
+  color: #0ec695;
+  background: #fff;
+}
+
+.calendar {
+  width: 400rpx;
+  height: 88rpx;
+  background: #07f3b4;
+  border-radius: 6rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.date {
+  flex: 1;
+  white-space: nowrap;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.blank {
+  width: 4rpx;
+  height: 40rpx;
+  background: #fff;
+}
+
+.icon-calendar {
+  margin: 0 15rpx;
+}
+
+/* 营业额内容样式 */
+
+.turnover-box {
+  height: 108rpx;
+  background: #0ec695;
+}
+
+.turnover-title {
+  height: 100%;
+  border-radius: 12rpx 12rpx 0 0;
+  background: #fff;
+}
+
+.turnover-title-text {
+  margin: 0 34rpx;
+  height: 100%;
+  border-bottom: 1px solid rgb(249, 249, 249);
+  line-height: 108rpx;
+}
+
+.turnover-title-text-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  font-size: 40rpx;
+  color: rgb(16, 16, 16);
+}
+
+.turnover-title-text-left .iconfont {
+  font-size: 60rpx;
+  margin-right: 10rpx;
+  color: #0ec695;
+}
+
+.turnover-title-text-right {
+  float: right;
+  font-size: 28rpx;
+  color: rgb(154, 154, 154);
+}
+
+.turnover-detail {
+  /* height: 672rpx; */
+  background: #fff;
+  border-radius: 0 0 12rpx 12rpx;
+  padding: 20rpx 0;
+}
+
+.turnover-detail-text {
+  display: flex;
+  margin: 0 34rpx;
+  font-size: 28rpx;
+}
+
+.turnover-detail-text>view {
+  flex: 1;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+
+.text .typeface1 {
+  font-size: 30rpx;
+}
+
+.text .typeface2 {
+  font-size: 20rpx;
+}
+
+.text-title {
+  color: rgb(16, 16, 16);
+}
+
+.text-number {
+  line-height: 80rpx;
+  font-size: 44rpx;
+  font-weight: 600;
+  color: rgb(21, 21, 21);
+}
+
+.disparity>text {
+  line-height: 60rpx;
+}
+
+.disparity-title {
+  color: rgb(154, 154, 154);
+}
+
+.disparity-money {
+  color: rgb(255, 98, 0);
+}
+
+.disparity-count {
+  color: rgb(0, 187, 156);
+}
+
+.disparity-price {
+  color: rgb(21, 21, 21);
+}
+
+/* 毛利额样式 */
+
+.profit {
+  text-align: center;
+  color: rgb(154, 154, 154);
+}
+
+.profit-text {
+  /* height:108rpx; */
+  padding: 40rpx 34rpx;
+  border-radius: 12rpx 12rpx 0 0;
+  background: #fff;
+}
+
+.profit-text-title {
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.profit-text-money {
+  font-size: 56rpx;
+  color: rgb(16, 16, 16);
+  font-weight: 600;
+}
+
+.profit-annotation {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background: rgb(248, 247, 252);
+  border-radius: 0 0 12rpx 12rpx;
+}
+
+/* 商品汇总的样式 */
+
+.shop-collect {
+  border-radius: 12rpx;
+  background: #fff;
+  font-size: 24rpx;
+  color: rgb(12, 12, 12);
+  padding-bottom: 20rpx;
+}
+
+.shop-list-head {
+  border-bottom: 1px solid rgb(249, 249, 249);
+}
+
+.shop-collect-title {
+  margin: 0 34rpx;
+  color: rgb(154, 154, 154);
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.shop-collect-title .title {
+  flex: 1;
+}
+
+.orderingRule {
+  /* width:200rpx; */
+  padding: 0 20rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 50rpx;
+  border: 1px solid rgb(224, 224, 224);
+}
+
+.option-style::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 12rpx solid #fff;
+  border-top: 12rpx solid rgba(0, 0, 0, 0.5);
+  transform: translate(20%, 45%);
+}
+
+.shop-collect-title>.title>text:first-child {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+  color: rgb(16, 16, 16);
+}
+
+.shop-collect-title>text:nth-child(2) {
+  font-size: 26rpx;
+}
+
+.shop-collect-annotation {
+  padding: 24rpx 34rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shop-collect-text:nth-child(2n-1) {
+  background: rgb(249, 249, 249);
+}
+
+.shop-collect-annotation>text:first-child {
+  width: 180rpx;
+}
+
+.shop-collect-annotation>text:nth-child(2) {
+  width: 180rpx;
+  text-align: right;
+}
+
+.shop-collect-annotation>text:nth-child(3),
+.shop-collect-annotation>text:nth-child(4) {
+  flex: 1;
+  text-align: right;
+}
+
+/* 烟和非烟选项 */
+
+.mode {
+  width: 576rpx;
+  height: 56rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border: 1px solid #00bb9c;
+  border-radius: 28rpx;
+  margin: 0 auto 22rpx;
+  font-size: 28rpx;
+}
+
+.take-out {
+  flex: 1;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  color: #00bb9c;
+}
+
+.take-out-pitch {
+  color: #fff;
+  background: #00bb9c;
+}
+
+/* 商品销售汇总占比样式 */
+
+.collect-box {
+  margin: 0 34rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.collect-content {
+  width: 50%;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+}
+
+.collect-content .number {
+  color: #00bb9c;
+}
+
+/* 订单笔数概览 */
+
+.order-cnt-title {
+  font-size: 32rpx;
+  color: rgb(16, 16, 16);
+  padding: 30rpx;
+  border-bottom: 1px solid rgb(249, 249, 249);
+}
+
+.total-cnt {
+  text-align: center;
+  padding: 30rpx;
+}
+
+.total-cnt .total-title {
+  font-size: 28rpx;
+  color: #101010;
+}
+
+.total-cnt .total-number {
+  font-size: 40rpx;
+  line-height: 80rpx;
+  color: rgb(255, 98, 0);
+}
+
+.order-cnt-detail {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cnt-content {
+  width: 33.3333%;
+  margin-bottom: 30rpx;
+}
+
+.cnt-content-title {
+  font-size: 26rpx;
+  line-height: 60rpx;
+  color: rgb(154, 154, 154);
+}
+
+.cnt-content-number {
+  font-size: 30rpx;
+}
+
+/* 图标样式 */
+
+.ring {
+  border-top: 1px dotted rgb(154, 154, 154);
+  display: flex;
+}
+
+.canvas {
+  width: 360rpx;
+  height: 340rpx;
+}
+
+.pay-way-ratio-box {
+  padding: 50rpx 0;
+}
+
+.pay-way-content-box {
+  display: flex;
+  font-size: 24rpx;
+  height: 45rpx;
+}
+
+.pay-way {
+  width: 80rpx;
+  text-align: right;
+  color: #9a9a9a;
+}
+
+.pay-way-color{
+  width:44rpx;
+  height:16rpx;
+  border-radius: 16rpx;
+  margin:8rpx 10rpx;
+}
+
+.pay-ratio{
+  font-size:24rpx;
+  color:#101010;
+}

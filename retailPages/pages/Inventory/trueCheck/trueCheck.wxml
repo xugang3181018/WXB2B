@@ -1,0 +1,55 @@
+<!--实物盘点-->
+<view>
+	<view class="location">
+		<view class="screen-box">
+		<Search class="serch" bind:blur="searchMember" bind:input="onInput" placeholder="请输入盘点单号" bind:clear="clearSearch" />
+		<view wx:if="{{screenStatus}}" class="screen" bindtap="onScreen" style="font-size:24rpx;">筛选</view>
+	</view>
+	</view>
+	<Scrolls top='{{50}}' load="{{load}}" hasmore="{{hasMore}}" listloading="{{loading}}" bind:scrolltolower="listMore">
+		<block wx:for="{{checkList}}" wx:key="index">
+			<view class="lnventory-detail goods-content-border" id="{{index}}" bindtap="onSkipDetail">
+				<view class=" lnventory-detail-content">
+					<view class="color1">{{item.createTime}}</view>
+					<view class="lnventory-detail-content-right">{{checkStatus[item.status]}}</view>
+				</view>
+				<view class=" lnventory-detail-content">
+					<view>制单人：</view>
+					<view class="lnventory-detail-content-right">{{item.operatorName}}</view>
+				</view>
+				<view class=" lnventory-detail-content">
+					<view>盘点机构：</view>
+					<view class="lnventory-detail-content-right">{{item.merchantName}}</view>
+				</view>
+				<view class=" lnventory-detail-content">
+					<view>盘点区域：</view>
+					<view class="lnventory-detail-content-right">{{item.checkArea || "--"}}</view>
+				</view>
+				<view class=" lnventory-detail-content">
+					<view>盘点个数：</view>
+					<view class="lnventory-detail-content-right">{{item.checkNum}}</view>
+				</view>
+				<view class=" lnventory-detail-content">
+					<view>关联任务单号：</view>
+					<view class="lnventory-detail-content-right">{{item.recordNo}}</view>
+				</view>
+				<view class=" lnventory-detail-content">
+					<view>盘点单号：</view>
+					<view class="lnventory-detail-content-right">{{item.checkNo}}</view>
+				</view>
+				<view class="lnventory-detail-content">
+					<view style="width:90rpx;">备注:</view>
+					<view class="lnventory-detail-content-right">
+					{{item.remark || "--"}}
+					</view>
+			</view>
+			</view>
+		</block>
+		<view style="height:{{isPX?140:90}}rpx;"></view>
+	</Scrolls>
+	<Bar>
+		<view class="f-c-sb page-bar-inner">
+			<view class="button  button-b" bindtap="onNew" hover-class="touch">新建实物盘点</view>
+		</view>
+	</Bar>
+</view>

@@ -1,0 +1,73 @@
+<!--pages/retail/cancel/cancel.wxml-->
+<wxs src="../../../app.wxs" module='app' />
+<view style="padding:0 30rpx">
+	<view class="cancel-status">
+		<view class="iconfont icon-chenggong"></view>
+		<view>核销成功</view>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">订单类型</text>
+		<text class="detail-content-text">{{orderType[cancelDetail.orderType]}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">提货码</text>
+		<text class="detail-content-text">{{cancelDetail.fetchCode}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">收货人</text>
+		<text class="detail-content-text">{{cancelDetail.userName}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">手机号</text>
+		<text class="detail-content-text">{{cancelDetail.userTel}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">下单时间</text>
+		<text class="detail-content-text">{{cancelDetail.createTime}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">核销时间</text>
+		<text class="detail-content-text">{{cancelDetail.deliveryDisplayTime}}</text>
+	</view>
+	<view class="detail-content border-bottom" wx:if="{{cancelDetail.orderRemark}}">
+		<text class="detail-content-name">备注</text>
+		<text class="detail-content-text">{{cancelDetail.orderRemark}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">支付方式</text>
+		<text class="detail-content-text">{{payType[cancelDetail.payType]}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">订单金额</text>
+		<text class="detail-content-text">{{cancelDetail.totalAmount}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">优惠金额</text>
+		<text class="detail-content-text">{{cancelDetail.discountAmount}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">退款金额</text>
+		<text class="detail-content-text">{{cancelDetail.refundAmount}}</text>
+	</view>
+	<view class="detail-content border-bottom">
+		<text class="detail-content-name">实收金额</text>
+		<text class="detail-content-text">{{cancelDetail.receiptAmount}}</text>
+	</view>
+	<view>
+		<view class='detail-content-name' style="padding:20rpx 0">详细内容</view>
+		<view wx:for="{{cancelDetail.goodsList}}" wx:key='index'>
+			<view style='padding:0 40rpx'>
+			<text>{{'['+item.goodsName}}</text>
+			<text wx:if="{{item.spec}}">{{ ' ,'+item.spec || ""}}</text>
+			<text wx:if="{{app.attributesData(item.attributes)}}">{{ ' ,'+app.attributesData(item.attributes)}}</text>
+			<text wx:if="{{app.attributesData(item.materials)}}">{{ ' ,'+app.attributesData(item.materials)}}</text>
+			<text wx:if="{{app.goodsListStr(item.packageGoodsList)}}">{{ " ,"+item.goodsName+":"+app.goodsListStr(item.packageGoodsList) || ''}}</text>
+			<text>{{']'+' x'+item.goodsQuantity}}</text>
+			</view>
+		</view>
+	</view>
+	<view style="height:150rpx"></view>
+	<view class="submit-btn">
+		<button class="bg" style="color:#fff" bindtap="complete" hover-class="nav-touch">完成</button>
+	</view>
+</view>

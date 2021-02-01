@@ -1,0 +1,32 @@
+<Contents loading="{{loading}}">
+	<Search bind:confim="searchMember" placeholder="输入手机号搜索" bind:clear="clearSearch" />
+	<DateTab wx:if="{{id}}" bind:click="dateChange" current="{{current}}" dateValue="{{searchDate}}" id="dataTab"/>
+  <view class="consumer-list" style="top:{{id ? '90':'40'}}px">
+    <Scrolls hasmore="{{hasMore}}" listloading="{{listLoading}}" bind:scrolltolower="listMore" >
+     <view class="page-button" wx:if="{{qy}}">
+      <view class="button" bindtap="chooseContact" hover-class="touch">选择企业微信通讯录</view>
+    </view>
+    <view class="search-date" wx:if="{{dateValue}}">{{dateValue}}</view>
+
+    <view class="page-date" wx:if="{{params.startDate && params.endDate}}">
+      {{params.startDate}}至{{params.endDate}}
+    </view>
+    <view class="f-c c-item" bindtap="detail" data-index="{{index}}" data-id="{{item.memberId}}" wx:for="{{items}}" index="{{index}}" wx:key="consumerList">
+      <image class="c-image" src="{{item.headImgUrl}}" wx:if="{{item.headImgUrl}}" />
+      <view class="f-c-c c-image ico icon-user-sel" wx:else/>
+      <view class="items arr">
+        <view class="items-info">
+          <view class="item-name">{{item.memberName}}</view> 
+          <view class="f-c">
+            <view class="tag {{item.memberId ? 'active':''}}">{{item.memberId ? '会员':'非会员'}}</view>
+            <view>{{item.mobile}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    </Scrolls>
+    <view class="empty-inner" style="height:30%;margin-top:100rpx" wx:if="{{items.length == 0 && !listLoading}}">
+      <Empty icon="icon-members" msg="没有会员"  />
+    </view>
+  </view>
+</Contents>

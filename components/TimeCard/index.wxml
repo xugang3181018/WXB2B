@@ -1,0 +1,34 @@
+		<view class='card-list' wx:if="{{list.length>0}}">
+			<ListItem wx:for="{{list}}" wx:key="cards">
+				<view class='cards'>
+					<view class='card' data-no="{{item.cardId}}"  data-url="{{item.buyUrl}}" data-index="{{index}}" bindtap='shareCard'  style='background:#333 url({{item.bgImg}});no-repeat center;background-size:cover'>
+						<view class='card-head'>
+							<view class='card-names'>
+							<image src='{{item.logo}}' lazy-load></image>
+							{{item.cardName}}
+							</view>
+							<view class='ico icon-qrcode'></view>
+						</view>
+						<view class='card-sub'>有效期
+							<block wx:if="{{item.dateType == 0}}"> 不限日期 </block>
+							<block wx:elif="{{item.dateType == 1}}"> 至{{item.endDate}} </block>
+							<block wx:elif="{{item.dateType == 2}}"> 领取后{{item.fixedTerm}} 天内有效 </block>
+						</view>
+					</view>
+					<view class='card-col'>
+						<view class='rline'> 剩余次数
+							<view class='value'> {{item.suplusTimes}}</view>
+						</view>
+						<view class='rline'> 领取张数
+							<view class='value'> {{item.receiveCnt}}</view>
+						</view>
+						<view> 核销次数
+							<view class='value'> {{item.receiveCnt}}</view>
+						</view>
+					</view>
+				</view>
+			</ListItem>
+		</view>
+		<view wx:else class="empty-inner">
+			<Empty icon="icon-checkcoupon" msg="用户未领取次卡" />
+		</view>

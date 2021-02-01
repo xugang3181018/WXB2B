@@ -1,0 +1,245 @@
+<!--pages/orderRecord/takeOutDetail/takeOutDetail.wxml-->
+<wxs src='../../../app.wxs' module='app'></wxs>
+<view class="take-out-detail-box">
+	<block wx:if="{{orderType == 5}}">
+		<view class="order-detail">
+			<view class="order-detail-title">
+				<view class="order-status">{{takeOutIndex == 0?deliveryStatus2[detail.deliveryStatus]:deliveryStatus1[detail.deliveryStatus]}}</view>
+				<view class="order-pay-status">
+					<view wx:if="{{detail.payType == 'WXPAY'}}" class='ico icon-weixin weixin'></view>
+					<view wx:if="{{detail.payType == 'ALIPAY'}}" class='ico icon-alipay alipay'></view>
+					<view wx:if="{{detail.payType == 'MPAY'}}" class='ico icon-vip vip'></view>
+					<view wx:if="{{detail.payType == 'BANK'}}" class='iconfont icon-pos'></view>
+					<image class='ico ico-img' src="../../../assets/images/quick-pass.png" wx:elif="{{detail.payType == 'UNIONPAY'}}" />
+					<view wx:elif="{{detail.payType == 'CASH'}}" class='iconfont font-icon vip icon-xianjin'></view>
+					<!-- <image class='ico ico-img' src="../../../assets/images/money.png" wx:elif="{{detail.payType == 'CASH'}}" /> -->
+					<view class="pay-status color1">{{refundStatus[detail.refundStatus] || payStatus[detail.payStatus]}}</view>
+				</view>
+			</view>
+			<view class="order-detail-content">
+				<view class="order-list-title color1">
+					<text class="goods-name">商品名称</text>
+					<text class="goods-number">数量</text>
+					<text class="goods-price">单价</text>
+				</view>
+				<block wx:for="{{detail.orderMallGoodsList}}" wx:key="index">
+					<view class="order-list-content">
+						<view class="order-content color2">
+							<text class="goods-name">{{item.goodsName || '--'}}</text>
+							<text class="goods-number">{{item.goodsQuantity || 0}}</text>
+							<text class="goods-price">￥{{item.goodsPrice || 0}}</text>
+						</view>
+						<view class="order-standard color1">{{item.spec}}</view>
+					</view>
+				</block>
+				<view class="cost">
+					<view class="cost-content">
+						<text class="cost-title color1">包装费</text>
+						<text class="cost-money color2">￥{{detail.packageFee || 0}}</text>
+					</view>
+					<view class="cost-content">
+						<text class="cost-title color1">配送费</text>
+						<text class="cost-money color2">￥{{detail.deliveryFeeAmount || 0}}</text>
+					</view>
+					<view class="cost-content">
+						<text class="cost-title color1">优惠金额</text>
+						<text class="cost-money color2">￥{{detail.discountAmount || 0}}</text>
+					</view>
+					<view class="cost-content">
+						<text class="cost-title color1">实收金额</text>
+						<text class="cost-money color3">￥{{detail.receiptAmount || 0}}</text>
+					</view>
+				</view>
+				<view class="order-number-content cost-content">
+					<text class="order-number-title cost-title color1">订单编号</text>
+					<view class="cost-money color2" bindtap="onCopyCoding">
+						<text class="iconfont icon-fuzhi" style="margin-right:10rpx"></text>
+						<text>{{detail.orderNo}}</text>
+					</view>
+				</view>
+				<view class="order-remark" wx:if="{{detail.orderRemark}}">
+					<text class="remark-title color1">备注</text>
+					<view class="remark-content">
+						{{detail.orderRemark}}
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="delivery-detail order-detail">
+			<block wx:if="{{takeOutIndex == 1}}">
+				<view class="delivery-detail-title order-status">配送信息</view>
+				<view class="cost-content">
+					<text class="cost-title color1">预计送达时间</text>
+					<text class="cost-money color2">{{detail.expectTime}}</text>
+				</view>
+				<view class="cost-content">
+					<text class="cost-title color1">配送地址</text>
+					<text class="cost-money receiveAddress color2">{{detail.receiveAddress || '--'}}</text>
+				</view>
+				<view class="cost-content" wx:if="{{detail.deliveryStatusDetail && detail.deliveryStatusDetail != '--'}}">
+					<text class="cost-title color1">配送服务</text>
+					<text class="cost-money color2">{{deliveryTypeDetail[detail.deliveryStatusDetail]}}</text>
+				</view>
+				<view class="cost-content" wx:if="{{detail.transportNo}}">
+					<text class="cost-title color1">配送单号</text>
+					<text class="cost-money color2">{{detail.transportNo || '--'}}</text>
+				</view>
+				<view class="cost-content" wx:if="{{detail.carrierName && detail.carrierName != '--'}}">
+					<text class="cost-title color1">配送骑手</text>
+					<text class="cost-money color2">{{detail.carrierName}}</text>
+				</view>
+			</block>
+			<block wx:else>
+				<view class="delivery-detail-title order-status">自取信息</view>
+				<view class="cost-content">
+					<text class="cost-title color1">取货时间</text>
+					<text class="cost-money color2">{{detail.expectTime}}</text>
+				</view>
+				<view class="cost-content">
+					<text class="cost-title color1">自提编码</text>
+					<text class="cost-money receiveAddress color2">{{detail.fetchCode || '--'}}</text>
+				</view>
+				<view class="cost-content">
+					<text class="cost-title color1">取件人</text>
+					<text class="cost-money color2">{{detail.receiveName}}</text>
+				</view>
+				<view class="cost-content" wx:if="{{takeOutStatus != 0}}">
+					<text class="cost-title color1">配送服务</text>
+					<text class="cost-money color2">到店自取</text>
+				</view>
+			</block>
+			<view class="phone-btn-box">
+				<view class="phone-btn" wx:if="{{detail.receiveTel}}" catchtap="dialPhone" id="{{detail.receiveTel}}">
+					<text>联系顾客</text>
+					<view class="iconfont dianhua-icon icon-dianhua1"></view>
+				</view>
+				<view class="phone-btn" wx:if="{{detail.carrierTel && detail.carrierTel != '--' && takeOutIndex == 1}}" catchtap="dialPhone" id="{{detail.carrierTel}}">
+					<text>致电骑手</text>
+					<view class="iconfont dianhua-icon icon-dianhua1"></view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view wx:if="{{orderType == 4}}">
+		<view class="order-detail">
+			<view class="scan-order-title">
+				<view class="scan-order">
+					<view class="order-odd">
+						<text class="order-type">堂食</text>
+						<text class="odd">取餐号:{{detail.fetchCode}}</text>
+					</view>
+					<view class="pay-status color1">{{detail.payTime}}</view>
+				</view>
+				<view class="scan-order">
+					<view class="order-num">{{'('+detail.tableName+')/就餐认数:'+detail.tableNum+'人'}}</view>
+					<view class="pay-status color1">{{orderStatus[detail.orderStatus+1]}}</view>
+				</view>
+			</view>
+			<view class="order-detail-content">
+				<view class="order-list-title color1">
+					<text class="goods-name">商品名称</text>
+					<text class="goods-number">数量</text>
+					<text class="goods-price">单价</text>
+				</view>
+				<block wx:for="{{detail.orderMallGoodsList}}" wx:key="index">
+					<view class="order-list-content">
+						<view class="order-content color2">
+							<text class="goods-name">{{item.goodsName || '--'}}</text>
+							<text class="goods-number">{{item.goodsQuantity || 0}}</text>
+							<text class="goods-price">￥{{item.goodsPrice || 0}}</text>
+						</view>
+						<view class="order-standard color1">
+							<text wx:if="{{item.spec}}">{{item.spec}}</text>
+							<text wx:if="{{item.attributes.length}}">{{','+item.attributes[0].value}}</text>
+						</view>
+						<view class="order-standard color1">{{app.goodsStr(item.packageGoodsList)}}</view>
+					</view>
+				</block>
+				<view wx:if="{{detail.orderStatus == 2}}" style='border-top:1px solid #eee'>
+					<view class="order-list-title color1">
+						<text class="goods-name">退款商品名称</text>
+						<text class="goods-number">退款数量</text>
+						<text class="goods-price">单价</text>
+					</view>
+					<block wx:for="{{detail.refundOrderMallGoodsList}}" wx:key="index">
+						<view class="order-list-content">
+							<view class="order-content color2">
+								<text class="goods-name">{{item.goodsName || '--'}}</text>
+								<text class="goods-number">{{item.goodsQuantity || 0}}</text>
+								<text class="goods-price">￥{{item.goodsPrice || 0}}</text>
+							</view>
+							<view class="order-standard color1">
+								<text wx:if="{{item.spec}}">{{item.spec}}</text>
+								<text wx:if="{{item.attributes.length}}">{{','+item.attributes[0].value}}</text>
+							</view>
+							<view class="order-standard color1">{{app.goodsStr(item.packageGoodsList)}}</view>
+						</view>
+					</block>
+				</view>
+				<view class="cost">
+					<view class="cost-content">
+						<text class="cost-title color1">交易金额</text>
+						<text class="cost-money color2">￥{{detail.totalAmount || 0}}</text>
+					</view>
+					<view class="cost-content">
+						<text class="cost-title color1">优惠金额</text>
+						<text class="cost-money color2">￥{{detail.discountAmount || 0}}</text>
+					</view>
+					<view class="cost-content">
+						<text class="cost-title color1">退款金额</text>
+						<text class="cost-money color2">￥{{detail.refundAmount || 0}}</text>
+					</view>
+					<view class="cost-content">
+						<text class="cost-title color1">实收金额</text>
+						<text class="cost-money color3">￥{{detail.receiptAmount || 0}}</text>
+					</view>
+				</view>
+				<view class="order-number-content cost-content">
+					<text class="order-number-title cost-title color1">订单编号：{{detail.orderNo}}</text>
+					<text class="iconfont cost-money icon-fuzhi" style="font-size:36rpx;" bindtap="onCopyCoding" id="{{detail.orderNo}}"></text>
+				</view>
+				<view class="order-remark" wx:if="{{detail.orderRemark}}">
+					<text class="remark-title color1">备注</text>
+					<view class="remark-content">
+						{{detail.orderRemark}}
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="delivery-detail order-detail" wx:if="{{detail.refundStatus == 2}}">
+		<view class="delivery-detail-title order-status">退款信息</view>
+		<view class="order-number-content cost-content" wx:if="{{detail.clientRefundTime}}">
+			<text class="order-number-title cost-title color1">顾客申请退款时间</text>
+			<text class="order-numner cost-money color2">{{detail.clientRefundTime || "--"}}</text>
+		</view>
+		<view class="order-remark" wx:if="{{detail.clientRefundReason}}">
+			<text class="refund-title color1">顾客申请退款原因</text>
+			<view class="remark-content">
+				{{detail.clientRefundReason || "--"}}
+			</view>
+		</view>
+		<view style="border-bottom:1px solid #eeeeee;padding-top:30rpx;margin-bottom:20rpx;"></view>
+		<view class="order-number-content cost-content" wx:if="{{detail.refundTime}}">
+			<text class="order-number-title cost-title color1">商家驳回或审批退款时间</text>
+			<text class="order-numner cost-money color2">{{detail.refundTime || "--"}}</text>
+		</view>
+		<view class="order-remark" wx:if="{{detail.refundRefuseReason}}">
+			<text class="refund-title color1">商家拒绝退款原因</text>
+			<view class="remark-content">
+				{{detail.refundRefuseReason || "--"}}
+			</view>
+		</view>
+	</view>
+</view>
+<view class="order-btn-box" wx:if="{{orderType == 5}}">
+	<view class="order-btn1 order-btn" wx:if="{{takeOutStatus == 0 || takeOutStatus == 1 || takeOutStatus == 4}}">退款</view>
+	<view class="order-btn1 order-btn" wx:if="{{takeOutStatus == 2 && takeOutIndex ==1}}">{{deliveryStatus[detail.deliveryStatus]}}</view>
+	<view class="order-btn3 order-btn" wx:if="{{takeOutStatus == 2 || takeOutStatus == 4}}">补打小票</view>
+	<view class="order-btn1 order-btn" wx:if="{{takeOutStatus == 3}}">退款审批</view>
+	<view class="order-btn2 order-btn" wx:if="{{!(takeOutStatus == 3 || takeOutStatus == 4 || takeOutStatus == 2) || (takeOutStatus == 2 && takeOutIndex ==0)}}">{{deliveryStatus[detail.deliveryStatus]}}</view>
+</view>
+<view class="order-btn-box" wx:if="{{orderType == 4}}">
+	<view class="order-btn1 order-btn" wx:if="{{detail.receiptAmount>0}}" bindtap="refundOrder">退单</view>
+	<view class="order-btn3 order-btn">补打小票</view>
+</view>

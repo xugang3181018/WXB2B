@@ -1,0 +1,11 @@
+<Contents loading="{{loading}}" error="{{error}}" msg="errorMsg" loadingcolor="#ffffff">
+	<view class='tab'>
+		<view class='active'>店码</view>
+		<view>会员码</view>
+	</view>
+    <view class='canvas'><canvas canvasId='qrCode' style='width:250px;height:350px;' class='canvas'></canvas></view>
+    <view class='button-bar'>
+        <view class='button button-ico' hover-class='button-touch'  bindtap='saveFile'> <view class='icon-download'></view> 保存到相册</view>
+        <view class='button button-line' hover-class='button-line-touch'  bindtap='clipboardCode'>复制链接</view>
+    </view>
+</Contents>

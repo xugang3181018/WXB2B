@@ -1,0 +1,138 @@
+.calendar{
+	position: fixed;
+	left:0;
+	right:0;
+	bottom:0;
+	top:0;
+	z-index:999;
+}
+.mask{
+	background:rgba(0,0,0,.5);
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	top:0;
+}
+.calendar-container{
+	position: absolute;
+	left:0;
+	bottom:0;
+	right:0;
+	background:#fff;
+}
+.calendar-bar-title{
+	color:#888;
+	font-size:36rpx;
+}
+.calendar-button{
+	color:#fff;
+	background:#00cc99;
+	padding:10rpx 40rpx;
+	border-radius:6rpx;
+}
+.calendar-status{
+	padding:0 40rpx;
+	justify-content:space-between;
+	align-items:center;
+	display: flex;
+	font-size:28rpx;
+	height:88rpx;
+}
+.calendar-dates{
+	padding:20rpx 0;
+	font-weight:800;
+	font-size:28rpx;
+	color:#444;
+}
+.day-item, .week-item {
+    width: 14.28571%;
+    text-align: center;
+    height:84rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	color:#777;
+	position:relative;
+	flex-direction: column;
+}
+.day-item{
+	font-size:28rpx;
+}
+.arr{
+	font-size:0;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	width:90rpx;
+	height:90rpx;
+}
+.arr::after{
+	content: '';
+	width:20rpx;
+	height:20rpx;
+	border:2px solid #ccc;
+	display: block;
+	border-right:none;
+	border-bottom:none;
+	transform: rotate(-45deg);
+}
+.calendar-grid{
+	margin:30rpx;
+}
+.arr.next:after{
+	transform: rotate(135deg);
+}
+.day, .week {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size:32rpx;
+	position:relative;
+}
+.day .taday{
+    background:rgb(228, 77, 32);
+    color:#ffff;
+}
+.day .active {
+    background: #E2F8F2;
+}
+.day .active-tag{
+    background:rgb(125, 197, 178);
+    color:#fff;
+}
+.day-taday{
+	font-size:20rpx;
+}
+.day .active.taday {
+    background: #C3A95B;
+}
+.day{
+	padding-bottom:34px;
+}
+.title {
+    text-align: center;
+}
+
+.calendar-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-bar>view {
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	color:#00cc99;
+}
+.sliderOut{
+	animation: sliderOut .4s linear;
+}
+@keyframes sliderOut{
+	0%{	transform: translateY(0);}
+	100%{
+		transform: translateY(-100%);
+	}
+}

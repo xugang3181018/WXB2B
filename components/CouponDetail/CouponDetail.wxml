@@ -1,0 +1,52 @@
+<view class="pages">
+	<view class="box">
+		<view>
+			<image src="{{data.logo}}" />
+			<view class="goods-name">{{data.title}}</view>
+			<view>{{data.brandName}}</view>
+		</view>
+	</view>
+
+	<view class="box">
+		<view class="bline box-title">卡券说明</view>
+		<view class="des">
+			<view><label> 优惠说明：</label><view>{{data.rules}}</view></view>
+			<view><label>有效日期：</label>
+				<view class='content-item-content'>
+					<text wx:if="{{data.dateType == 1}}">{{data.beginTime}} 至 {{data.endTime}}</text>
+					<text wx:elif="{{data.dateType == 2}}">领取后{{data.fixedTerm}}天有效</text>
+					<text wx:elif="{{data.dateType == 0}}">不限日期</text>
+				</view>
+			</view>
+			<view><label>领取说明：</label>
+				<view> {{data.notice}}</view>
+			</view>
+			<view><label>使用须知：</label>
+				<view>{{data.description}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="box">
+		<view class="bline box-title">适用商品</view>
+		<view wx:for="{{data.goodItems}}" class="f-c-sb bline sku-item">
+			<view>{{data.itemName}}</view>
+			<view class="price">¥{{data.itemPrice}}</view>
+		</view>
+	</view>
+	<view class="box">
+		<view class="bline box-title">适用门店</view>
+		<view>
+			<view wx:for="{{merchantList}}" class="{{merchantList.length == index+1 ? '' : 'line'}} merchant-item" wx:key="merchantList">
+				<view>{{item.merchantName}}</view>
+				<view class="merchant-address">{{item.address}}</view>
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{cardTextImages.length}}" class="box">
+		<view class="bline box-title">图文说明</view>
+		<view wx:for="{{data.cardTextImages}}" wx:key="cardTextImages" class="image-item">
+			<image mode="widthFix" src="{{item.imgUrl}}" />
+			<view class="goods-text">{{item.text}}</view>
+		</view>
+	</view>	
+</view>

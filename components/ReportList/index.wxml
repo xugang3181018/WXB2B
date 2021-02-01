@@ -1,0 +1,25 @@
+<view class='detail'>
+	<view class='bline {{goodsStatisList.currIndex == goodsIndex? "dopen":""}}' bindtap='_toggleDetail' data-index="{{goodsIndex}}">
+		<view class='shop-item'>
+			<view class='s-item s-name'>
+				<view class='s-title'>No.{{goodsIndex+1}}</view>
+				<view class='s-num' wx:if="{{status == 0 || status == 5 ||status == 4}}">{{goodsStatisList.goodsName}}</view>
+				<view class='s-num' wx:if="{{status == 1}}">{{goodsStatisList.goodsCategoryName}}</view>
+			</view>
+			<view class='s-item lline'>
+				<view class='s-title' wx:if="{{status == 0 || status == 1}}">单品销量</view>
+				<view class='s-title' wx:if="{{status == 4 || status == 5}}">套餐销量</view>
+				<view class='s-num'>{{goodsStatisList.totalCount || 0}}</view>
+			</view>
+			<view class='item-arr'></view>
+		</view>
+		<slot name="titleList" />
+		<view class="r-detail" wx:if="{{goodsStatisList.currIndex == goodsIndex}}">
+			<view class='s-item lline' wx:for="{{goodsStatistics}}" wx:key="statistics" wx:for-item="itm" wx:for-index="idx">
+				<view class='s-title'>{{itm}}</view>
+				<view class='s-num'>{{goodsStatisList[idx] || 0}}</view>
+			</view>
+			<slot name="contInfo" />
+		</view>
+	</view>
+</view>

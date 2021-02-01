@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "userbill": "/pages/sales/consumerDetail/banlance/index"
+  },
+	"navigationBarTitleText": "充值记录"
+}

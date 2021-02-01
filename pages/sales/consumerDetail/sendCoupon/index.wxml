@@ -1,0 +1,61 @@
+<PagePanel id="sendCoupon" title="赠送优惠券" bottom="0" zindex="100">
+  <block wx:if="{{list.items.length}}">
+    <view class="coupon-list">
+      <Scrolls hasmore="{{couponHasMore}}" listloading="{{couponLoading}}" bind:scrolltolower="moreCoupon" >
+        <view class="f-c-sb coupon-item bline" wx:key="coupons" wx:for="{{list.items}}">
+          <view>
+            <view class="coupon-title">{{item.cardTemplate.title}}</view>
+            <view class="coupon-item-sub">{{item.cardTemplate.subTitle}}</view>
+          </view>
+          <view class="f-c cart" bindtap="couponCart" data-index="{{index}}">
+            <block wx:if="{{item.count>0}}">
+              <view class="ico icon-min" id="0" hover-class="touch" />
+              <view>{{item.count}}</view>
+            </block>
+            <view class="ico icon-add" id="1" hover-class="touch" />
+          </view>
+        </view>
+      </Scrolls>
+    </view>
+    <view class="button-bar">
+      <view class="button button-block" bindtap="sendPrize" id="giveCoupon">确认赠送</view>
+    </view>
+  </block>
+  <view wx:else class="empty-inner">
+    <Empty msg="未创建优惠券" icon="icon-coupons" />
+  </view>
+</PagePanel>
+<PagePanel id="timeCardList" title="赠送次卡" bottom="0" zindex="100">
+  <view class="coupon-list">
+    <Scrolls hasmore="{{couponHasMore}}" listloading="{{couponLoading}}" bind:scrolltolower="moreCoupon">
+      <!-- <Coupon wx:for="{{coupons.items}}" data="{{item}}" wx:key="st{{index}}"  /> -->
+      <view class="coupon-item bline" wx:key="coupons" wx:for="{{list.items}}">
+        <image class="coupon-logo" src="{{item.logo}}" />
+        <view class="time-content">
+          <view class="coupon-title">{{item.title}}</view>
+          <view wx:for-item="itm" wx:for-index="idx" wx:for="{{item.cardTimeLimits}}" class="f-c-sb time-item" bindtap="timeCardCheck" data-index="{{index}}" data-id="{{idx}}" wx:key="cardTimeLimts">
+            <view class="f-c-sb f1 coupon-title-sub">
+              <view class="f1 f-c">
+                现价：{{itm.price}}
+                <block wx:if="{{itm.originalPrice > itm.price}}">
+                  原价：{{itm.originalPrice}}
+                </block>
+              </view>
+              次数：{{itm.times}}
+            </view>
+            <view class="coupon-check icon-check{{itm.checked ? 'ed active':''}}"></view>
+          </view>
+        </view>
+      </view>
+    </Scrolls>
+  </view>
+  <view class="button-bar">
+    <view class="button button-block" bindtap="sendTimePrize">确认赠送</view>
+  </view>
+</PagePanel>
+<Bar wx:if="{{cancoupon}}">
+  <view class="f-c-sb page-bar-inner">
+    <view class="button button-line"  bindtap="sendCoupon" hover-class="touch">赠送优惠券</view>
+    <view class="button" bindtap="sendTimeCard" hover-class="touch">赠送次卡</view>
+  </view>
+</Bar>

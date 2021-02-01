@@ -1,0 +1,229 @@
+.m3 {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.hidden {
+  display: none;
+}
+
+.p3 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.mt34 {
+  margin-top: 34rpx;
+}
+
+.flx-btw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flx {
+  display: flex;
+  align-items: center;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.shop-spec {
+  background-color: #fff;
+}
+
+.shops-name-ex {
+  padding: 30rpx 0;
+}
+
+.shops-name {
+  font-size: 30rpx;
+  line-height: 1.3;
+}
+
+.shops-ex {
+  font-size: 24rpx;
+  color: #7f7f7f;
+}
+
+.shop-attr {
+  background-color: #fff;
+  padding: 30rpx;
+  border: 2rpx solid #f7f7f7;
+}
+
+.shop-attr .sort-list {
+  padding-bottom: 0;
+}
+
+.sort-list {
+  padding-bottom: 64rpx;
+}
+
+.shop-spec .sort-list {
+  padding-bottom: 30rpx;
+}
+
+.sort-li {
+  height: 66rpx;
+  width: 214rpx;
+  line-height: 66rpx;
+  border-radius: 6rpx;
+  text-align: center;
+  background-color: #f7f7f7;
+  position: relative;
+  margin-top: 16rpx;
+  margin-right: 20rpx;
+}
+
+.sort-li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.add-sort {
+  height: 62rpx;
+  width: 212rpx;
+  border: 1px solid #00bb9c;
+  color: #00bb9c;
+  justify-content: center;
+  font-size: 24rpx;
+}
+
+.sort-li .icons-new-newitem {
+  margin-right: 12rpx;
+  font-size: 28rpx;
+}
+
+.sort-li .icons-new-newitem::before {
+  color: #00bb9c;
+}
+
+.goods-attr {
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+}
+
+.attr-sort-nav,.attr-title {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.line {
+  height: 1rpx;
+  width: 690rpx;
+  background-color: #f7f7f7;
+}
+.del-btn,.add-attr-btn{
+  padding-top: 20rpx;
+  justify-content: center;
+  color: #f33;
+}
+
+.del-btn .icon, .add-attr-btn .icon {
+  padding-right: 20rpx;
+}
+
+.del-btn .icons-new-trash::before {
+  color: #f33;
+}
+
+.add-attr-btn {
+  background-color: #fff;
+  margin-top: 20rpx;
+  color: #333;
+  padding: 20rpx;
+  margin-bottom: 90rpx;
+}
+
+.attr-sure{
+  position: fixed;
+  bottom: 0;
+  height: 84rpx;
+  line-height: 84rpx;
+  background-color: #00bb9c;
+  color: #fff;
+  text-align: center;
+  width: 750rpx;
+}
+
+
+
+.check-active {
+  position: absolute;
+  bottom: 0;
+  right: -18rpx;
+  width: 0;
+  height: 0;
+  border-top: 30rpx solid #00bb9c;
+  border-right: 30rpx solid transparent;
+  border-left: 30rpx solid transparent;
+  transform: rotate(-45deg);
+}
+
+.sort-li.active {
+  background-color: #d1f0eb;
+  color: #00bb9c;
+}
+
+.icons-new-checks {
+  transform: rotate(45deg);
+  position: absolute;
+  top: -36rpx;
+  left: -16rpx;
+}
+
+.icons-new-checks::before {
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.panel-remark textarea{
+  width:100%;
+  height:200rpx;
+  border:1px solid #eee;
+  font-size:28rpx;
+  padding:10rpx;
+  margin:-10rpx;
+}
+.panel-remark-cont{
+  padding:30rpx 30rpx 0;
+}
+
+.button-small, .button-small-line {
+  height: 74rpx;
+  width: 210rpx;
+  color: #fff;
+  background: #00bb9c;
+  text-align: center;
+  border-radius: 90px;
+  line-height: 74rpx;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.sort-name {
+  font-size: 24rpx;
+  display: inline-block;
+  max-width: 214rpx;
+}

@@ -1,0 +1,7 @@
+{
+        "usingComponents": {
+            "OrderSing": "../../components/orderSing/orderSing"
+        },
+        "navigationBarTitleText": "交易流水"
+        
+}

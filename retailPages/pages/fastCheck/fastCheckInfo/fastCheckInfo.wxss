@@ -1,0 +1,55 @@
+/* pages/retail/fastCheck/fastCheckInfo/fastCheckInfo.wxss */
+@import "../../stock/stockOrderInfor/stockOrderInfor.wxss";
+
+.compare-number {
+  flex: 1;
+  text-align: right;
+  color: #00BFA5;
+}
+
+.tabs {
+  margin:0;
+  display: flex;
+  flex-wrap: wrap;
+  position: sticky;
+  height: 40px;
+  top: 0;
+  z-index: 90;
+  color: #333;
+  background:#fff;
+}
+
+.tabs>view {
+  /* flex: 1; */
+  font-size: 30rpx;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  font-weight: normal;
+  margin-right:30rpx;
+}
+
+.tabs>view.active {
+  font-weight: 600;
+  color: #00BFA5;
+}
+
+.tabs>view.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left:0;
+  right:0;
+  bottom: 0rpx;
+  height: 7rpx;
+  background: #00BFA5;
+  z-index: 2;
+}
+
+.remark-title{
+  width:100rpx;
+}
+
+/* .lnventory-detail{
+  padding-bottom:0
+} */

@@ -1,0 +1,29 @@
+.check {
+    background: #fff;
+    padding: 40rpx;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.scan {
+    width:80rpx;
+    height:80rpx;
+    position: relative;
+    font-size:52rpx;
+    color:#00cc99;
+    border-radius:90px;
+    display: flex;
+    align-items:center;
+    transition:.3s;
+    justify-content:center;
+}
+.scan-touch{
+    opacity:.5;
+}
+.check input {
+    flex:1;
+}
+.button{
+    margin: 40rpx ;
+}

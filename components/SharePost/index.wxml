@@ -1,0 +1,14 @@
+<view wx:if="{{open}}" class="posts">
+	<wxml-to-canvas id="widget" class="widget"  width='{{post.width}}' height="{{post.height}}"/>
+	<view class="post" wx:if="{{src}}" catchtap="togglePost">
+			<view>
+				<view class="post-img" style="width:{{width}}px;height:{{height}}px">
+					<image src="{{src}}" mode="aspectFit"/>
+				</view>
+				<slot />
+				<view class="bar">
+					<view class="button button-block" hover-class="touch" catchtap="downLoadPost"><view class="ico icon-download"></view> 保存海报</view>
+				</view>
+			</view>
+	</view>
+</view>

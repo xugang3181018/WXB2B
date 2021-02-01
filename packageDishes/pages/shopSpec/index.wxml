@@ -1,0 +1,52 @@
+<view>
+
+	<view class="shop-spec p3" bindtap="materials">
+		<view class="shops-title flx-btw">
+			<view class="shops-name-ex">
+				<view class="shops-name">设置商品规格</view>
+				<view class="shops-ex">如份量、尺寸等，可为对应的规格设置价格、库存</view>
+			</view>
+		</view>
+	</view>
+  
+	<view class="set-spec" wx:for="{{specList}}" wx:key="specList">
+		<view class="spce-title">
+			<view class="spec-name">*规格名称</view>
+			<input placeholder="请输入规格描述内容" value="{{item.name}}" maxlength="15"  data-index='{{index}}' data-name="name" bindinput="specName"></input>
+		</view>
+		<view class="spec-list flx">
+			<view class="spec-li">
+				<view class="spec-name">*售价</view>
+				<input placeholder="请输入销售价" value="{{item.price}}" maxlength="8" type="number" data-index='{{index}}' data-name="price" bindinput="specName"></input>
+			</view>
+			<view class="spec-li">
+				<view class="spec-name">会员价</view>
+				<input placeholder="请输入会员价" value="{{item.memberPrice}}" maxlength="8" type="number" data-index='{{index}}' data-name="memberPrice" bindinput="specName"></input>
+			</view>
+			<view class="spec-li">
+				<view class="spec-name">包装费</view>
+				<input placeholder="请输入包装费用" value="{{item.skuPackFee}}" maxlength="8" type="number" data-index='{{index}}' data-name="skuPackFee" bindinput="specName"></input>
+			</view>
+			<view class="spec-li">
+				<view class="spec-name">*库存</view>
+				<input placeholder="请输入当前库存" value="{{item.stock}}" type="number" maxlength="8" data-index='{{index}}' data-name="stock"  bindinput="specName"></input>
+			</view>
+			<view class="spec-li">
+				<view class="spec-name">每日库存</view>
+				<input placeholder="请输入每日库存" value="{{item.initStock}}" maxlength="8" type="number" data-index='{{index}}' data-name="initStock"  bindinput="specName"></input>
+			</view>
+			<view class="spec-li">
+				<view class="spec-name">自动补库存</view>
+				<view class="icon icons-new-check-sel {{item.skuStockStatus? 'active' :''}}" data-index='{{index}}' data-name="skuStockStatus" bindtap="specStatus">次日自动补充</view>
+			</view>
+		</view>
+		<view class="del-spec icon icons-new-deletes-r" wx:if="{{specList.length > 1}}" data-index='{{index}}' catchtap="delSpecList"></view>
+	</view>
+
+	<view class="add-spec-btn flx" bindtap="addSpecList">
+		<view class="icon icons-new-newitem"></view>
+		<view class="">添加商品规格</view>
+	</view>
+	<view class="end"></view>
+	<view class="spec-sure" style="height: {{isPX? '84px': '60px'}}" catchtap="sure">确认</view>
+</view>

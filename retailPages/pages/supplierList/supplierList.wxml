@@ -1,0 +1,10 @@
+<!--pages/retail/supplierList/supplierList.wxml-->
+<view class='lnventory-detail-content contentInterval'>
+	<view class='color1'><text style="color:#00BFA5;">*</text>{{title}}：
+	</view>
+	<view class='lnventory-detail-content-right picker-text' style="padding-right:20rpx">
+		<picker range='{{nameList}}' bindchange='changeMerchant' range-key='supplierName' name="supplierName" mode="selector" value="{{nameIndex}}">
+			<view class='picker-value {{nameIndex ==0 || nameIndex ? "":"disable"}}'>{{nameList[nameIndex].supplierName || '未选择'}}</view>
+		</picker>
+	</view>
+</view>

@@ -1,0 +1,38 @@
+/* pages/retail/supplierList/supplierList.wxss */
+.lnventory-detail-content {
+  display: flex;
+  margin-bottom:16rpx;
+  background:#fff;
+}
+
+.lnventory-detail-content-right {
+  flex: 1;
+  text-align: right;
+}
+.contentInterval{
+  padding-bottom:20rpx;
+}
+.picker-text{
+  position: relative;
+}
+
+.picker-text picker::after {
+  content: '';
+  display: inline-block;
+  width: 13rpx;
+  height: 13rpx;
+  border: 2px solid #ccc;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+  position: absolute;
+  top:15rpx;
+  right:0;
+}
+.picker-value{
+  color:#333;
+}
+
+.disable{
+  color: #999;
+}

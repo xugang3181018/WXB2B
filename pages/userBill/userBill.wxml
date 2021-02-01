@@ -1,0 +1,31 @@
+
+<Contents loading="{{loading}}">
+  <view wx:if="{{orderDetails.length}}" class="banlance-list">
+    <Scrolls hasmore="{{hasMore}}" listloading="{{loading}}" bind:scrolltolower="listMore" >
+      <view class="list" >
+        <ListItem index="{{index}}" wx:for="{{orderDetails}}" wx:key="orderDetails">
+          <view class="list-item" bindtap="toDetail" data-url="/pages/billDetail/billDetail?id={{item.outTradeNo}}">
+            <view class="f-c">
+              	<view class="ico ic-p{{params.orderType == 1 ? '0':'1'}}" />
+                <view>
+                  <view class="h2">{{params.orderType == 1 ? '充值' : '消费'}}</view> 
+                  <view class='h3'>{{item.payTime}}</view>
+                </view>
+            </view>
+            <view class="price"> {{params.orderType == 1 ? '+' :'-'}}{{item.totalAmount}}</view>
+          </view>
+        </ListItem>
+      </view>
+    </Scrolls>
+  </view>
+	<view class="empty-inner" wx:else>
+		<Empty icon="icon-bill" msg="没有充值记录" />
+	</view>
+  <Bar wx:if="{{canbanlance}}">
+  <!-- <Bar> -->
+    <view class="f-c-sb page-bar-inner">
+      <view class="button button-line" bindtap="memberModify" data-type="0" data-id="{{id}}" hover-class="touch">手动消费</view>
+      <view class="button" bindtap="memberModify" data-type="1" data-id="{{id}}" hover-class="touch">现金充值</view>
+    </view>
+  </Bar>
+</Contents>

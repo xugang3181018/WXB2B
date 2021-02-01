@@ -1,0 +1,83 @@
+page{
+  background: #00cc99;
+}
+.page{
+	height: 100vh;
+}
+.cav{
+	width: 150px;
+	height:150px;
+	margin:0 auto;
+}
+.canvas{
+  background: #fff;
+}
+.card-warp{
+	margin:60rpx;
+	border-radius:10px;
+	overflow:hidden;
+	box-shadow:0 5px 16px rgba(0, 0, 0, .1);
+	/* animation: sliderUp .4s ease-in; */
+}
+.canvas-ewm{
+	width: 180px;
+	margin:0 auto;
+}
+.canvas-txt{
+	text-align: center;
+	color: #666;
+	padding:0 0 30rpx;
+	font-size:24rpx;
+}
+.card{
+	margin:0 0;
+	height:280rpx;
+	border-radius:10px 10px 0 0 ;
+	padding:40rpx;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position: relative;
+	background-size: cover;
+}
+.card-logo{
+	width: 80rpx;
+	height:80rpx;
+	border-radius:90px;
+}
+.card-sub{
+	font-size:24rpx;
+	margin-left:20rpx;	
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .8)
+}
+.mask{
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background: linear-gradient(180deg, #3C3C3C 0%, rgba(60, 60, 60, 0) 100%);
+	z-index: 2;
+}
+.card-sub-txt{
+	font-size:34rpx;
+}
+.card-head{
+	font-size:24rpx;
+	color: #fff;
+	position: relative;
+	z-index:10;
+}
+
+.page-button{
+	margin:50rpx;
+}
+.detail{
+	background: #fff;
+	font-size:24rpx;
+	padding:30rpx;
+	color:#888;
+	
+}
+.detail>view{
+	line-height: 1.7;
+}

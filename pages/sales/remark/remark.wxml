@@ -1,0 +1,20 @@
+<view class="mark">
+  <view class="mark-title bline">系统标签</view>
+  <view class="mark-list">
+    <view class="mark-item active" wx:for="{{memberCrowd}}" wx:key="merberCrowdAuto" wx:if="{{item.crowdType == 0}}">
+      {{item.crowdName}}
+    </view>
+  </view>
+  <block wx:if="{{crowd.length>0}}">
+    <view class="mark-title bline">手动标签</view>
+    <view class="mark-list">
+      <view class="mark-item {{item.checked ? 'active' : ''}}"  wx:for="{{crowd}}" wx:key="crowdlist" bindtap="toggleTag" data-index="{{index}}" data-id="{{item.crowdId}}">
+        {{item.crowdName}}
+      </view>
+    </view>
+  </block>
+</view>
+<view class="r-info"><view class="ico icon-info"></view> <view>选择手动标签，修改会员标签</view></view>
+<view class="page-button">
+  <view class="button" bindtap="markOk" hover-class="touch">完成</view>
+</view>

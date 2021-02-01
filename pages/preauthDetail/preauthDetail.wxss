@@ -1,0 +1,81 @@
+/* pages/preauthDetail/preauthDetail.wxss */
+
+.lists>view::after{
+    display:none;
+}
+.attr{
+    font-size:26rpx;
+    color:#666;
+}
+.value{
+    color:#444;
+    font-size:26rpx;
+}
+.d-head{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:50rpx 40rpx;
+    background:#fff;
+}
+
+.alipay{
+    color:#20A1E6;
+}
+.weixin{
+    color:#09bb07;
+}
+.d-type{
+    display: flex;
+    align-items:center;
+    font-size: 28rpx;
+}
+.d-type .ico{
+    font-size:56rpx;
+    margin-right:10rpx;
+}
+.vip{
+    color:#FF7A3E;
+}
+.d-total{
+    display: flex;
+    align-items:center;
+    font-size:24rpx;
+    color:#999;
+}
+.d-amt{
+    color:#FF7A3E;
+    font-size:40rpx;
+
+}
+.t-item{
+    padding:30rpx 10rpx;
+    margin:0 30px;
+    padding-left:20rpx;
+    border-left: 10rpx solid #ccc;
+}
+.t-item-title{
+    font-size:28rpx;
+    position: relative;
+    margin-bottom:20rpx;
+}
+.t-item-title::after{
+    width:28rpx;
+    height:28rpx;
+    content:'';
+    display: block;
+    background:#ccc;
+    border-radius:90px;
+    position:absolute;
+    left:-40rpx;
+    top:50%;
+    margin-top:-14rpx;
+}
+.t-amt{
+    color:#FF7A3E;
+    margin-bottom:14rpx;
+}
+.t-time{
+    font-size:24rpx;
+    color:#999;
+}

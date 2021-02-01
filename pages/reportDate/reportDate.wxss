@@ -1,0 +1,50 @@
+/* pages/reportDate/reportDate.wxss */
+
+page {
+    background: #fff;
+}
+
+.date-choose {
+    background: #fff;
+    padding: 0 40rpx;
+}
+
+.c-item {
+    font-size: 28rpx;
+}
+
+.c-item.disable {
+    opacity: 0.5;
+}
+
+.c-item picker {
+    padding: 45rpx 0;
+}
+.attr{
+    color:#666;
+}
+.r-info {
+    margin: 40rpx 0;
+}
+
+.inputtime {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputtime::after{
+    content:'';
+    width:14rpx;
+    height:14rpx;
+    border:2px solid #ccc;
+    border-left:none;
+    border-bottom:none;
+    transform:rotate(45deg);
+}
+.value {
+    font-size: 30rpx;
+    flex:1;
+    text-align:right;
+    margin:0 16rpx;
+    color:#444;
+}

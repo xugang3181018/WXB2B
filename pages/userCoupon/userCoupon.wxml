@@ -1,0 +1,20 @@
+<Contents loading="{{loading}}">
+  <view wx:if="{{memberTimesCardList.length || items.length}}">
+    <view wx:for="{{memberTimesCardList}}" wx:key="alls" class="f-c-sb time-card">
+      <view>
+        <view class="time-card-name">{{item.cardName}}</view>
+        <view class="card-date">有效期至：{{item.endDate}}</view>
+      </view>
+      <view class="card-end">
+        <view>剩余次数</view>
+        <view class="card-times">{{item.suplusTimes}}</view>
+      </view>
+    </view>
+    <Coupon wx:for="{{items}}" data="{{item}}" wx:key="memberTimesCardList" />
+  </view>
+  <view class="empty-inner" wx:else>
+    <Empty msg="用户未领取卡券" icon="icon-ecoupon" />
+  </view>
+  <sendcoupon memberId="{{id}}" />
+</Contents>
+

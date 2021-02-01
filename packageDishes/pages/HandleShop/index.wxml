@@ -1,0 +1,186 @@
+<view>
+	<view class="handle-shop-title">
+		<view class="handle-shop-text flx p3">填写商品信息(必填)</view>
+		<view class="handle-shop-name flx handle-nav p3">
+			<view class="shop-name">商品名称</view>
+			<input class="handle-name-input" maxlength="15" placeholder="请输入商品名称" value="{{goods.goodsName}}" bindinput="changeGoodsName"/>
+		</view>
+		<view class='form-item'>
+			<view class='form-attr'>菜品类型</view>
+			<view class="form-input">
+				<picker range='{{foodType}}' bindchange='changeStatus' name="status" mode="selector" value="0">
+					<view class="picker-value">单品</view>
+				</picker>
+			</view>
+		</view>
+	</view>
+
+	<view class="handle-shop-set">
+		<view class="handle-shop-text flx p3">更多商品设置(必填)</view>
+		<view class="choose-shop-sort p3">
+			<view class="sort-title">选择分类</view>
+			<view class="sort-list clearfix">
+				<block wx:for="{{categoryList}}">
+					<view class="sort-li fl {{item.categoryId == categoryId? 'active': ''}}" data-category-id="{{item.categoryId}}" bindtap="changeCategory">
+						<text class="sort-name omit">{{item.categoryName}}</text>
+						<view class="check-active" wx:if="{{item.categoryId == categoryId}}">
+							<view class="icon icons-new-checks"></view>
+						</view>
+					</view>
+				</block>
+				<view class="sort-li fl add-sort flx" bindtap="addSortList">
+					<view class="icon icons-new-newitem"></view>
+					添加分类
+				</view>
+			</view>
+		</view>
+		<view class="get-shop-img p3">
+			<view class="sort-title">请上传商品图片</view>
+			<view class="get-shop-imgs clearfix">
+				<block wx:for="{{shopImg}}" wx:key="shopImg">
+					<view class="get-shop-img-list">
+						<image src="{{item}}"></image>
+						<view class="icon icons-new-deletes-r" catchtap="delShopImg"></view>
+					</view>
+				</block>
+				<view class="get-shop-icon flx fl" bindtap="chooseImage" wx:if="{{shopImg.length <= 0}}">
+					<view class="icon icons-new-newitem"></view>
+				</view>
+			</view>
+		</view>
+
+
+		<!-- 商品规格 -->
+		<view class="shop-spec p3" bindtap="toShopSpec">
+			<view class="shops-title flx-btw">
+				<view class="shops-name-ex">
+					<view class="shops-name">商品规格</view>
+					<view class="shops-ex">指杯型、份量等，不同规格对应不同价格</view>
+				</view>
+				<view class="shops-modify-text flx">
+					<view class="modify-text">{{goods.goodsSpec.length <= 0? '修改': '必填'}}</view>
+					<view class="ico next"></view>
+				</view>
+			</view>
+		</view>
+		<view class="spec-table p3" wx:if="{{goods.goodsSpec.length > 0}}">
+			<!-- 规格 -->
+			<view class="spec-title spec-list-table flx-btw">
+				<view>规格选项</view>
+				<view>价格(元)</view>
+				<view>库存</view>
+			</view>
+			<block wx:for="{{goods.goodsSpec}}" wx:key="goodsSpec">
+				<view class="spec-list-table flx-btw">
+					<view>{{item.name}}</view>
+					<view>{{item.price}}</view>
+					<view>{{item.stock}}</view>
+				</view>
+			</block>
+		</view>
+
+		<!-- 商品属性 -->
+		<view class="shop-spec p3" bindtap="toShopAttr">
+			<view class="shops-title flx-btw">
+				<view class="shops-name-ex">
+					<view class="shops-name">商品属性</view>
+					<view class="shops-ex">指辣度、温度、颜色等，不同属性不影响价格</view>
+				</view>
+				<view class="shops-modify-text flx">
+					<view class="modify-text">修改</view>
+					<view class="ico next"></view>
+				</view>
+			</view>
+		</view>
+		<view class="spec-list" wx:if="{{goods.attributes.length > 0}}">
+			<block wx:for="{{goods.attributes}}" wx:key="attr">
+				<view class="shop-attr p3">
+					<view class="attr-name omit">{{item.name}}</view>
+					<view class="sort-list clearfix">
+						<block wx:for="{{item.details}}" wx:for-index="idx" wx:for-item="detail">
+							<view class="sort-li fl">
+								<text class="sort-name">{{detail}}</text>
+							</view>
+						</block>
+					</view>
+				</view>
+			</block>
+		</view>
+
+
+
+		<!-- 最小购买量 -->
+		<view class="shop-spec p3">
+			<view class="shops-title">
+				<view class="shops-name-ex">
+					<view class="shops-name">最小购买</view>
+					<view class="shops-ex">指辣度、温度、颜色等，不同属性不影响价格</view>
+				</view>
+				<view class="min-buy-input">
+					<input class="buy-input" placeholder="不填写默认为1" type="number" value="{{buyLimitNum}}" bindinput="buyNum" />
+				</view>
+			</view>
+		</view>
+
+		<!-- 商品加料 -->
+		<view class="shop-spec p3" bindtap="materials">
+			<view class="shops-title flx-btw">
+				<view class="shops-name-ex">
+					<view class="shops-name">商品加料</view>
+					<view class="shops-ex">指对改菜品添加付费、免费的小料</view>
+				</view>
+				<view class="shops-modify-text flx">
+					<view class="modify-text">修改</view>
+					<view class="ico next"></view>
+				</view>
+			</view>
+		</view>
+
+		<view class="shop-attr p3" wx:if="{{goods.goodsMaterials.length > 0}}">
+			<view class="sort-list clearfix">
+				<block wx:for="{{goods.goodsMaterials}}" wx:key="materials">
+					<view class="sort-li fl">
+						<text class="sort-name omit">{{item.materialName}}</text>
+					</view>
+				</block>
+			</view>
+		</view>
+
+		<!-- 必选商品 -->
+		<view class='form-item'>
+			<view class='form-attr'>必选商品</view>
+			<view class='form-input'>
+				<picker range='{{status}}' bindchange='changeStatus' name="status" mode="selector" value="{{goodsRequired}}">
+					<view class='picker-value'>{{status[goodsRequired]}}</view>
+				</picker>
+			</view>
+		</view>
+
+		<!-- 商品描述 -->
+		<view class="shop-desc p3">
+			<view class="sort-title">商品描述</view>
+			<textarea placeholder="请输入商品详细信息描述(选填)" class="desc-textarea" value="{{goodsDesc}}" bindinput="shopDesc" />
+			</view>
+
+		<view class="page-buttoon" bindtap="saveShop">
+			<button class="button-block" form-type="submit" role="button">保存</button>
+		</view>
+		<view class="end"></view>
+	</view>
+
+	<PagePanel id="remarkPanel" bottom="0" zindex="200" type="window">
+		<view class="panel-remark">
+			<view class="panel-remark-cont">
+				<textarea maxlength="6" value='{{remarkVal}}' placeholder='请输入新建分类标签' bindinput="getRemarkVal" />
+				</view>
+      <view class="f-c-c page-button">
+        <view class="button-small" bindtap="toggleRemark">确定</view>
+      </view>
+    </view>
+  </PagePanel>
+
+	<cover-view class="bottom-handle flx-btw p3" wx:if="{{goodsId}}" style="height: {{isPX? '84px': '60px'}}">
+		<cover-view class="down-shop" catchtap="invalidShop" data-status="{{goods.goodsStatus}}">{{goods.goodsStatus == 1? '上架商品': '下架商品'}}</cover-view>
+		<cover-view class="del-shop" catchtap="delShop">删除商品</cover-view>
+	</cover-view>
+</view>

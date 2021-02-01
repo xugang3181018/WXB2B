@@ -1,0 +1,74 @@
+/* pages/pos/discountsGoodsList/discountsGoodsList.wxss */
+@import "../../../iconfont.wxss";
+.search-box{
+  background:#00cc99;
+  padding:32rpx 30rpx;
+}
+.search-content-box{
+  height:56rpx;
+  background:#fff;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.search-icon{
+  margin:20rpx;
+}
+.search-text{
+  font-size:28rpx;
+  color:#101010;
+  flex:1;
+}
+.input-placeholder{
+  font-size:24rpx;
+  color:#9a9a9a;
+}
+.saoma-icon{
+  /* margin:20rpx 10rpx; */
+  padding-top:12rpx;
+  color:#00cc99;
+  font-size:50rpx;
+}
+
+.list-content-box{
+  height:160rpx;
+  background:#fff;
+  padding:0 20rpx;
+  display: flex;
+  border-radius: 10rpx;
+  align-items: center;
+  margin-top:30rpx;
+}
+.list-content-detail{
+  flex:1;
+}
+.content-box{
+  font-size:24rpx;
+  line-height:44rpx;
+}
+.content-title{
+  color:#9a9a9a;
+  margin-right:20rpx;
+}
+.content-text{
+  color:#101010;
+}
+.goods-num{
+  width:180rpx;
+  display: flex;
+}
+.goods-num .num-btn{
+  width:40rpx;
+  height:40rpx;
+  border:1px solid #00cc99;
+  border-radius: 40rpx;
+  text-align:center;
+  line-height:38rpx;
+  font-size:40rpx;
+  color:#00cc99;
+}
+
+.input_control{
+  flex: 1;
+  text-align: center;
+}

@@ -1,0 +1,39 @@
+/* pages/retail/cancel/cancel.wxss */
+@import '../../../iconfont.wxss';
+page{
+  background:#fff;
+  color:#999;
+  font-size:28rpx;
+  color:#101010; 
+}
+.cancel-status{
+  height:260rpx;
+  text-align: center;
+  font-weight:600;
+  font-size:32rpx;
+}
+.cancel-status .iconfont{
+  font-size:100rpx;
+  padding-top:60rpx;
+  padding-bottom:20rpx;
+  color: #00cc99;
+} 
+.detail-content{
+  display: flex;
+  padding:20rpx 0;
+}
+.detail-content-name{
+  width:160rpx;
+  color:#999;
+}
+.detail-content-text{
+  flex: 1;
+  text-align: right;
+}
+.submit-btn{
+  position: fixed;
+  width:692rpx;
+  height:120rpx;
+  background:#fff;
+  bottom:0;
+}

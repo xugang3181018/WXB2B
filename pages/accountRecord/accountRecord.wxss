@@ -1,0 +1,104 @@
+/* pages/accountRecord/accountRecord.wxss */
+
+.lists-title {
+  display: flex;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #736f6f;
+  font-size: 14px;
+}
+
+.lists-title>text {
+  flex: 1;
+}
+
+.date {
+  padding: 30rpx 40rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 25rpx;
+  background: #eee;
+  color: #444;
+  position: relative;
+  z-index: 20;
+}
+
+.date>text {
+  color: #000;
+  margin: 0 10rpx;
+}
+
+.date>text:last-child::after {
+  content: '';
+  display: inline-block;
+  width: 15rpx;
+  height: 15rpx;
+  border: 2px solid #ccc;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(135deg) scale(0.8) translateY(5rpx);
+  margin-left: 10rpx;
+}
+
+.calendarImg {
+  width: 40rpx;
+  height: 40rpx;
+  /* margin-right:10rpx; */
+}
+
+.date-es {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff9800;
+}
+
+.color1 {
+  color: #01bb9c;
+}
+
+.color2 {
+  color: #e51c23;
+}
+
+.date-es::after {
+  content: '';
+  display: block;
+  width: 15rpx;
+  height: 15rpx;
+  border: 2px solid #ccc;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(45deg) scale(0.8);
+  margin-left: 10rpx;
+}
+
+.card-item {
+  height: 88rpx;
+  display: flex;
+  line-height: 88rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.card-item:last-of-type {
+  border: none;
+}
+
+.card-item>view {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.hint {
+  margin: 30rpx;
+  font-size: 24rpx;
+  color: #736f6f;
+}
+
+.hint>text:first-of-type {
+  color: #e51c23;
+}

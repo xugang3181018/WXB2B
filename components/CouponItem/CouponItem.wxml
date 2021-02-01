@@ -1,0 +1,27 @@
+<view class='couponlist' wx:if="{{coupon && coupon.length>0}}">
+  <view wx:for="{{coupon}}" bindtap='detail' data-index="{{index}}" class='coupon-item {{item.checked ? "active" : ""}}' wx:key="couponList" wx:if="{{item.couponStatus == 1 || all}}" data-type="{{item.cardTemplate.type}}" hover-class='touch'>
+    <view class='coupon-num' style='background:{{item.cardTemplate.color}}'>
+      <!-- style='background:{{item.cardTemplate.color}}' -->
+      <!-- <image class="coupon-num-img"  mode="aspectFill" wx:if="{{item.cardTemplate.bgImg}}" src="{{item.cardTemplate.bgImg}}" /> -->
+      <view wx:if="{{item.cardTemplate.type == 0 || item.cardTemplate.type == 9  ||  item.cardTemplate.type == 5 ||  item.cardTemplate.type == -1 ||  item.cardTemplate.type == 8}}">
+        <text>¥</text> {{item.cardTemplate.specialPrice || item.cardTemplate.reduceCost}} </view>
+      <view wx:elif="{{item.cardTemplate.type == 1 || item.cardTemplate.type == 7  }}">{{item.cardTemplate.discount}}<text>折</text></view>
+      <view wx:elif="{{item.cardTemplate.type == 2}}" class='ico icon-gift' />
+      <view class='coupon-least' wx:if="{{item.cardTemplate.leastCost>0}}">满{{item.cardTemplate.leastCost>0 ? item.cardTemplate.leastCost : ""}}元可用</view>
+    </view>
+    <view class='coupon-content'>
+      <view>
+        <view class='coupon-title'>{{item.cardTemplate.title}}</view>
+        <view class='coupon-type'>{{couponType[item.cardTemplate.type]}}</view>
+      </view>
+      <view class='coupon-date'>有效期至 {{item.endDate}} {{item.status}}</view>
+      <view class="" wx:if="{{item.status===1}}">已失效</view>
+    </view>
+    <slot />
+    <!-- <view wx:if="{{item.checked}}" class='ico icon-checked'></view>
+		<view wx:else class='ico disable icon-check '></view> -->
+  </view>
+</view>
+<view wx:else class="empty-inner">
+  <Empty icon="icon-ecoupon" msg="没有优惠卡券" />
+</view>

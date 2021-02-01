@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "看板",
+  "usingComponents": {
+    "Calendar": "../../../components/Calendar/Calendar"
+  }
+}

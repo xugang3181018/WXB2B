@@ -1,0 +1,2 @@
+/* pages/retail/comeStock/comeStockList/coneStockList.wxss */
+@import '../../stock/stockList/stockList.wxss'

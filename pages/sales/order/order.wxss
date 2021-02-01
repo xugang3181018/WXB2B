@@ -1,0 +1,84 @@
+.item image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 90px;
+  margin-right: 20rpx;
+}
+
+.item {
+  background: #fff;
+  padding: 30rpx;
+	margin:30rpx;
+}
+
+.item-amt {
+  font-size: 22rpx;
+  text-align: right;
+  color: #999;
+}
+
+.item-amt text {
+  font-size: 30rpx;
+  color: #ff6655;
+  font-weight: 600;
+  display: block;
+  margin-top:10rpx;
+}
+
+.item-info {
+  font-size: 24rpx;
+  color:#999;
+}
+
+.item-info text{
+  margin-left:10rpx;
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 28rpx;
+  margin-bottom:10rpx;
+  color:#444;
+}
+
+.order-col {
+  flex-wrap: wrap;
+  display: flex;
+	margin:30rpx;
+	font-size:24rpx;
+	color:#999;
+	padding:0 30rpx;
+	background: #fff;
+}
+.order-col .ico{
+  font-size:44rpx;
+  margin-right:20rpx;
+}
+.order-col>view.ml{
+	padding-left: 0;
+}
+.order-date{
+	font-size:24rpx;
+	padding:30rpx 30rpx 0;
+	color: #999;
+}
+.order-col>view {
+  padding: 30rpx;
+  width: 50%;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.order-col text {
+  font-weight: 600;
+  font-size: 30rpx;
+  display: block;
+	color: #444;
+}
+.emptys{
+	position: relative;
+	margin-top:30%;
+}

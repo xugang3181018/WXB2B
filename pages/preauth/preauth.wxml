@@ -1,0 +1,33 @@
+<Contents loading="{{loading}}">
+    <block wx:if="{{bill.orderDetails.length>0 && bill.orderDetails}}">
+        <Tab list="{{['预授权请求','预授权撤销','预授权完成']}}" bind:change="swtichTab" />
+        <view wx:for="{{bill.orderDetails}}" wx:key="preauthlist" class='p bline' bindtap='toDetail' data-id="{{item.outTradeNo}}">
+            <view class='p-type'>
+                <block wx:if="{{item.payType == 'ALIPAY'}}">
+                    <view class='ico alipay icon-alipay'></view>
+                </block>
+                <block wx:elif="{{item.payType == 'WXPAY'}}">
+                    <view class='ico weixin icon-weixin'></view>
+                </block>
+                <block wx:elif="{{item.payType == 'MPAY'}}">
+                    <view class='ico vip icon-vip'></view>
+                </block>
+                <!-- <view>{{payType[item.payType]}}</view> -->
+            </view>
+            <view class='p-cont'>
+            <view class='p-name'>{{item.merchantName}}</view>
+            <!-- <view>收银员:{{item.operatorName}}</view> -->
+             <view>{{item.payTime}}</view>
+            </view>
+            <view class='p-bar'>
+                <view class='p-amt'>¥{{item.receiptAmount}}</view>
+                <view class='p-status'>
+                    {{orderStatus[item.orderStatus]}}
+                </view>
+            <!-- <view class=''>{{item.preAuthRelationOrderNo}}</view> -->
+            </view>
+        </view>
+        <view class='preauth-info'> <view class='icon-warn'></view> *预授权是指持卡人在<text>宾馆、酒店或出租公司</text>消费，消费与结算不在同一时间完成，特约 单位通过POS预先向发卡机构索要授权的行为。</view>
+    </block>
+    <Empty wx:else icon="icon-order" />
+</Contents>
