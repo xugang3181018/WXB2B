@@ -1,0 +1,38 @@
+.pages{
+}
+
+
+.settlement_box{
+  text-align:center;
+}
+
+.time_img{
+  width:16px;
+  height:16px;
+  vertical-align:top;
+  margin-right:6px;
+}
+
+.settlementContent{
+  font-size:12px;
+}
+
+.btn{
+  display:flex;
+  justify-content: space-around;
+}
+
+.btn_L{
+  width:300px;
+  height:35px;
+  border:1px solid #108ee9;
+  border-radius:6px;
+  text-align: center;
+  line-height:35px;
+  color:#108ee9;
+}
+
+.btn_R{
+  background:#108ee9;
+  color:#fff;
+}

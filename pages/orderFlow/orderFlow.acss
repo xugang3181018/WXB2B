@@ -1,0 +1,154 @@
+.nav_box{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  margin:auto;
+  padding:0 10px;
+  background:#fff;
+}
+
+.nav_interval{
+  padding-bottom:10px;
+  background:#fff;
+}
+
+.sum_box{
+  background:#108ee9;
+  border-radius:6px;
+  padding:0 10px;
+  color:#fff;
+}
+
+.calendar_time{
+  height:40px;
+  line-height:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrows_images{
+  width:13px;
+  height:13px;
+  margin-left:6px;
+}
+
+.money_box1{
+  height:70px;
+  line-height:30px;
+  display:flex;
+  justify-content: space-between;
+}
+
+.money_box2{
+  height:40px;
+  line-height:40px;
+  border-top:1px solid #fff;
+}
+
+.pay{
+  margin-top:20px;
+  border-top:1px solid #eee;
+  height:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrows_img{
+  width:20px;
+  height:20px;
+}
+
+.box1_content{
+  font-size:22px;
+}
+
+.list_detail{
+padding-top:280px;
+}
+
+.list_detail1{
+  margin-top:240px
+}
+
+.order_list{
+  padding:10px 0px;
+  margin:0 10px;
+  display:flex;
+  border-bottom:1px solid #eee;
+}
+
+.order_list:first-of-type {
+  border-top:1px solid #eee;
+}
+
+.order_img{
+  width:20px;
+  height:20px;
+  margin-right:4px;
+}
+
+.pay_way{
+  flex:1;
+  line-height:20px;
+}
+
+.pay_money{
+text-align:right;
+line-height:20px;
+}
+
+.outTradeNo{
+  font-size:12px;
+}
+
+.pay_type{
+  color:#439057;
+  font-size:12px;
+}
+
+.pay_type1{
+  color:rgb(235, 124, 124);
+   font-size:12px;
+}
+
+.my-picker {
+  background: #EFEFF4;
+}
+
+.box_size{
+  width:80%;
+  height:55%;
+  background:#fff;
+  border-radius:6px;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+
+.select{
+  border-bottom:1px solid #eee;
+  padding:10px;
+  text-align:center;
+}
+
+.btn{
+  text-align: center;
+  padding-top:10px;
+  display:flex;
+  justify-content:space-around;
+  color:#108ee9;
+  border-top:1px solid #eee;
+}
+
+.pages{
+  background:rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  z-index: 99999;
+}

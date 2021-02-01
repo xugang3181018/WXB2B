@@ -1,0 +1,8 @@
+{
+    "defaultTitle": "订单退款",
+    "titlePenetrate": "YES",
+    "barButtonTheme": "default",
+     "usingComponents":{
+    "modal": "mini-antui/es/modal/index"
+  }
+}

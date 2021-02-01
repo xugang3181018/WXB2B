@@ -1,0 +1,36 @@
+.time_quantum{
+  border-bottom:1px solid #eee;
+  padding-bottom:20px;
+  line-height:26px;
+}
+.time{
+  display:flex;
+  justify-content: space-between;
+}
+.total_box{
+  margin-top:20px;
+}
+.total_money{
+  height:50px;
+  line-height:60px;
+  display:flex;
+  justify-content: space-between;
+}
+.box_recore_content{
+  display:flex;
+  height:30px;
+  line-height:30px;
+}
+.money_img{
+  width:15px;
+  height:15px;
+  margin-right:6px;
+}
+.text_content{
+  flex: 1;
+}
+
+.text_content2{
+  color:red;
+}
+

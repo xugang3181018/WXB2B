@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "订单详情",
+  "titlePenetrate": "YES",
+  "barButtonTheme": "default",
+  "usingComponents":{
+    "content":"/components/content/content"
+  }
+}

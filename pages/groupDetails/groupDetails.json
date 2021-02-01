@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "汇总详情",
+  "titlePenetrate": "YES",
+  "barButtonTheme": "default",
+  "usingComponents": {
+    "payment-details": "/components/paymentDetails/paymentDetails",
+    "pay-total": "/components/payTotal/payTotal"
+  }
+}

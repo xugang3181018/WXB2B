@@ -1,0 +1,29 @@
+<!-- <view class="classPaying_f">
+  <view><image class="classhome" src="../../images/home.jpg"></view>
+</view> -->
+<view
+  class="poster_page"
+  style="width:100%; height:100vh; display:flex; flex-direction:column">
+  <view
+    class="poster_container"
+    style="width:100%; height:100vh;">
+ 
+    <!-- 电子海报组件，用于展示投放成功的电子海报 -->
+    <poster
+        class="my_poster"
+        id="my_poster_id"
+        posid="{{posid}}" audible="{{audible}}"
+        style="width:100%; height:100vh;"
+        onSuccess="onDisplaySuccess" onFail="onDisplayFail" onChange="onPosterChange"/>
+ 
+    <!-- 默认本地海报，用于兜底展示 -->
+    <view
+      a:if="{{show_default_poster}}">
+      <image
+        class="default_poster"
+        src="{{default_poster}}"
+        mode="aspectFill"
+        style="width:100%; height:100vh; position:absolute; left:0; top:0"/>
+    </view>
+  </view>     
+</view>

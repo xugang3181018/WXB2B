@@ -1,0 +1,119 @@
+.setting_list{
+  display:flex;
+  flex-wrap: wrap;
+  margin-top:80px;
+}
+
+.setting_list_content{
+  width:33.3%;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.setting_img{
+  width:40px;
+  height:40px;
+  margin-bottom:10px;
+}
+
+.btn{
+  height:40px;
+  margin:auto;
+  text-align:center;
+  line-height:40px;
+}
+
+.copyright{
+  position:fixed;
+  width:100vw;
+  bottom:60px;
+  text-align:center;
+  color:#eee;
+  z-index:-1;
+}
+
+/* 弹窗样式 */
+.box_top{
+  width:80%;
+  height:80px;
+  border-radius:10px;
+  background:#fff;
+  margin:auto;
+}
+
+.box_btn1{
+  box-sizing:border-box;
+  border-bottom:1px solid #eee;
+  text-align:center;
+  line-height:40px;
+}
+
+.box_btn2{
+  border:none;
+}
+
+.box_bottom{
+  background:#fff;
+  width:80%;
+  border-radius:6px;
+  color:#108ee9;
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+ /* 定额弹窗 */
+ .popup_box{
+   width:100vw;
+   height:100vh;
+   background:rgba(0,0,0,0.4);
+   position:fixed;
+   top:0;
+ }
+
+ .content_box{
+   width:66%;
+   height:300rpx;
+   background:#fff;
+   border-radius: 10rpx;
+   position: absolute;
+   top:25%;
+   left:0;
+   right:0;
+   margin:auto;
+ }
+
+ .title{
+   font-size:36rpx;
+   font-weight: 600;
+   width:100%;
+   height:100rpx;
+   text-align: center;
+   line-height:100rpx;
+  margin-top:20rpx;
+ }
+
+ .btn_box{
+   width:100%;
+   height:100rpx;
+   border-top:1px solid #ccc;
+   position:absolute;
+   bottom: 0;
+ }
+
+ .inp{
+   margin-left:20rpx;
+ }
+
+ .btn_box .btn{
+   display: inline-block;
+   font-size:30rpx;
+   width:50%;
+   height:100%;
+    line-height:100rpx;
+ }
+
+ .btn_box .btn2{
+   box-sizing: border-box;
+   border-left:1px solid #ccc;
+   color: #108ee9;
+ }

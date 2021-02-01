@@ -1,0 +1,73 @@
+.pay_succeed_f{
+}
+
+.container{
+  width:100%;
+  height:60px;
+  /* background:#fff; */
+  font-size:20px;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+}
+
+.delete_img{
+  display:inline-block;
+  margin:10px;
+  width:20px;
+  height:20px;
+}
+
+.container .text_r{
+  float:left;
+  margin:12px 0 0 30px;
+  color:#8a8a8a;
+}
+
+.pay_succeed{
+  width:100%;
+  margin-top:100px;
+  text-align:center;
+}
+
+.pay_succeed .pay_succeed_img{
+  width:100px;
+  height:100px;
+  margin:0 auto;
+}
+
+.pay_succeed text{
+  display:block;
+  font-size:22px;
+  color:#40BA49;
+  margin-top:20px;
+}
+
+.pay_succeed_money{
+  margin-top:26px;
+  font-size:32px;
+  text-align:center;
+}
+
+.discounts_money{
+  margin: 20px 15%;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+}
+
+.discounts_money text{
+  display:inline-block;
+  margin:10px 0;
+  color:#000;
+}
+
+.discounts_money .text2{
+  float:right;
+}
+.pay_succeed .apliaycss{
+  color:#00A0E9 
+}
+.pay_succeed .membercss{
+  color:#FFC600
+}

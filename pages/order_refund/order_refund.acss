@@ -1,0 +1,53 @@
+.pages{
+    background:#eee;
+}
+
+.refund{
+    background:#fff;
+    padding:20px;
+}
+
+.refund_money{
+    height:80px;
+    font-size:26px;
+    line-height:80px;
+    display:flex;
+    align-items: center;
+}
+
+.input{
+    flex:1;
+}
+
+.empty_img{
+    width:20px;
+    height:20px;
+}
+
+.may_refund_money{
+    color:#ccc;
+}
+
+.remarks{
+    height:40px;
+    background:#fff;
+    display: flex;
+    padding:0 20px;
+    margin-top:20px;
+    align-items: center;
+}
+
+.btn{
+    width:90%;
+    border-radius:6px;
+    margin:30px auto;
+}
+
+.input_box{
+    display:flex;
+}
+
+.input_box{
+    border:1px solid #ccc;
+    margin:10px;
+}

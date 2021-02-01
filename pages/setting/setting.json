@@ -1,0 +1,7 @@
+{
+ "defaultTitle": "设置",
+  "barButtonTheme": "default",
+  "usingComponents": {
+    "popup": "mini-antui/es/popup/index"
+  }
+}

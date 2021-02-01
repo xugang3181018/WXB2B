@@ -1,0 +1,22 @@
+.box_recore{
+  padding:20px 0;
+  border-bottom:1px solid #eee;
+}
+
+.box_recore_content{
+  display:flex;
+  height:30px;
+  line-height:30px;
+}
+
+.print_btn{
+  width:60%;
+  height:40px;
+  background:#108ee9;
+  border-radius:6px;
+  text-align:center;
+  line-height:40px;
+  color:#fff;
+  position:relative;
+  margin:30px auto;
+}

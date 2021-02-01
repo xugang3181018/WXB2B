@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "订单流水",
+  "barButtonTheme": "default",
+  "usingComponents": {
+    "tabs": "mini-antui/es/tabs/index",
+    "tab-content": "mini-antui/es/tabs/tab-content/index",
+    "modal": "mini-antui/es/modal/index",
+     "time-selector":"/components/calender/calender"
+  }
+}

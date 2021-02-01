@@ -1,0 +1,12 @@
+<view class='page interval'>
+  <pay-total startTime="{{startTime}}" endTime="{{finishTime}}"  totalOrderAmt="{{details.totalOrderAmt}}" totalTradeAmt="{{details.totalTradeAmt}}" totalDiscountableAmt="{{details.totalDiscountableAmt}}" totalRefundAmt="{{details.totalRefundAmt}}">
+    <payment-details a:if="{{alipayOrderAmt !== 0}}" img='{{"../../images/alipay.png"}}' title="{{'支付宝'}}" tradeAmt="{{details.alipayTradeAmt}}" orderAmt="{{details.alipayOrderAmt}}" discountableAmt="{{details.alipayDiscountableAmt}}" refundAmt="{{details.alipayRefundAmt}}" />
+    <payment-details a:if="{{wechatOrderAmt !== 0}}" img='{{"../../images/wechat.png"}}' title="{{'微信'}}" tradeAmt="{{details.wechatTradeAmt}}" orderAmt="{{details.wechatOrderAmt}}" discountableAmt="{{details.wechatDiscountableAmt}}" refundAmt="{{details.wechatRefundAmt}}" />
+    <payment-details a:if="{{memberOrderAmt !== 0}}" img='{{"../../images/member.png"}}' title="{{'会员'}}" tradeAmt="{{details.memberTradeAmt}}" orderAmt="{{details.memberOrderAmt}}" discountableAmt="{{details.memberDiscountableAmt}}" refundAmt="{{details.memberRefundAmt}}" />
+    <payment-details a:if="{{posOrderAmt !== 0}}" img='{{"../../images/POS.png"}}' title="{{'POS'}}" tradeAmt="{{details.posTradeAmt}}" orderAmt="{{details.posOrderAmt}}" discountableAmt="{{details.posDiscountableAmt}}" refundAmt="{{details.posRefundAmt}}" />
+    <payment-details a:if="{{cashOrderAmt !== 0}}" img='{{"../../images/money.png"}}' title="{{'现金'}}" tradeAmt="{{details.cashTradeAmt}}" orderAmt="{{details.cashOrderAmt}}" discountableAmt="{{details.cashDiscountableAmt}}" refundAmt="{{details.cashRefundAmt}}" />
+  </pay-total>
+  <view class='print_btn' onTap="print">
+    <text>打印</text>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<view onTap="onShowTost">
+  <slot/>
+  <view a:if="{{calendarStatus}}" class="calendar_box page">
+    <view class="calendar">
+      <calendar type="range" haveYear="{{true}}" onSelect="handleSelect" onMonthChange="onMonthChange" onYearChange="onYearChange"/>
+      <view class="btn">
+        <text onTap="onCancel">取消</text>
+        <text onTap="onAffirm">确认</text>
+      </view>
+    </view>
+  </view>
+</view>

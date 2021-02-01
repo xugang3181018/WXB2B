@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "交班结算",
+  "barButtonTheme": "default",
+  "usingComponents":{
+    "payment-details": "/components/paymentDetails/paymentDetails",
+    "time-selector":"/components/calender/calender"
+  }
+}

@@ -1,0 +1,20 @@
+<view class='pages'>
+  <view class='cashierName'>
+    <view>
+      <text>结算店员:</text>
+      <text class='cashierName_content'>{{details.cashierName}}</text>
+    </view>
+    <view>
+      <image class='printer_img' src="../../images/printer.png"/>
+      <text class='printer_content'>打印</text>
+    </view>
+  </view>
+  <pay-total startTime="{{details.signInTime}}" endTime="{{details.signOutTime}}" totalOrderAmt="{{total.totalOrderAmt}}" totalTradeAmt="{{total.totalTradeAmt}}" totalDiscountableAmt="{{total.totalDiscountableAmt}}" totalRefundAmt="{{total.totalRefundAmt}}">
+    <payment-details a:if="{{details.alipayOrderAmt !== 0}}" img='{{"../../images/alipay.png"}}' title="{{'支付宝'}}" tradeAmt="{{details.alipayTradeAmt}}" orderAmt="{{details.alipayOrderAmt}}" discountableAmt="{{details.alipayDiscountableAmt}}" refundAmt="{{details.alipayRefundAmt}}" />
+    <payment-details a:if="{{details.wechatOrderAmt !== 0}}" img='{{"../../images/wechat.png"}}' title="{{'微信'}}" tradeAmt="{{details.wechatTradeAmt}}" orderAmt="{{details.wechatOrderAmt}}" discountableAmt="{{details.wechatDiscountableAmt}}" refundAmt="{{details.wechatRefundAmt}}" />
+    <payment-details a:if="{{details.memberOrderAmt !== 0}}" img='{{"../../images/member.png"}}' title="{{'会员'}}" tradeAmt="{{details.memberTradeAmt}}" orderAmt="{{details.memberOrderAmt}}" discountableAmt="{{details.memberDiscountableAmt}}" refundAmt="{{details.memberRefundAmt}}" />
+  </pay-total>
+  <view class='print_btn' onTap="print">
+    <text>打印</text>
+  </view>
+</view>

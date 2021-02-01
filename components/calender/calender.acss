@@ -1,0 +1,31 @@
+.calendar_box{
+  background:rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  margin:auto;
+  z-index:9999
+}
+
+.calendar{
+  height:80%;
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  margin:auto;
+}
+
+.btn{
+  height:50px;
+  line-height:50px;
+  font-size:22px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-around;
+  color:#108ee9 ;
+  background:#fff;
+}

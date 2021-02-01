@@ -1,0 +1,76 @@
+<view class='interval'>
+  <view class='setting_list'>
+    <view class='setting_list_content nav-touch' onTap="onButtomBtnTap">
+      <image class='setting_img' src="../../images/deal_detail.png"/>
+      <view>
+        <text>交班结算</text>
+      </view>
+    </view>
+    <view class='setting_list_content nav-touch' onTap="onCollect">
+      <image class='setting_img' src="../../images/collect.png"/>
+      <view>
+        <text>汇总查询</text>
+      </view>
+    </view>
+    <view class='setting_list_content nav-touch' onTap="onShiftRecords">
+      <image class='setting_img' src="../../images/shiftRecords.png"/>
+      <view>
+        <text>订单流水</text>
+      </view>
+    </view>
+    <view class='setting_list_content nav-touch' onTap="onSettingMoney">
+      <image class='setting_img' src="../../images/quota.png"/>
+      <view>
+        <text>设置定额</text>
+      </view>
+    </view>
+    <view class='setting_list_content nav-touch' onTap="onCancel">
+      <image class='setting_img' src="../../images/cancel.png"/>
+      <view>
+        <text>取消定额</text>
+      </view>
+    </view>
+    <view class='setting_list_content nav-touch' onTap="onSetting">
+      <image class='setting_img' src="../../images/setting.png"/>
+      <view>
+        <text>设置</text>
+      </view>
+    </view>
+    <view class='setting_list_content nav-touch' onTap="onMember">
+      <image class='setting_img' src="../../images/quit.png"/>
+      <view>
+        <text>退出登录</text>
+      </view>
+    </view>
+  </view>
+</view>
+<popup show="{{showBottom}}" position="bottom">
+  <view class='box_top'>
+    <view class='box_btn1 btn' onTap='onBalance'>
+      <text>交班结算</text>
+    </view>
+    <view class='box_btn2 btn' onTap="onRecord">
+      <text>结算记录</text>
+    </view>
+  </view>
+  <view class='box_bottom btn' onTap="onPopupClose">
+    <text>取消</text>
+  </view>
+</popup>
+<view class='copyright'>
+  <text>小精灵提供技术支持</text>
+</view>
+
+
+<view class="popup_box" a:if="{{quotaPopup}}">
+  <view class="content_box">
+    <view class="title">
+      设置定额
+    </view>
+    <input class="inp" focus type="digit" onInput="handleMoney" value="{{money}}" onFocus="onFocus" placeholder="请输入金额"/>
+    <view class="btn_box">
+      <text class="btn" onTap="cancel">取消</text>
+      <text class="btn btn2" onTap="confirm">确定</text>
+    </view>
+  </view>
+</view>

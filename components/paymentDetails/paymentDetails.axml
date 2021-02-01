@@ -1,0 +1,22 @@
+<view>
+  <view class='connect_class_content_detail {{type ? "amend_style" : ""}}' a:if="{{details.alipayTradeAmt !== 0}}">
+    <view class='connect_class_detail'>
+      <image class='icon_img' src="{{img}}"/>
+      <text class='connect_class_detail_title'>{{title}}</text>
+      <text>实收小计：</text>
+      <text>￥{{tradeAmt || 0}}</text>
+    </view>
+    <view class='connect_class_detail'>
+      <text class='connect_class_detail_title'>收款</text>
+      <text>￥{{orderAmt || 0}}</text>
+    </view>
+    <view class='connect_class_detail'>
+      <text class='connect_class_detail_title'>优惠</text>
+      <text>￥{{discountableAmt || 0}}</text>
+    </view>
+    <view class='connect_class_detail text_content2'>
+      <text class='connect_class_detail_title'>退款</text>
+      <text>￥{{refundAmt || 0}}</text>
+    </view>
+  </view>
+</view>

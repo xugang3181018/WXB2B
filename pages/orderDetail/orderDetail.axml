@@ -1,0 +1,37 @@
+<view class='pages page'>
+  <view a:if="{{index == '0'}}">
+    <content title="{{'订单金额'}}" content="{{datas.totalAmount}}" unit="{{'元'}}" />
+    <content title="{{'实收金额'}}" content="{{datas.receiptAmount}}" unit="{{'元'}}" />
+    <content title="{{'优惠金额'}}" content="{{datas.discountAmount}}" unit="{{'元'}}"/>
+    <content a:if="{{datas.refundAmount}}" title="{{'退款金额'}}" content="{{datas.refundAmount}}" unit="{{'元'}}"/>
+    <content title="{{'订单编号'}}" content="{{datas.outTradeNo}}" />
+    <content title="{{'下单时间'}}" content="{{createTime}}" />
+    <content title="{{'支付时间'}}" content="{{payTime}}" />
+    <content title="{{'付款渠道'}}" content="{{type[payType]}}" />
+    <content title="{{'支付状态'}}" content="{{status[orderStatus]}}" />
+  </view>
+  <view a:else>
+    <content title="{{'操作人员'}}" content="{{operatorName}}" />
+    <content title="{{'退款金额'}}" content="{{refundAmount}}" unit="{{'元'}}"/>
+    <content title="{{'退款手续费'}}" content="{{refundFee}}" unit="{{'元'}}"/>
+    <content title="{{'订单编号'}}" content="{{outTradeNo}}" />
+    <content title="{{'退款编号'}}" content="{{refundNo}}" />
+    <content title="{{'退款时间'}}" content="{{refundTime}}" />
+    <content title="{{'退款状态'}}" content="{{refundType[refundsStatus]}}" />
+    <view class='refund_cause' a:if="{{refundReason}}">
+      <view class='refund_title'>退款原因</view>
+      <view class='refund_content'>{{refundReason}}</view>
+    </view>
+  </view>
+  <view a:if="{{index == '0' && datas.receiptAmount>0}}" class="btn-box">
+    <view class='refund_box print-btn' onTap='onPrintOrder'>
+      <text>打印订单</text>
+    </view>
+    <view class='refund_box' onTap='onOrderRefund'>
+      <text>订单退款</text>
+    </view>
+  </view>
+    <view a:else class='print' onTap='onPrintOrder'>
+    <text>打印订单</text>
+  </view>
+</view>

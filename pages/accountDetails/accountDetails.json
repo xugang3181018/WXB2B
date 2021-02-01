@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "结算详情",
+  "barButtonTheme": "default",
+  "usingComponents": {
+    "payment-details": "/components/paymentDetails/paymentDetails",
+    "pay-total": "/components/payTotal/payTotal"
+  }
+}

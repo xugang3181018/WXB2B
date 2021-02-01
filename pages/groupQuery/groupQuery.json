@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "汇总查询",
+  "titlePenetrate": "YES",
+  "barButtonTheme": "default",
+  "usingComponents": {
+    "time-selector":"/components/calender/calender"
+  }
+}

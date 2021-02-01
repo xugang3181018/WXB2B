@@ -1,0 +1,34 @@
+<view class="classpay">
+  <view class="payTitle"></view>
+  <view class="head_portrait_f">
+    <view class="head_portrait">
+      <image class="head_portrait_img" src="{{headImgUrl}}"/>
+    </view>
+    <text>{{nickName ? nickName :"昵称"}}</text>
+    <view class="member_grade">
+      <text>{{levelName ? levelName :"会员"}}</text>
+    </view>
+  </view>
+  <view class="member_details_f">
+    <view class="member_details">
+      <text>余额</text>
+      <text>{{totalBalance ? totalBalance :'0'}}</text>
+    </view>
+    <view class="member_details">
+      <text>优惠卷</text>
+      <text>{{couponCount ? couponCount :'0'}}张</text>
+    </view>
+    <view class="member_details">
+      <text>积分</text>
+      <text>{{point ? point :"0"}}</text>
+    </view>
+  </view>
+  <view class="pay_money">
+    <text>请支付</text>
+    <text class="text1">￥{{totalAmount ? totalAmount :'0.00'}}</text>
+  </view>
+  <view class="balance" onTap="balance">
+    <!-- <text>立即支付</text> -->
+    <button size="default" type="primary">立即支付</button>
+  </view>
+</view>

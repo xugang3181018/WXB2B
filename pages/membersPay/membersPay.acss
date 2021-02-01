@@ -1,0 +1,95 @@
+.classpay{
+  width:100%;
+  height:640px;
+}
+.payDetails{
+  width:300px;
+  height:400px;
+  margin:80px auto 0;
+  border-radius: 6px;
+}
+.payTitle{
+  width:100%;
+  height:80px;
+}
+.head_portrait_f{
+  width:100%;
+  margin:auto;
+}
+.head_portrait{
+  width:60px;
+  height:60px;
+  margin:0 auto;
+}
+.head_portrait_img{
+  width:100%;
+  height:100%;
+  border-radius: 50%;
+}
+
+.head_portrait_f text{
+  display:block;
+  text-align:center;
+  margin:12px 0 6px;;
+}
+
+.member_grade{
+  width:80px;
+  background:#000;
+  border-radius: 4px;
+  margin:0 auto 40px;
+}
+
+.member_grade text{
+  text-align: center;
+  color:#fff;
+  line-height:26px;
+}
+
+.member_details_f{
+  /* margin-top:40px; */
+  width:100%;
+}
+
+.member_details{
+  display:inline-block;
+  width:33%;
+  font-size:22px;
+  color:#000;
+  text-align:center;
+}
+
+.member_details text:nth-child(1){
+  display:block;
+  line-height:40px;        
+}
+
+.pay_money{
+  margin:40px 12%;
+  height:60px;
+  overflow: hidden;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc
+}
+
+.pay_money .text1{
+  float: right;
+  font-size:32px;
+  color:#000;
+}
+
+.pay_money text{
+  line-height:60px;
+  margin:0 10px;
+}
+
+.balance{
+  width:260px;
+  height:40px;
+  border-radius: 4px;
+  margin:80px auto 0;
+  text-align: center;
+  background:blue;
+  line-height:40PX;
+  COLOR:#FFF;
+}

@@ -1,0 +1,49 @@
+<view>
+  <image class="classlogin" src="../../images/login.png">
+    </view>
+    <view class="classtitle">
+      <text>小精灵人脸支付</text>
+    </view>
+    <view class="classform_f">
+      <form class="classform" onSubmit="onSubmit" onReset="onReset">
+        <view class="form-row">
+          <text>账号</text>
+          <view class="form-row-content">
+            <input class="input" name="userName" onInput="nameInput" value="{{userName}}" type="text" placeholder="商户门店账号" confirm-hold="true"/>
+          </view>
+          <text class="psw">密码</text>
+          <view class="form-row-content">
+            <input class="input" name="passWord" onInput="pasInput" value="{{passWord}}" password type="text" confirm-type="send" placeholder="门店密码" confirm-hold="true"/>
+          </view>
+          <view class="showHden_f">
+            <view a:if="{{rememb}}" class="showHden" onTap="onRemember">
+              <image class="showHden" src="../../images/unchecked.png">
+            </view>
+            <view a:else class="showHden" onTap="onRemember">
+              <image class= "showHden" src="../../images/selected.png">
+            </view>
+            <text class="checkbox_m">记住密码</text>
+            <button class="ghost" type="ghost" formType="reset">重置</button>
+          </view>
+          <view class="cashier">
+            <radio-group class="radio-group" onChange="radioChange" name="lib">
+              <label class="radio_l">
+                <radio class="radio" value="独立收银"/>
+                <text class="radio-text">独立收银</text>
+              </label>
+              <label class="radio_r">
+                <radio class="radio" value="联动收银"/>
+                <text class="radio-text">联动收银</text>
+              </label>
+            </radio-group>
+          </view>
+          <view>
+            <button class="page-section-btns" type="primary" formType="submit">登录</button>
+          </view>
+        </view>
+      </form>
+      <view class="copyright_f">
+        <text class="copyright">版权所属</text>
+        <text>小精灵支付</text>
+      </view>
+    </view>

@@ -1,0 +1,108 @@
+<view class='page'>
+  <view class='nav_box'>
+    <tabs tabs="{{tabs}}" onTabClick="handleTabClick" activeTab="{{activeTab}}" swipeable="{{false}}" className="nav_interval">
+    </tabs>
+    <view class='sum_box'>
+      <time-selector onTimeSelrctor="onTimeSelrctor">
+        <view>
+          <view class='calendar_time' onTap="onCalendarStatus">
+            <text a:if="{{signInTime}}">{{signInTime}} — {{signOutTime}}</text>
+            <text a:else>请重新选择该日期</text>
+            <image class="arrows_images" src="../../images/arrows.png"/>
+          </view>
+        </view>
+      <time-selector/>
+        <view class='money_box1' a:if="{{activeTab === 0}}">
+          <view>
+            <view>
+              <text>实收金额</text>
+            </view>
+            <view>
+              <text class='box1_content'>{{data.totalTradeAmt || 0}}元</text>
+            </view>
+          </view>
+          <view>
+            <view>
+              <text>成功笔数</text>
+            </view>
+            <view>
+              <text class='box1_content'>{{data.totalTradeCnt|| 0}}笔</text>
+            </view>
+          </view>
+        </view>
+        <view class='money_box1' a:else>
+          <view>
+            <view>
+              <text>退款金额</text>
+            </view>
+            <view>
+              <text class='box1_content'>{{data.totalRefundAmt || 0}}元</text>
+            </view>
+          </view>
+          <view>
+            <view>
+              <text>退款笔数</text>
+            </view>
+            <view>
+              <text class='box1_content'>{{data.totalRefundCnt || 0}}笔</text>
+            </view>
+          </view>
+        </view>
+        <view class='money_box2' a:if="{{activeTab === 0}}">
+          <text>总金额:</text>
+          <text>{{data.totalOrderAmt || 0}}元</text>
+        </view>
+        </view>
+        <view class="pay" onTap="openModal">
+          <text class="pay_channel">支付方式：{{ditchContent[value]}}</text>
+          <image class="arrows_img" src="../../images/downArrows.png"/>
+        </view>
+        </view>
+        <view class="{{activeTab === 0?'list_detail':'list_detail1'}}" a:if="{{status}}">
+          <view a:for='{{list}}' class='order_list' data-data="{{item}}" a:if='{{item.refundType === 0 && activeTab === 0 || item.refundType === 1 && activeTab === 1}}' onTap="onOrderDetail">
+            <view>
+              <image a:if='{{item.payType == "WXPAY"}}' class='order_img' src="../../images/wechat.png"/>
+              <image a:elif='{{item.payType == "ALIPAY"}}' class='order_img' src="../../images/alipay.png"/>
+              <image a:elif='{{item.payType == "BANK"}}' class='order_img' src="../../images/POS.png"/>
+              <image a:elif='{{item.payType == "CASH"}}' class='order_img' src="../../images/money.png"/>
+              <image a:else class='order_img' src="../../images/member.png"/>
+            </view>
+            <view class='pay_way'>
+              <view>
+                <text>{{type[item.payType]}}</text>
+              </view>
+              <text class='outTradeNo'>订单号：{{item.outTradeNo}}</text>
+            </view>
+            <view class='pay_money'>
+              <view>
+                <text class="{{item.refundType === 1 && activeTab === 1 ? 'pay_type1' : ''}}">{{item.receiptAmount}}元</text>
+              </view>
+              <!--<text a:if='{{item.refundType === 1 && activeTab === 1}}' class="pay_type1">退款成功</text><text a:else class="pay_type">支付成功</text> -->
+            </view>
+          </view>
+        </view>
+        <view class='list_detail' a:else style="text-align:center">
+          <text>暂无订单信息</text>
+        </view>
+        </view>
+        <view class='page pages' a:if="{{modalOpened}}">
+          <view class=" box_size">
+            <view class="select">
+              <text>请选择支付通道</text>
+            </view>
+            <picker-view value="{{value}}" onChange="onChange" class="my-picker">
+              <picker-view-column>
+                <view>全部</view>
+                <view>支付宝</view>
+                <view>微信</view>
+                <view>会员</view>
+                <view>现金</view>
+                <view>POS</view>
+              </picker-view-column>
+            </picker-view>
+            <view class="btn">
+              <text onTap="onCancelBtn">取消</text>
+              <text onTap="onAffirmBtn">确认</text>
+            </view>
+          </view>
+        </view>

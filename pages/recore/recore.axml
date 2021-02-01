@@ -1,0 +1,30 @@
+<view class='pages'>
+  <view a:if='{{status}}'>
+    <view class='box_recore' a:for='{{list}}' onTap='onAccountDetails' data-item="{{item}}">
+      <view class='box_recore_content box_recore_top'>
+        <text class='text_content'>结算人员</text>
+        <text class='text_content_r'>{{item.cashierName}}</text>
+        <image class='arrows_img' src="../../images/arrows.png"/>
+      </view>
+      <view class='box_recore_bottom'>
+        <view class='box_recore_content'>
+          <text class='text_content'>结算开始时间</text>
+          <text>{{item.signInTime}}</text>
+        </view>
+        <view class='box_recore_content'>
+          <text class='text_content'>结算结束时间</text>
+          <text>{{item.signOutTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='without' a:else>
+    <text>暂无该时间段信息</text>
+    <text>{{signInTime}} —— {{signOutTime}}</text>
+  </view>
+</view>
+<time-selector onTimeSelrctor="onTimeSelrctor">
+  <view class="calendar_img">
+    <image class="calendar_img" src="../../images/calendar.png"/>
+  </view>
+<time-selector/>

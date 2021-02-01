@@ -1,0 +1,30 @@
+<view class='pages page'>
+  <view class='refund'>
+    <view class='refund_title'>
+      <text>退款金额</text>
+    </view>
+    <view class='refund_money'>
+      <text>￥</text>
+      <input class='input' onInput="bindHideKeyboard" placeholder="请输入退款金额" type='digit' />
+      <!-- <image class='empty_img' onTap='onEmptyMoney' src="../../images/empty.png"/> -->
+    </view>
+    <view class='may_refund_money'>
+      <text>可退金额{{receiptAmount}}元</text>
+    </view>
+  </view>
+  <view class='remarks'>
+    <text>备注:</text>
+    <input class="input" onBlur='handlerContent' placeholder="退款原因" />
+  </view>
+  <button class='btn' type="primary" onTap="onDialogBox">确认退款</button>
+  <modal show="{{modalOpened}}" onModalClick="onModalClick" onModalClose="onModalClose">
+    <view slot="header">账户密码验证</view>
+      <view>
+        <input class="input_box" name="userName" onInput="nameInput" value="{{userName}}" type="text" placeholder="登录账号" confirm-hold="true"/>
+      </view>
+      <view>
+        <input class="input_box" focus name="passWord" onInput="pasInput" value="{{passWord}}" password type="text" confirm-type="send" placeholder="登录密码" confirm-hold="true"/>
+      </view>
+    <view slot="footer">确定</view>
+  </modal>
+</view>

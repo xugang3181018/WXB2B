@@ -1,0 +1,17 @@
+<view>
+  <time-selector onTimeSelrctor="onTimeSelrctor">
+    <view class='box_recore_content box_recore_top' onTap="onCalendarStatus">
+      <text class='text_content'>开始时间:</text>
+      <text class='text_content_r'>{{startTime}}</text>
+      <image class='arrows_img' src="../../images/arrows.png"/>
+    </view>
+    <view class='box_recore_content box_recore_bottom' onTap="onCalendarStatus">
+      <text class='text_content'>结束时间:</text>
+      <text class='text_content_r'>{{finishTime}}</text>
+      <image class='arrows_img' src="../../images/arrows.png"/>
+    </view>
+    <time-selector/>
+    <view class='query_btn' catchTap="groupDetails">
+      <text>查询</text>
+    </view>
+    </view>

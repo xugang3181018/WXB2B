@@ -1,0 +1,84 @@
+.pay_succeed_f {
+  width: 400px;
+  height: 650px;
+  /* background:#fff; */
+  /* position: relative; */
+}
+
+.pay_password {
+  width: 100%;
+  margin-top: 80px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.pay_succeed {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pay_succeed .pay_succeed_img {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.pay_succeed text {
+  display: inline-block;
+  font-size: 22px;
+  color: #000;
+  margin-top: 20px;
+}
+
+.pay_succeed .apliaycss {
+  color: #00A0E9
+}
+
+.pay_succeed .membercss {
+  color: #FFC600
+}
+
+.pay_succeed .wxpaycss {
+  color: #40BA49
+}
+
+.loading {
+  position: fixed;
+  left: 0;
+  right:0;
+  top:0;
+  bottom:0;
+  width: 90px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  margin:auto;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.circle {
+  margin: 0 auto;
+  width: 30px;
+  height: 30px;
+  border: 2px white solid;
+  border-right-color: #0c80fe;
+  border-radius: 100%;
+  animation: loading1 1s infinite linear;
+}
+
+@keyframes loading1 {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.loadingContent{
+  display:inline-block;
+  margin:10px;
+  color: #fff;
+}

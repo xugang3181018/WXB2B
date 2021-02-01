@@ -1,0 +1,28 @@
+.pages{
+  padding:20px;
+}
+.cashierName{
+  display:flex;
+  justify-content: space-between;
+  line-height:50px;
+}
+.cashierName_content{
+  color:#dc5a14
+}
+.printer_img{
+  width:10px;
+  height:10px;
+}
+.printer_content{
+  color:#108ee9;
+}
+.print_btn{
+  width:60%;
+  height:40px;
+  background:#108ee9;
+  border-radius:6px;
+  text-align:center;
+  line-height:40px;
+  color:#fff;
+  margin:20px auto;
+}

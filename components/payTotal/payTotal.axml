@@ -1,0 +1,30 @@
+<view>
+  <view class='time_quantum'>
+    <view class='time'>
+      <text>开始时间</text>
+      <text>{{startTime}}</text>
+    </view>
+    <view class='time'>
+      <text>结束时间</text>
+      <text>{{endTime}}</text>
+    </view>
+  </view>
+  <slot/>
+  <view class="total_box">
+    <view class='total_money box_recore_content'>
+      <view>
+        <image class='money_img' src="../../images/money.png"/>
+        <text>订单总金额：</text>￥{{totalOrderAmt || 0}}
+      </view>
+      <text>实收总计：<text>￥{{totalTradeAmt || 0}}</text></text>
+    </view>
+    <view class='box_recore_content'>
+      <text class='text_content'>优惠总计：</text>
+      <text>￥{{totalDiscountableAmt || 0}}</text>
+    </view>
+    <view class='box_recore_content text_content2'>
+      <text class='text_content'>退款总计:</text>
+      <text>￥{{totalRefundAmt || 0}}</text>
+    </view>
+  </view>
+</view>

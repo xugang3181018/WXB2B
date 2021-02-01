@@ -1,0 +1,14 @@
+.box_recore_content{
+  display:flex;
+  padding:10px 20px;
+}
+
+.text_content{
+  flex: 1;
+}
+.text_content_r{
+   display: inline-block;
+  width:480rpx;
+  text-align: right;
+  word-wrap: break-word
+}

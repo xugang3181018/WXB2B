@@ -1,0 +1,24 @@
+.connect_class_content_detail{
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+.amend_style{
+  border:none;
+}
+
+.icon_img{
+  width:25px;
+  height:25px;
+  vertical-align:bottom;
+  margin-top:-5px;
+}
+
+.connect_class_detail{
+  display:flex;
+  padding:10px 0;
+}
+
+.connect_class_detail_title{
+  flex: 1;
+}

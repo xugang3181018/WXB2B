@@ -1,0 +1,61 @@
+.pages{
+  background:#eee;
+}
+
+.box_recore{
+  background:#fff;
+  margin-bottom:10px;
+}
+
+.box_recore_content{
+  display:flex;
+  padding:0 20px;
+}
+
+.text_content{
+  flex: 1;
+}
+
+.box_recore_top{
+  height:40px;
+  line-height:40px;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+}
+
+.box_recore_bottom{
+  padding:10px 0;
+  height:60px;
+  line-height:30px;
+}
+
+.arrows_img{
+  width:20px;
+  height:20px;
+  margin:auto;
+  margin-left:6px;
+}
+
+.text_content_r{
+  color:#108ee9
+}
+
+.without{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  line-height:30px;
+  text-align:center;
+  background:rgb(255, 255, 255);
+}
+
+.calendar_img{
+  width:30px;
+  height:30px;
+  background:#ccc;
+  border-radius: 50%;
+  position:fixed;
+  bottom:20px;
+  right:10px;
+  z-index: 9999;
+}

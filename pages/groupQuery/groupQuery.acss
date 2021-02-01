@@ -1,0 +1,37 @@
+.box_recore_content{
+  display:flex;
+  padding:0 20px;
+  height:40px;
+  line-height:40px;
+}
+
+.text_content{
+  flex: 1;
+}
+
+.arrows_img{
+  width:20px;
+  height:20px;
+  margin:auto;
+  margin-left:6px;
+}
+
+.box_recore_top{
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+}
+
+.box_recore_bottom{
+  border-bottom:1px solid #eee;
+}
+
+.query_btn{
+  width:90%;
+  height:40px;
+  margin:20px auto;
+  background:#108ee9;
+  color:#fff;
+  text-align:center;
+  line-height:40px;
+  border-radius:6px;
+}

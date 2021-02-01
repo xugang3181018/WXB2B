@@ -1,0 +1,32 @@
+<view class='pay_succeed_f page'>
+  <view class="container">
+    <text class="text_r">{{second}}S</text>
+  </view>
+  <view class="pay_succeed">
+    <view a:if="{{wxpay}}">
+      <view class='pay_succeed_img'>
+        <image class="pay_succeed_img" src="../../images/wechat.png">
+      </view>
+      <text>微信付款成功</text>
+      </view>
+    <view a:elif="{{alipay}}">
+      <view class='pay_succeed_img'>
+        <image class="pay_succeed_img" src="../../images/alipay.png">
+      </view>
+      <text class="apliaycss">支付宝付款成功</text>
+    </view>
+    <view a:else>
+      <view class='pay_succeed_img'>
+        <image class="pay_succeed_img" src="../../images/member.png">
+      </view>
+      <text class="membercss">余额付款成功</text>
+      </view>
+    </view>
+    <view class="pay_succeed_money">
+      <text>￥{{receiptAmount}}</text>
+    </view>
+    <view class="discounts_money">
+      <text>优惠金额</text>
+      <text class="text2">￥{{discountAmount}}</text>
+    </view>
+</view>

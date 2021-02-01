@@ -1,0 +1,35 @@
+<view class='pay_succeed_f'>
+  <view class="pay_password">
+    <text>请在手机端确认支付</text>
+  </view>
+    <view class="pay_succeed">
+    <view a:if="{{wxpay}}">
+      <view class='pay_succeed_img'>
+        <image class="pay_succeed_img" src="../../images/wechat.png">
+      </view>
+      <text class="wxpaycss">微信待付款</text>
+       <text> {{totalAmount}}</text>
+       <text class="wxpaycss">元</text>
+      </view>
+    <view a:elif="{{alipay}}">
+      <view class='pay_succeed_img'>
+        <image class="pay_succeed_img" src="../../images/alipay.png">
+      </view>
+      <text class="apliaycss">支付宝待付款</text>
+       <text> {{totalAmount}}</text>
+       <text class="apliaycss">元</text>
+    </view>
+    <view a:else>
+      <view class='pay_succeed_img'>
+        <image class="pay_succeed_img" src="../../images/member.png">
+      </view>
+      <text class="membercss">余额待付款</text>
+       <text> {{totalAmount}}</text>
+       <text class="membercss">元</text>
+      </view>
+    </view>
+    <view a:if="{{fail}}" class="loading">
+      <view class="circle"></view>
+      <text class="loadingContent">支付中...</text>
+    </view>
+</view>

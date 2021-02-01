@@ -1,0 +1,20 @@
+<view class='pages page interval'>
+  <view class="settlement_box">
+    <time-selector onTimeSelrctor="onTimeSelrctor">
+      <image class="time_img" src="../../images/time.png"/>
+      <text class="settlementContent">结算时间为</text>
+      <text class="settlementContent">{{startTime}} — {{settlementTime}}</text>
+      <time-selector/>
+      </view>
+      <view class='connect_class_content'>
+        <payment-details img='{{"../../images/alipay.png"}}' title="{{'支付宝'}}" tradeAmt="{{alipayTradeAmt}}" orderAmt="{{alipayOrderAmt}}" discountableAmt="{{alipayDiscountableAmt}}" refundAmt="{{alipayRefundAmt}}" />
+        <payment-details img='{{"../../images/wechat.png"}}' title="{{'微信'}}" tradeAmt="{{wechatTradeAmt}}" orderAmt="{{wechatOrderAmt}}" discountableAmt="{{wechatDiscountableAmt}}" refundAmt="{{wechatRefundAmt}}" />
+        <payment-details img='{{"../../images/member.png"}}' title="{{'会员'}}" tradeAmt="{{memberActualAmt}}" orderAmt="{{memberOrderAmt}}" discountableAmt="{{memberDiscountableAmt}}" refundAmt="{{memberRefundAmt}}" type="{{1}}" />
+        <view class='btn'>
+          <!--<view class='btn_L' onTap="onCancel"><text>取消</text></view> -->
+          <view class='btn_R btn_L' onTap="onSettlement">
+            <text>结算</text>
+          </view>
+        </view>
+      </view>
+      </view>
