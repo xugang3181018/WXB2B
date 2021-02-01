@@ -1,9 +1,0 @@
-/* components/shade-box/shade-box.wxss */
-
-.shade_box {
-  margin-top:20px;
-  background: #fffdfc;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px #ccc;
-  padding-top: 20px;
-}

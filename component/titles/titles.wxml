@@ -1,5 +1,0 @@
-<!--components/title/title.wxml-->
-<view class="title">
-  <text>{{title}}</text>
-  <view class="side"></view>
-</view>
