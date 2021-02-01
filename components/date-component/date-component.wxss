@@ -1,0 +1,83 @@
+.fillBox {
+  height: 150rpx;
+}
+.close-tip {
+  height: 90rpx;
+}
+.date-component {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  background-color: #5177BE;
+  z-index: 999;
+  color: #fff;
+}
+.date-component .date-tip {
+  height: 60rpx;
+  background: #36558E;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  font-size: 24rpx;
+  padding-left: 30rpx;
+}
+.date-component .date-tip .date-close {
+  padding: 18rpx;
+}
+.date-component .date-tip .date-tip-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-component .date-tip .date-tip-content {
+  line-height: 60rpx;
+  color: #fff;
+}
+.date-component .date-tip .sound, .date-component .date-tip .date-close {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 12rpx;
+}
+.date-component .date-picker {
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-component .date-picker .box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 520rpx;
+  height: 90rpx;
+}
+.date-component .date-picker .box .part {
+  width: 150rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-component .date-picker .nowDate {
+  flex-grow: 1;
+  font-size: 32rpx;
+}
+.date-component .date-picker .left {
+  border: 11.5rpx solid;
+  width: 0;
+  height: 0;
+  border-color: transparent #fff transparent transparent;
+}
+.date-component .date-picker .right {
+  border: 11.5rpx solid;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #fff;
+}
+.date-component .date-picker .text {
+  font-size: 34rpx;
+}

@@ -1,0 +1,6 @@
+<!--活动详情-->
+<view class="bannerDetail">
+  <block wx:for="{{picList}}" wx:key="index">
+    <image src="{{item}}" mode="widthFix"></image>
+  </block>
+</view>

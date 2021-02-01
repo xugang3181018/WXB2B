@@ -1,132 +1,240 @@
-
-@import './icon.wxss';
-page{
-  background: #f4f4f4;
-  color: #444;
+/**app.acss**/
+page {
+  height: 100%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  color: #666666;
+  letter-spacing: 0;
 }
-view{
+button {
+  width: 670rpx;
+  height: 84rpx;
+  background: #5177BE;
+  border-radius: 6rpx;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 84rpx;
+  padding: 0;
+  margin: 0 auto 30rpx;
+}
+button::after {
+  border: none;
+}
+.placeholder {
+  color: #ccc;
+  font-size: 24rpx;
+}
+.notes {
+  font-size: 20rpx;
+  color: #ccc;
+  height: 75rpx;
+  padding-left: 40rpx;
+  line-height: 75rpx;
+}
+textarea {
+  background: #fff;
+  padding: 12.5rpx 20rpx;
+  width: 670rpx;
+  height: 153.5rpx;
+  border-bottom: 2rpx solid #E5E5E5;
+  font-size: 28rpx;
+}
+/* 表单样式 */
+.moduleTitle {
+  width: 100%;
   box-sizing: border-box;
+  height: 70rpx;
+  font-size: 26rpx;
+  padding-left: 40rpx;
+  line-height: 70rpx;
+  color: #5177BE;
 }
-.f-c{
-  display: flex;
-  align-items: center;
+.moduleContent {
+  background: #fff;
+  padding-left: 40rpx;
+  font-size: 28rpx;
 }
-.f-c-c{
+.moduleContent > view {
+  height: 89rpx;
+  padding-right: 40rpx;
+  color: #333;
+  border-bottom: 1rpx solid #E5E5E5;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.f-c-sb{
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
-.f-col{
+.moduleContent .inputColor {
+  color: #ccc;
+}
+.moduleContent picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.moduleContent > view:last-of-type {
+  border: 0;
+}
+.moduleContent > view > text:first-of-type {
+  color: #666;
+}
+.moduleContent > view > text:last-of-type {
+  max-width: 420rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.moduleContent > view input {
+  text-align: right;
+  width: 420rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 28rpx;
+}
+.moduleContent picker view, .moduleContent > view > view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moduleContent > view > view {
+  max-width: 420rpx;
+}
+.moduleContent > view view text {
+  line-height: 35rpx;
+  max-width: 420rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.moduleContent > view image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+.moduleContent > view .upload {
+  width: 90rpx;
+  height: 90rpx;
+}
+.moduleContent .required {
+  color: #FF4430;
+}
+input {
+  color: #333;
+}
+.changeColor {
+  color: #bbb;
+}
+.normalColor {
+  color: #333;
+}
+/* 加载样式 */
+.loadMore {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #aaa;
+}
+/* 没有数据的默认样式 */
+.default {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
-}
-.button-corner{
-  width: 300px;
-  height: 300px;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  z-index: 0;
 }
-
-/* button */
-.touch{
-  opacity: .7;
+.default view text {
+  color: #ccc;
+  font-size: 30rpx;
 }
-.button{
-  background: #ff3939;
-  color: #fff;
-  transition: .4s;
+.default image {
+  width: 200rpx;
+  height: 200rpx;
 }
-.button-hover{
-  background: #e22f2f;
-  color: #fff;
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12rpx;
+  z-index: 10000;
 }
-.button-middle{
-  background: #ff3939;
-  border-radius: 90px;
-  width: 300rpx;
-  height: 84rpx;
-  line-height: 84rpx;
-  text-align: center;
-  color: #fff;
-  font-size:32rpx;
+/* 填充盒子 */
+.fillBox {
+  width: 100%;
+  height: 100rpx;
+  background: transparent;
 }
-.button-small{
-  font-size: 24rpx;
-  width: 140rpx;
-  height: 50rpx;
-  background: #ff3939;
-  line-height: 50rpx;
-  color: #fff;
-  border-radius: 90px;
-  text-align: center;
-  font-size:23rpx;
-  margin:0;
-  padding:0;
-}
-
-/* animation keyframes */
-@keyframes sliderUp{
-  from{
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  to{
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-
-
-/* //base Line */
-
-.line,
-.border,
-.list-item,
-line-top,
-.arr {
-  position: relative;
-}
-
-.arr {
+/* 进件的提交按钮 */
+.stepButton {
+  padding: 0 40rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.arr::after {
-  content: '';
-  width: 12rpx;
-  height: 12rpx;
-  border: 3rpx solid #ccc;
-  border-left: none;
-  border-bottom: none;
-  transform: rotate(45deg);
-  margin-left: 4rpx;
+.stepButton button {
+  width: 330rpx;
+  height: 84rpx;
+  font-size: 36rpx;
 }
-
-.line::before,
-.border::before,
-.line-top::before,
-.page-bar::after,
-.list-item::before {
-  content: '';
-  position: absolute;
-  height: 1px;
-  transform: scale(0.5);
-  left: -50%;
-  right: -50%;
-  bottom: 0;
-  display: block;
+.stepButton .last {
+  box-sizing: border-box;
+  border: 2rpx solid #5177BE;
+  color: #5177BE;
+  background: transparent;
 }
-
-.line::before,
-.list-item::before {
-  border-bottom: 1px solid #eee;
+.stepButton .changeNext {
+  width: 100%;
+}
+.config {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* 列表的添加按钮 */
+.addButton {
+  z-index: 999;
+  position: fixed;
+  bottom: 280rpx;
+  right: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 26rpx;
+  background: #5177BE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.addButton image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.saveBtn {
+  width: 150rpx;
+  height: 50rpx;
+  border-radius: 0 6rpx 6rpx 0;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  background: #5177BE;
+}
+.movable-area {
+  width: 100%;
+  height: 100%;
+}
+.movable-vlew {
+  width: 150rpx;
+  height: 50rpx;
+}
+.arrow {
+  margin-left: 10rpx;
 }

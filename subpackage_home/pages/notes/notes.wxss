@@ -1,0 +1,70 @@
+page {
+  background: #fff;
+}
+.notes1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40rpx 54rpx;
+}
+.notes1 view {
+  margin-bottom: 30rpx;
+}
+.notes1 view text {
+  display: block;
+}
+.notes2 {
+  margin: 40rpx 54rpx;
+  line-height: 56rpx;
+}
+.notes2 > text:first-of-type {
+  font-size: 40rpx;
+  color: #5177BE;
+  font-weight: bold;
+}
+.notes2 view {
+  margin: 60rpx 0 56rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 30rpx;
+  color: #151515;
+}
+.notes2 > text {
+  font-size: 30rpx;
+  color: #5177BE;
+}
+.notes3 {
+  margin: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.notes3 > text {
+  margin-bottom: 30rpx;
+}
+.notes3 view {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.notes3 .small {
+  font-size: 24rpx;
+}
+.notes3 .weight {
+  font-weight: bold;
+}
+.notes3 .class-A {
+  margin-bottom: 30rpx;
+}
+.notes3 .class-A > text {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #5177BE;
+}
+.notes3 .class-B > text {
+  margin: 0 0 15rpx 15rpx;
+}
+.notes3 .class-C > text {
+  margin: 0 0 15rpx 30rpx;
+}

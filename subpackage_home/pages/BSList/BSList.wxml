@@ -1,0 +1,88 @@
+<!--商户管理-->
+<view class="BSList">
+  <search-bar
+    placeholder="{{searchPlaceholder}}"
+    bind:onClear="clearSearch"
+    bind:onConfirm="search"
+  />
+  <product-component pattern="{{pattern}}" operation="edit" editInfo="{{editInfo}}" merchantCode="{{merchantCode}}" bind:changePop="changeProduct" bind:onChange="changeProduct" show="{{popShow}}"/>
+  <view class="tabs" wx:if="{{repidEntry}}">
+    <block wx:for="{{tabItem}}" wx:key="index">
+       <view class="{{item.isSelected ? 'selected' : ''}}" data-item="{{item}}" bind:tap="changeTab">{{item.item}}</view>
+    </block>
+  </view>
+  <view class="fillBox" wx:if="{{repidEntry}}"></view>
+  <List count="{{list.length}}" scrollTop="{{scrollTop}}" pageNo="{{pageNo}}" height="{{height}}" bind:pullDownRefresh="pullDownRefresh" bind:reachBottom="reachBottom">
+    <blcok wx:for="{{list}}" wx:key="index">
+      <view class="list" bind:tap="toDetail" data-index="{{index}}">
+        <block wx:if="{{repidEntry}}">
+          <view class="status" style="background: #51E50F" wx:if="{{item.status === 0}}">启用</view>
+          <view class="status" style="background: #FF4430" wx:elif="{{item.status === 1 || item.status === 2}}">停用</view>
+          <view class="status" style="background: #E5E5E5" wx:else>注销</view>
+        </block>
+        <block wx:if="{{repidEntry}}">
+          <text class="name">{{pattern === 'business' ? item.merchantName : item.storeFullName}}</text>
+          <text class="full-name">{{item.merchantFullName}}</text>
+          <text class="contacts">联系人：{{item.contactName}}/{{item.contactPhone}}</text>
+          <view class="channel">
+            <text>可用通道：</text>
+            <image wx:if="{{item.hfId}}" src="{{hf}}"></image>
+            <image wx:if="{{item.wechatId}}" src="{{weixin}}"></image>
+            <image wx:if="{{item.alipayId}}" src="{{alipay}}"></image>
+            <image wx:if="{{item.wsId}}" src="{{wspay}}"></image>
+            <image wx:if="{{item.ksId}}" src="{{meizhou}}"></image>
+            <image wx:if="{{item.ykId}}" src="{{ls}}"></image>
+          </view>
+        </block>
+        <block wx:else>
+          <text class="name">{{pattern === 'business' ? item.merchantName : item.storeName}}</text>
+          <text class="full-name">{{pattern === 'business' ? item.merchantFullName : item.storeFullName}}</text>
+          <view class="count">
+            <text>昨日交易笔数（笔）: {{item.tradeTotalCount}}</text>
+            <view>
+              <text>{{item.tradeTotalCountMoM}}</text>
+              <image src="{{up}}" wx:if="{{item.tradeTotalCountPM}}"></image>
+              <image src="{{down}}" wx:else></image>
+            </view>
+          </view>
+          <view class="amount">
+            <text>昨日交易金额（元）: {{item.tradeTotalAmount}}</text>
+            <view>
+              <text>{{item.tradeTotalAmountMoM}}</text>
+              <image src="{{up}}" wx:if="{{item.tradeTotalAmountPM}}"></image>
+              <image src="{{down}}" wx:else></image>
+            </view>
+          </view>
+        </block>
+        <block wx:if="{{item.status !== 4}}">
+          <view class="operation" wx:if="{{pattern === 'business'}}">
+            <view class="linkButton" style="color: {{riskStatus ? '#E5E5E5' : '#5177BE'}}" catchtap="isRisk" data-tap="toChannelSelection" data-data="{{item}}" wx:if="{{repidEntry}}">我要进件</view>
+            <block wx:else>
+              <view catchtap="isRisk" data-tap="changePop" class="linkButton" data-data="{{item}}" wx:if="{{canChangeProduct}}">版本开通</view>
+              <view catchtap="isRisk" data-tap="changePop" class="linkButton" style="color: #E5E5E5" data-data="{{item}}" wx:else>版本开通</view>
+            </block>
+            <view class="linkButton" catchtap="isRisk" data-tap="addStore" data-data="{{item}}">添加门店</view>
+          </view>
+          <block wx:else>
+            <view catchtap="isRisk" data-tap="toChannelSelection" data-data="{{item}}" class="operation store" wx:if="{{repidEntry}}" style="color: {{riskStatus ? '#E5E5E5' : '#5177BE'}}">我要进件</view>
+            <block wx:else>
+              <view catchtap="isRisk" data-tap="changePop" class="operation store" data-data="{{item}}" wx:if="{{canChangeProduct}}">版本开通</view>
+              <view catchtap="isRisk" data-tap="changePop" class="operation store" style="color: #E5E5E5" data-data="{{item}}" wx:else>版本开通</view>
+            </block>
+          </block>
+        </block>
+        <block wx:else>
+          <view class="operation" wx:if="{{pattern === 'business'}}">
+            <view class="linkButton" style="color: #E5E5E5">{{repidEntry ? '我要进件' : '版本开通'}}</view>
+            <view class="linkButton" style="color: #E5E5E5">添加门店</view>
+          </view>
+          <view class="operation store" style="color: #E5E5E5" wx:else>{{repidEntry ? '我要进件' : '版本开通'}}</view>
+        </block>
+      </view>
+    </blcok>
+  </List>
+  <view class="addButton" catchtap="addItem">
+    <image src="{{add}}"></image>
+    <text>添加</text>
+  </view>
+</view>

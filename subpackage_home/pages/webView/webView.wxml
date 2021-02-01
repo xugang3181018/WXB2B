@@ -1,0 +1,2 @@
+<!--培训资料-->
+<web-view src="{{url}}"></web-view>

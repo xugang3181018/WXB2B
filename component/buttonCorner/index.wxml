@@ -1,5 +1,0 @@
-<view class="button button-corner f-col {{loading && 'loading'}}" hover-class="touch">
-  <view wx:if="{{icon}}" class="ico ico-{{icon}}" />
-  <view class="f-c button-corner-txt"><slot /></view>
-  <view wx:if="{{loading}}" class="loading-bg" />
-</view>

@@ -1,0 +1,74 @@
+page {
+  height: 100%;
+  background: #f7f7f7;
+}
+.paymentStatistics .amount {
+  height: 175rpx;
+  background: #fff;
+  position: relative;
+}
+.paymentStatistics .amount > text {
+  position: absolute;
+  left: 48rpx;
+  bottom: 99rpx;
+  color: #323232;
+}
+.paymentStatistics .amount view {
+  position: absolute;
+  left: 48rpx;
+  bottom: 21rpx;
+  font-size: 30rpx;
+  color: #141414;
+}
+.paymentStatistics .amount view text:first-of-type {
+  font-size: 57rpx;
+}
+.paymentStatistics .ring {
+  width: 100%;
+  height: 380rpx;
+}
+.paymentStatistics .paymentMethod {
+  padding: 0 20rpx;
+  background: #fff;
+}
+.paymentStatistics .paymentMethod > view {
+  height: 212rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+  padding: 0 28rpx;
+}
+.paymentStatistics #canvas {
+  width: 100%;
+  height: 320rpx;
+}
+.paymentStatistics .paymentMethod > view > view:first-of-type {
+  padding: 23rpx 0 28rpx;
+  display: flex;
+  align-items: center;
+}
+.paymentStatistics .paymentMethod > view > view:first-of-type image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 12rpx;
+}
+.paymentStatistics .paymentMethod > view > view:last-of-type {
+  display: flex;
+  justify-content: center;
+}
+.paymentStatistics .paymentMethod > view > view:last-of-type .bar {
+  width: 3rpx;
+  height: 93rpx;
+  background: #A2A2A2;
+  margin-right: 27rpx;
+}
+.paymentStatistics .paymentMethod > view > view:last-of-type .content {
+  width: 205rpx;
+}
+.paymentStatistics .paymentMethod > view > view:last-of-type .content view {
+  font-size: 26rpx;
+  color: #777;
+  margin-bottom: 6rpx;
+}
+.paymentStatistics .paymentMethod > view > view:last-of-type .content text {
+  font-size: 32rpx;
+  color: #444;
+}

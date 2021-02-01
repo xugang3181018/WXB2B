@@ -1,0 +1,73 @@
+<!--注释-->
+<view id="notes">
+  <view wx:if="{{notes === 'type'}}" class="notes1">
+    <view>
+      <text>自然人:</text>
+      <text>可结算到经营者账户</text>
+    </view>
+    <view>
+      <text>个体工商户:</text>
+      <text>可结算到对公或个人账户</text>
+    </view>
+    <view>
+      <text>企业:</text>
+      <text>可结算到对公或个人账户</text>
+    </view>
+  </view>
+  <view wx:elif="{{notes === 'card'}}" class="notes2">
+    <text>建议自然人或个体工商户选择以下列表内银行卡：</text>
+    <view>
+      <text>中国农业银行资金清算中心</text>
+      <text>中国银行总行</text>
+      <text>交通银行</text>
+      <text>中国光大银行</text>
+      <text>兴业银行总行</text>
+      <text>中国民生银行总行</text>
+      <text>招商银行</text>
+      <text>中国银行总行管理部（不受理储蓄业务）</text>
+      <text>中国工商银行总行清算中心</text>
+      <text>中国建设银行总行</text>
+      <text>平安银行</text>
+      <text>中国邮政储蓄银行总行</text>
+      <text>上海浦东发展银行</text>
+    </view>
+    <text>请尽可能提交以上银行卡号。若银行卡不属于以上银行，请将此银行卡号与支付宝进行绑定！</text>
+  </view>
+  <view wx:if="{{notes === 'agreement'}}" class="notes3">
+    <text class="weight">欢迎您使用联拓数科服务商助手！</text>
+    <text>“联拓数科服务商助手CRM”是由合肥联拓富数字科技有限公司（下称“联拓数科”）为合作服务商免费提供的互联网软件服务，帮助企业随时连接客户，快速沉淀客户信息，自动化管理销售过程，帮助管理者远程掌控业绩进展并在线指导员工，实现团队高速沟通，助力企业实现业绩稳步增长。</text>
+    <text>本服务协议（下称“服务协议”）是您与联拓数科之间关于您访问和使用“联拓数科服务商助手CRM”以及联拓数科提供的其他服务（下称“服务”）的法律契约。在接受本服务协议之前，请您仔细阅读服务协议的全部内容。您通过小程序相关页面点击确认、或以其它另行约定的方式加以确认表示您已阅读并充分理解本服务协议之内容，与联拓数科就使用或订购相应产品和/或服务已达成合意，并同意接受本服务协议的全部约定内容，受其约束。如果您不同意本服务协议的任一条款内容，或者无法准确理解本服务协议的条款及联拓数科对相关条款的解释，请勿点击确认进行后续操作。</text>
+    <text>特别提示您关注关于本服务协议关于<text class="weight">限制、免除联拓数科责任的条款、对您的权利限制条款、违规/违约行为的认定处理、以及管辖法院的选择等条款内容</text>，前述条款可能以加粗及/或加下划线形式提示您注意。</text>
+    <text>由于互联网行业高速发展，本服务协议并不能完整罗列并覆盖您与联拓数科的所有权利与义务，现有的约定也不能保证完全符合未来发展的需求。因此，您同意联拓数科有权不时地对本服务协议做任何修改和补充，并予以公示。通常情况下（例如当需要进行修改或补充以满足适用法律要求时），对服务协议、隐私政策或规则的修改将在公布时或规定的生效日立即生效。您继续访问和使用联拓数科服务商助手CRM即视为您接受修订后的服务协议。如果您代表某个机构而非您个人注册、登录和使用联拓数科服务商助手CRM和/或我们其他的服务，则您将被认为获得充分授权代表该机构同意本服务协议以及服务协议不时的修改和补充。</text>
+    <block wx:for="{{agreement}}" wx:key="index">
+      <!-- 一级目录 -->
+      <view class="class-A">
+        <text>{{item.title}}</text>
+        <block wx:for="{{item.classB}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2">
+          <!-- 二级目录 -->
+          <view class="class-B">
+            <text class="{{item2.class}}" wx:if="{{!item2.hasClass}}">{{item2.text}}</text>
+            <!-- 二级目录有特殊样式条目 -->
+            <text wx:else>
+              <block wx:for="{{item2.text}}" wx:for-item="itemB" wx:for-index="indexB" wx:key="indexB">
+                <text class="{{itemB.class}}">{{itemB.text}}</text>
+              </block>
+            </text>
+            <!-- 三级目录 -->
+            <block wx:if="{{item2.classC}}" wx:for="{{item2.classC}}" wx:for-item="item3" wx:for-index="index3" wx:key="index3">
+              <view class="class-C">
+                <text class="{{item3.class}}" wx:if="{{!item3.hasClass}}">{{item3}}</text>
+                <!-- 三级目录有特殊样式条目 -->
+                <text wx:else>
+                  <block wx:for="{{item3.text}}" wx:for-item="itemC" wx:for-index="indexC" wx:key="indexC">
+                    <text class="{{itemC.class}}">{{itemC.text}}</text>
+                  </block>
+                </text>
+              </view>
+            </block>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!--商户列表-->
+<view class="businessList">
+  <search-bar
+    placeholder="请输入名称搜索"
+    bind:onClear="clearSearch"
+    bind:onConfirm="search"
+  />
+  <List pageNo="{{pageNo}}" count="{{list.length}}" height="{{height}}" bind:pullDownRefresh="pullDownRefresh" bind:reachBottom="reachBottom">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="business" bind:tap="toAddBusinessStore" data-item="{{item}}">
+        <view>
+          <text>{{item.merchantName}}</text>
+          <text>{{item.address}}</text>
+        </view>
+        <view>
+          <text>{{item.storeNum}}家门店</text>
+          <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+        </view>
+      </view>
+    </block>
+  </List>
+</view>

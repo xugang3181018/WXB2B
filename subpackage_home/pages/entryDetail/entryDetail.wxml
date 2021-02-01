@@ -1,0 +1,485 @@
+<!-- 进件详情 -->
+<view class="entryDetail">
+  <view>
+    <text>{{entryType === '1' ? detail.coreMerchantName : detail.storeName}}</text>
+    <text>{{entryType === '1' ? '' : detail.coreMerchantName}}</text>
+    <view class="status">
+      <text>{{auditorStatusText}}</text>
+      <image wx:if="{{tabIndex !== '1'}}" src="{{status}}"></image>
+    </view>
+  </view>
+  <!-- 已签约详情 -->
+  <blcok wx:if="{{tabIndex === '1'}}">
+    <view class="moduleTitle">进件信息</view>
+    <view class="moduleContent">
+      <view>
+        <text>进件ID</text>
+        <text>{{detail.configureCommonAuditId}}</text>
+      </view>
+      <view wx:if="{{passType !== '8'}}">
+        <text>平台商户号</text>
+        <text wx:if="{{passType === '7' && tabIndex === '1'}}">{{detail.merchantId}}</text>
+        <text wx:else>{{detail.platformMerchantNo}}</text>
+      </view>
+      <view>
+        <text>支付配置编号</text>
+        <text wx:if="{{passType === '7' || passType === '9'}}">{{detail.transitionId}}</text>
+        <text wx:elif="{{passType === '8'}}">{{detail.transactionId}}</text>
+        <text wx:else>{{detail.transactionId}}</text>
+      </view>
+      <!-- <block wx:if="{{passType === '8' || passType === '9'}}">
+        <view wx:if="{{!detail.wechatAuthorizeStatus}}">
+          <text>微信二次认证二维码</text>
+          <view bind:tap="toAuthentication">
+            <text style="color: #5177BE">点击查看</text>
+            <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+          </view>
+        </view>
+        <view>
+          <text>微信二次认证状态</text>
+          <text class="{{detail.wechatAuthorizeStatus ? 'certified' : 'uncertified'}}">{{detail.wechatAuthorizeStatus ? '已认证' : '未认证'}}</text>
+        </view>
+      </block> -->
+    </view>
+  </blcok>
+  <!-- 审核失败 -->
+  <blcok wx:if="{{detail.auditorStatus === 4 || detail.auditorStatus === 11}}">
+    <view class="moduleTitle">审核信息
+      <text class="prompt-text" wx:if="{{passType == 9 && (detail.configureVersion == 7 || detail.configureVersion == 8 || detail.configureVersion == 9 || detail.configureVersion == 10)}}">乐刷通道特殊类型进件(蓝海、绿洲、高校)请在PC端完成操作！</text>
+    </view>
+    <view class="moduleContent">
+      <view>
+        <text>审核时间</text>
+        <text>{{detail.formatDate}}</text>
+      </view>
+      <view style="border-bottom: 1rpx solid #E5E5E5;">
+        <text>审核人</text>
+        <text>{{detail.auditor}}</text>
+      </view>
+    </view>
+    <view class="auditFail">
+      <image src="{{waring}}"></image>
+      <text>未通过原因</text>
+      <text>{{detail.auditorRemark}}</text>
+    </view>
+      <view wx:if="{{passType == 9 && (detail.configureVersion == 7 || detail.configureVersion == 8 || detail.configureVersion == 9 || detail.configureVersion == 10)}}" class="bottomButton" style="background:#ccc">重提</view>
+    <view wx:elif="{{detail.auditorStatus === 4 && tabIndex === '0'}}" bind:tap="tapRC" class="bottomButton" style="background: {{riskStatus ? '#E5E5E5' : '#5177BE'}}" data-resubmit="1">重提</view>
+  </blcok>
+  <!-- 审核成功 -->
+  <blcok wx:elif="{{detail.auditorStatus === 6 || detail.auditorStatus === 12 || detail.auditorStatus === 19 || detail.auditorStatus === 20}}">
+    <view class="moduleTitle">
+      审核信息
+    </view>
+    <view class="moduleContent">
+      <view>
+        <text>审核时间</text>
+        <text>{{detail.formatDate}}</text>
+      </view>
+      <view>
+        <text>审核人</text>
+        <text>{{detail.auditor}}</text>
+      </view>
+      <view wx:if="{{passType !== '8'}}">
+        <text>平台商户号</text>
+        <text>{{detail.platformMerchantNo}}</text>
+      </view>
+      <view>
+        <text>支付配置编号</text>
+        <text>{{detail.transactionId}}</text>
+      </view>
+    </view>
+    <block wx:if="{{tabIndex === '0'}}">
+      <view bind:tap="tapRC" wx:if="{{passType === '7' && detail.auditorStatus === 6}}" class="bottomButton" style="background: {{riskStatus ? '#E5E5E5' : '#5177BE'}}" data-change="1">变更</view>
+      <view bind:tap="tapRC" wx:if="{{(passType === '9' || passType === '11') && (detail.auditorStatus === 6 || detail.auditorStatus === 19)}}" class="bottomButton" style="background: {{riskStatus ? '#E5E5E5' : '#5177BE'}}" data-change="1">变更</view>
+      <!-- <view bind:tap="tapRC" wx:if="{{passType === '9' && detail.auditorStatus === 19}}" class="bottomButton" data-supplement="1">补充资料</view> -->
+    </block>
+  </blcok>
+  <!-- 配置信息 -->
+  <view>
+    <view class="moduleTitle">配置信息</view>
+    <view class="moduleContent">
+      <view>
+        <text>配置名称</text>
+        <text>{{detail.configureName}}</text>
+      </view>
+      <view>
+        <text>通道名称</text>
+        <text>{{detail.passName}}</text>
+      </view>
+      <view>
+        <text>支付宝费率</text>
+        <text wx:if="{{detail.alipayRateName}}">{{detail.alipayRateName}}-{{detail.alipayRate}}‰</text>
+        <text wx:else>无</text>
+      </view>
+      <view wx:if="{{!(passType === '7' || passType === '9' && type === '1')}}">
+        <text>微信费率</text>
+        <text wx:if="{{detail.wechatRateName}}">{{detail.wechatRateName}}-{{detail.wechatRate}}‰</text>
+        <text wx:else>无</text>
+      </view>
+      <view>
+        <text>进件类型</text>
+        <text>{{detail.configureType === 1 ? '新增' : '变更'}}</text>
+      </view>
+      <view>
+        <text>配置备注</text>
+        <view>{{detail.configureRemark}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 网商通道 -->
+  <blcok wx:if="{{passType === '7'}}">
+    <!-- 商户信息 -->
+    <view>
+      <view class="moduleTitle">商户信息</view>
+      <view class="moduleContent">
+        <view>
+          <text>商户类型</text>
+          <text>{{businessType}}</text>
+        </view>
+        <view>
+          <text>商户全称</text>
+          <text>{{detail.fullNameCn}}</text>
+        </view>
+        <view>
+          <text>商户简称</text>
+          <text>{{detail.nameCn}}</text>
+        </view>
+        <view>
+          <text>经营类目</text>
+          <text>{{detail.businessCategoryName}}</text>
+        </view>
+        <view wx:if="{{detail.merchantType !== '01'}}">
+          <text>营业执照编号</text>
+          <text>{{detail.businessLicenseNo}}</text>
+        </view>
+        <view>
+          <text>负责人</text>
+          <text>{{detail.contactName}}</text>
+        </view>
+        <view>
+          <text>负责人电话</text>
+          <text>{{detail.customerPhone}}</text>
+        </view>
+        <view>
+          <text>商户所在地区</text>
+          <text>{{detail.province}}-{{detail.city}}-{{detail.area}}</text>
+        </view>
+        <view>
+          <text>商户详细地址</text>
+          <text>{{detail.address}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 结算信息 -->
+    <view>
+      <view class="moduleTitle">结算信息</view>
+      <view class="moduleContent">
+        <view>
+          <text>账户类型</text>
+          <text wx:if="{{accountType === 1}}">个人</text>
+          <text wx:else>企业</text>
+        </view>
+        <view>
+          <text>开户银行</text>
+          <text>{{detail.bankName}}</text>
+        </view>
+        <block wx:if="{{accountType === 1}}">
+          <view>
+            <text>银行卡号</text>
+            <text>{{detail.cardNo}}</text>
+          </view>
+          <view>
+            <text>开户人</text>
+            <text>{{detail.accountHolder}}</text>
+          </view>
+          <view>
+            <text>结算人身份证号</text>
+            <text>{{detail.certificateHolderNo}}</text>
+          </view>
+          <view>
+            <text>结算人身份证地址</text>
+            <text>{{detail.cardholderAddress}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view>
+            <text>对公账户</text>
+            <text>{{detail.cardNo}}</text>
+          </view>
+          <view>
+            <text>企业名称</text>
+            <text>{{detail.accountHolder}}</text>
+          </view>
+          <view>
+            <text>企业法人</text>
+            <text>{{detail.companyCorporation}}</text>
+          </view>
+          <view>
+            <text>法人证件</text>
+            <text>{{detail.certificateHolderNo}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </blcok>
+  <!-- 客商通道 -->
+  <blcok wx:elif="{{passType === '8'}}">
+    <!-- 商户信息 -->
+    <view>
+      <view class="moduleTitle">商户信息</view>
+      <view class="moduleContent">
+        <view>
+          <text>商户全称</text>
+          <text>{{detail.fullNameCn}}</text>
+        </view>
+        <view>
+          <text>商户简称</text>
+          <text>{{detail.nameCn}}</text>
+        </view>
+        <view>
+          <text>经营类目</text>
+          <text>{{detail.businessCategoryName}}</text>
+        </view>
+        <view>
+          <text>客服电话</text>
+          <text>{{detail.customerPhone}}</text>
+        </view>
+        <view>
+          <text>商户所在地区</text>
+          <text>{{detail.province}}-{{detail.city}}-{{detail.area}}</text>
+        </view>
+        <view>
+          <text>商户详细地址</text>
+          <text>{{detail.address}}</text>
+        </view>
+        <block wx:if="{{detail.businessLicenseNo}}">
+          <view>
+            <text>营业执照类型</text>
+            <text>{{businessLicenseType}}</text>
+          </view>
+          <view>
+            <text>营业执照编号</text>
+            <text>{{detail.businessLicenseNo}}</text>
+          </view>
+        </block>
+        <view>
+          <text>联系人电话</text>
+          <text>{{detail.contactMobile ? detail.contactMobile : detail.contactPhone}}</text>
+        </view>
+        <view>
+          <text>联系人邮箱</text>
+          <text>{{detail.contactEmail}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 结算信息 -->
+    <view>
+      <view class="moduleTitle">结算信息</view>
+      <view class="moduleContent">
+        <view>
+          <text>账户类型</text>
+          <text wx:if="{{accountType === 1}}">个人</text>
+          <text wx:else>企业</text>
+        </view>
+        <view>
+          <text>开户银行</text>
+          <text>{{detail.bankName}}</text>
+        </view>
+        <block wx:if="{{accountType === 1}}">
+          <view>
+            <text>银行卡号</text>
+            <text>{{detail.cardNo}}</text>
+          </view>
+          <view>
+            <text>开户人</text>
+            <text>{{detail.accountHolder}}</text>
+          </view>
+          <view>
+            <text>{{detail.businessLicenseNo ? '结算人' : '持卡人'}}身份证号</text>
+            <text>{{detail.certificateNo}}</text>
+          </view>
+          <view>
+            <text>银行预留手机号</text>
+            <text>{{detail.mobile}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view>
+            <text>开户支行所在地区</text>
+            <text>{{detail.subbranchProvince}}</text>
+          </view>
+          <view>
+            <text>开户支行名称</text>
+            <text>{{detail.subbranchName}}</text>
+          </view>
+          <view>
+            <text>对公账户</text>
+            <text>{{detail.cardNo}}</text>
+          </view>
+          <view>
+            <text>企业名称</text>
+            <text>{{detail.accountHolder}}</text>
+          </view>
+          <view>
+            <text>法人姓名</text>
+            <text>{{tabIndex === '1' ? detail.merchantCorporation : detail.legalPersonName}}</text>
+          </view>
+          <view>
+            <text>法人身份证号</text>
+            <text>{{detail.certNo}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </blcok>
+  <!-- 乐刷通道 -->
+  <blcok wx:elif="{{passType === '9' || passType === '11'}}">
+    <!-- 商户信息 -->
+    <view>
+      <view class="moduleTitle">商户信息</view>
+      <view class="moduleContent">
+        <view>
+          <text>商户类型</text>
+          <text>{{businessType}}</text>
+        </view>
+        <view>
+          <text>商户简称</text>
+          <text>{{detail.nameCn}}</text>
+        </view>
+        <view>
+          <text>行业类别</text>
+          <text>{{detail.businessCategoryName}}</text>
+        </view>
+        <view>
+          <text>商户所在地区</text>
+          <text>{{detail.province}}-{{detail.city}}-{{detail.area}}</text>
+        </view>
+        <view>
+          <text>商户详细地址</text>
+          <text>{{detail.address}}</text>
+        </view>
+        <view>
+          <text>客服电话</text>
+          <text>{{detail.customerPhone}}</text>
+        </view>
+        <block wx:if="{{detail.merchantType > 1}}">
+          <view>
+            <text>法人姓名</text>
+            <text>{{detail.companyCorporation}}</text>
+          </view>
+          <view>
+            <text>法人证件类型</text>
+            <text>{{certificateHolderType}}</text>
+          </view>
+          <view>
+            <text>法人证件号码</text>
+            <text>{{detail.certificateHolderNo}}</text>
+          </view>
+          <view>
+            <text>法人身份证开始日期</text>
+            <text wx:if="{{passType === '9'}}">{{detail.certificateStartDate}}</text>
+            <text wx:else>{{detail.companyCorporationStartDate}}</text>
+          </view>
+          <view>
+            <text>法人身份证到期日期</text>
+            <text wx:if="{{passType === '9'}}">{{detail.certificateDeadline === '2099-12-30' ? '永久' : detail.certificateDeadline}}</text>
+            <text wx:else>{{detail.companyCorporationDeadline === '2099-12-30' ? '永久' : detail.companyCorporationDeadline}}</text>
+          </view>
+          <view>
+            <text>营业执照编号</text>
+            <text>{{detail.businessLicenseNo}}</text>
+          </view>
+          <view>
+            <text>营业执照注册名称</text>
+            <text>{{passType === '9' ? detail.businessLicenseFullName : detail.fullNameCn}}</text>
+          </view>
+          <view wx:if="{{passType === '9'}}">
+            <text>营业执照注册地址</text>
+            <text>{{detail.businessLicenseAddress}}</text>
+          </view>
+          <view>
+            <text>营业执照注册时间</text>
+            <text>{{detail.businessStartDate}} 至 {{detail.businessDeadline === '2099-12-30' ? '永久' : detail.businessDeadline}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- 结算信息 -->
+    <view>
+      <view class="moduleTitle">结算信息</view>
+      <view class="moduleContent">
+        <view>
+          <text>账户类型</text>
+          <text wx:if="{{accountType === 1}}">个人</text>
+          <text wx:else>企业</text>
+        </view>
+        <view wx:if="{{detail.merchantType > 1 && accountType === 1}}">
+          <text>结算人类型</text>
+          <text>{{detail.legalFlag === '0' ? '非法人' : '法人'}}</text>
+        </view>
+        <block wx:if="{{detail.merchantType === '1' || detail.legalFlag === '0'}}">
+          <view wx:if="{{passType === '11'}}">
+            <text>结算人证件类型</text>
+            <text>{{detail.accountIdType}}</text>
+          </view>
+          <view>
+            <text>结算人身份证号</text>
+            <text>{{detail.merchantType === '1' ? detail.certificateHolderNo : detail.legalFlagCardNo}}</text>
+          </view>
+            <view>
+            <text>结算人身份证开始日期</text>
+            <text>{{detail.certificateStartDate}}</text>
+          </view>
+          <view>
+            <text>结算人身份证到期日期</text>
+            <text>{{detail.certificateDeadline === '2099-12-30' ? '永久' : detail.certificateDeadline}}</text>
+          </view>
+        </block>
+        <view>
+          <text>开户银行</text>
+          <text>{{detail.bankName}}</text>
+        </view>
+        <view>
+          <text>开户银行省市</text>
+          <text>{{detail.bankProvince}}-{{detail.bankCity}}</text>
+        </view>
+        <view>
+          <text>开户支行名称</text>
+          <text>{{detail.bankBranchName}}</text>
+        </view>
+        <view>
+          <text>{{accountType === 2 ? '企业名称' : '开户人'}}</text>
+          <text>{{detail.accountHolder}}</text>
+        </view>
+        <view>
+          <text>{{accountType === 2 ? '对公账户' : '银行卡号'}}</text>
+          <text>{{detail.cardNo}}</text>
+        </view>
+        <view wx:if="{{passType === '9'}}">
+          <text>银行预留手机号</text>
+          <text>{{detail.accountHolderMobile}}</text>
+        </view>
+      </view>
+    </view>
+  </blcok>
+  <!-- 证件照片 -->
+  <view>
+    <view class="moduleTitle">证件照片</view>
+    <view class="moduleContent2">
+      <view wx:for="{{nameList}}" wx:key="index" wx:if="{{imageAry[index]}}">
+        <image src="{{imageAry[index]}}" data-index="{{index}}" bind:tap="previewImage"></image>
+        <text>{{nameList[index]}}</text>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{tabIndex === '0'}}">
+    <view wx:if="{{detail.auditorStatus === 4 || (detail.auditorStatus === 6 && passType === '7')}}" class="fillBox"></view>
+    <view wx:if="{{(detail.auditorStatus === 6 || detail.auditorStatus === 19) && passType === '9'}}" class="fillBox"></view>
+  </block>
+  <popup show="{{showChoice}}" position="bottom" bind:onClose="close" height="auto">
+    <view class="box bottom">
+      <view bind:tap="change" data-change="1" wx:if="{{!type}}">费率变更</view>
+      <view bind:tap="change" data-change="3">结算变更</view>
+    </view>
+  </popup>
+</view>

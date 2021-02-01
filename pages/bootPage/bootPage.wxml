@@ -1,0 +1,22 @@
+<!--我的-->
+<view class="bootPage">
+  <image class="logo" src="../../images/logo.png"></image>
+  <image class="boot" src="../../images/boot.png"></image>
+  <view class="info">
+    <view wx:for="{{info}}" wx:key="index">
+      <image src="{{item.img}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  <view class="info">
+    <view wx:for="{{info2}}" wx:key="index">
+      <image src="{{item.img}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  <button bind:tap="toLogin">服务商登录</button>
+  <view class="tip">
+    <image src="../../images/tip.png"></image>
+    <text>仅限小精灵服务商登录</text>
+  </view>
+</view>

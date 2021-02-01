@@ -1,0 +1,64 @@
+page {
+  background: #fff;
+}
+.login .logo {
+  height: 85rpx;
+  width: 220rpx;
+  margin: 150rpx 265rpx 60rpx;
+}
+.login .login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login .login-form > view {
+  position: relative;
+}
+.login .login-form > view .icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 30rpx;
+}
+.login .login-form > view input {
+  width: 562rpx;
+  box-sizing: border-box;
+  height: 113rpx;
+  padding: 30rpx 60rpx;
+  border-bottom: 3rpx solid #E5E5E5;
+  font-size: 32rpx;
+  line-height: 40rpx;
+}
+.login .subButton {
+  width: 558rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  box-sizing: border-box;
+  background: #5177BE;
+  color: #fff;
+  border-radius: 6rpx;
+  font-size: 36rpx;
+}
+.login .agreementBtn {
+  color: #5177BE;
+}
+.login .checkbox {
+  margin: 30rpx 0 30rpx 86rpx;
+}
+.login .check {
+  transform: scale(0.6,0.6);
+}
+.login .to-clue-collection {
+  color: #5177BE;
+  width: 100%;
+  text-align: center;
+  margin-left: 221rpx;
+}
+.login .live {
+  position: absolute;
+  width: 216rpx;
+  height: 120rpx;
+  right: 0;
+  bottom: 150rpx;
+}

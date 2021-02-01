@@ -1,0 +1,179 @@
+<!--业绩-->
+<view class="performance">
+  <dateComponent nowDate="{{nowDate}}" isCloseOutside="{{isCloseOutside}}" showTip="{{true}}" bind:onChange="onChange"></dateComponent>
+  <block wx:if="{{isAdmin}}">
+    <view class="header">
+      <text>收益</text>
+      <text>{{trade.incomeAmount===0?trade.incomeAmount+'.00':trade.incomeAmount}}</text>
+      <view class="dataUp">
+        <image src="{{trade.incomeAmountMoM>=0?dataupWithe:datadownWithe}}">
+        </image>
+        <text>{{trade.incomeAmountMoM === '' ? 0 : trade.incomeAmountMoM}}</text>
+        <text>%</text>
+      </view>
+    </view>
+  </block>
+  <view class="module">
+    <view class="title">
+      <view>
+        <image src="{{prePay}}"></image>
+        <text>交易统计</text>
+      </view>
+    </view>
+    <view class="content">
+      <view>
+        <text>交易金额(元)</text>
+        <text>{{trade.tradeAmount===0?trade.tradeAmount+'.00':trade.tradeAmount}}</text>
+      </view>
+      <view class="bar"></view>
+      <view>
+        <text>日环比</text>
+        <view wx:if="{{trade.tradeAmountMoM}}" class="{{trade.tradeAmountMoM>0?'dataUp':'dataDown'}}">
+          <image src="{{trade.tradeAmountMoM>0?dataup:datadown}}"></image>
+          <text>{{trade.tradeAmountMoM}}</text>
+          <text>%</text>
+        </view>
+        <view class='wuData' wx:else>
+          --
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view>
+        <text>交易笔数</text>
+        <text>{{trade.tradeCount===0?trade.tradeCount+'.00':trade.tradeCount}}</text>
+      </view>
+      <view class="bar"></view>
+      <view>
+        <text>日环比</text>
+        <view wx:if="{{trade.tradeCountMoM}}" class="{{trade.tradeCountMoM>0?'dataUp':'dataDown'}}">
+          <image src="{{trade.tradeCountMoM>0?dataup:datadown}}"></image>
+          <text>{{trade.tradeCountMoM}}</text>
+          <text>%</text>
+        </view>
+        <view class='wuData' wx:else>
+          --
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="module">
+    <view class="title">
+      <view>
+        <image src="{{preEarnings}}"></image>
+        <text>支付方式统计</text>
+      </view>
+      <view class="arrow" bind:tap="toPaymentStatistics">
+        <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+      </view>
+    </view>
+    <view class="content">
+      <view>
+        <text>支付宝交易金额(元)</text>
+        <text>{{trade.alipayTypeTradeAmount===0?trade.alipayTypeTradeAmount+'.00':trade.alipayTypeTradeAmount}}</text>
+      </view>
+      <view class="bar"></view>
+      <view>
+        <text>支付宝交易笔数</text>
+        <text>{{trade.alipayTypeTradeCount}}</text>
+      </view>
+    </view>
+    <view class="content">
+      <view>
+        <text>微信交易金额(元)</text>
+        <text>{{trade.wechatTypeTradeAmount===0?trade.wechatTypeTradeAmount+'.00':trade.wechatTypeTradeAmount}}</text>
+      </view>
+      <view class="bar"></view>
+      <view>
+        <text>微信交易笔数</text>
+        <text>{{trade.wechatTypeTradeCount}}</text>
+      </view>
+    </view>
+    <view class="content">
+      <view>
+        <text>云闪付交易金额(元)</text>
+        <text>{{trade.unysfTypeTradeAmount ===0 ? trade.unysfTypeTradeAmount + '.00': trade.unysfTypeTradeAmount}}</text>
+      </view>
+      <view class="bar"></view>
+      <view>
+        <text>云闪付交易笔数</text>
+        <text>{{trade.unysfTypeTradeCount}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="module">
+    <view class="title">
+      <view>
+        <image src="{{preMerchant}}"></image>
+        <text>商户统计</text>
+      </view>
+      <view class="arrow" data-pattern="business" bind:tap="toStatisticalDetail">
+        <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+      </view>
+    </view>
+    <view class="content">
+      <view>
+        <text>商户总数</text>
+        <text>{{mchstore.merchantCount}}</text>
+      </view>
+      <view class="bar"></view>
+      <view wx:if="{{isAdmin}}">
+        <text>新增商户数</text>
+        <text>{{mchstore.newMerchant}}</text>
+      </view>
+      <view wx:else>
+        <text>动销商户数</text>
+        <text>{{trade.activeMerchantNumber}}</text>
+      </view>
+    </view>
+    <view class="content">
+      <view>
+        <text>疑似流失商户</text>
+        <text>{{lostUsers}}</text>
+      </view>
+      <view class="bar"></view>
+      <view>
+        <text>历史流失商户</text>
+        <text>{{historicalLoss}}</text>
+      </view>
+    </view>
+    <view class="content" wx:if="{{isAdmin}}">
+      <view>
+        <text>动销商户数</text>
+        <text>{{trade.activeMerchantNumber}}</text>
+      </view>
+      <view></view>
+    </view>
+  </view>
+  <view class="module">
+    <view class="title">
+      <view>
+        <image src="{{preStore}}"></image>
+        <text>门店统计</text>
+      </view>
+      <image src="{{arrR}}" data-pattern="store" bind:tap="toStatisticalDetail"></image>
+    </view>
+    <view class="content">
+      <view>
+        <text>门店总数</text>
+        <text>{{mchstore.storeCount}}</text>
+      </view>
+      <view class="bar"></view>
+      <view wx:if="{{isAdmin}}">
+        <text>新增门店数</text>
+        <text>{{mchstore.newStore}}</text>
+      </view>
+      <view wx:else>
+        <text>动销门店数</text>
+        <text>{{trade.activeStoreNumber}}</text>
+      </view>
+    </view>
+    <view class="content" wx:if="{{isAdmin}}">
+      <view>
+        <text>动销门店数</text>
+        <text>{{trade.activeStoreNumber}}</text>
+      </view>
+      <view></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,124 @@
+page {
+  background: #f4f4f4;
+}
+.my .info {
+  height: 180rpx;
+  background: #5177BE;
+  position: relative;
+}
+.my .info image {
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  left: 30rpx;
+  bottom: 30rpx;
+}
+.my .info text {
+  color: #fff;
+  position: absolute;
+  left: 170rpx;
+}
+.my .info .name {
+  top: 49rpx;
+  font-family: PingFang-SC-Bold;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  line-height: 34rpx;
+}
+.my .info .full-name {
+  bottom: 61rpx;
+  line-height: 28px;
+  top: 103rpx;
+}
+.my .operation {
+  background: #fff;
+  padding: 0 30rpx;
+}
+.my .operation > view {
+  height: 99rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+.my .operation > view:last-of-type {
+  border: 0;
+}
+.my .operation > view view {
+  display: flex;
+  align-items: center;
+}
+.my .operation image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.my .operation text {
+  margin-left: 28rpx;
+}
+.my .version {
+  position: fixed;
+  bottom: 150rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: rgb(105, 105, 105);
+}
+.my button {
+  position: fixed;
+  bottom: 45rpx;
+  left: 40rpx;
+  width: 670rpx;
+  border-radius: 10rpx;
+  margin: 0;
+}
+.my .update-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.my .update-modal > view {
+  width: 560rpx;
+  min-height: 740rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  position: relative;
+}
+.my .update-modal image {
+  width: 560rpx;
+  height: 360rpx;
+}
+.my .update-modal view .update-info {
+  min-height: 288rpx;
+  margin-bottom: 10rpx;
+}
+.my .update-modal view .update-info, .my .update-modal .update-info view {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.my .update-modal .update-info-title {
+  margin: 20rpx 0;
+  color: #333;
+  font-size: 32rpx;
+}
+.my .update-modal .update-info-content text {
+  width: 400rpx;
+}
+.my .update-modal .close-update-modal {
+  height: 90rpx;
+  border-top: 2rpx solid #DCDCDC;
+  color: #5C8EDB;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  text-align: center;
+}

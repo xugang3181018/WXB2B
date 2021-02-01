@@ -1,0 +1,24 @@
+page {
+  height: 100%;
+  background: #f7f7f7;
+}
+.entry9 button {
+  margin: 50rpx auto;
+}
+.entry9 .modalContent image {
+  width: 500rpx;
+  height: 300rpx;
+  margin-bottom: 50rpx;
+}
+.entry9 .modalContent {
+  min-height: 400rpx;
+  display: flex;
+  flex-direction: column;
+}
+.entry9 .modalContent text {
+  margin: 10rpx 0;
+  width: 100%;
+}
+.fliiBox {
+  height: 12rpx;
+}

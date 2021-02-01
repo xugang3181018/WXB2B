@@ -1,7 +1,0 @@
-module.exports = {
-  fixedPrice: function(value) {
-    if(value){
-      return Number(value).toFixed(2)
-    }
-  }
-};

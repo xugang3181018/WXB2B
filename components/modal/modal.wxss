@@ -1,0 +1,36 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal .box {
+  background: #fff;
+  padding: 25rpx;
+  padding-top: 0;
+  border-radius: 5rpx;
+  position: relative;
+}
+.modal .modal-title {
+  height: 80rpx;
+  border-bottom: 1px solid #E5E5E5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25rpx;
+}
+.modal .modal-title .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.modal .modal-close {
+  width: 35rpx;
+  height: 35rpx;
+}

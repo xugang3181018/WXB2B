@@ -1,3 +1,0 @@
-<view class='loading ^loading-comp'>
-    <view wx:for="123" wx:key="loadings" style='background:{{color}}'>   </view>
-</view>

@@ -1,0 +1,15 @@
+<!--注释-->
+<view class="vipServices">
+  <view>
+    <block wx:if="{{isVip}}">
+      <image src="{{isVipImg}}" />
+      <view>恭喜您成为VIP，您将获得联拓更多经营支持与服务权益，请联系客服建立专属VIP服务群。</view>
+      <button bind:tap="linkTo" data-url="plugin://myPlugin/chat">联系客服</button>
+    </block>
+    <block wx:else>
+      <image src="{{notVipImg}}" />
+      <view>{{isAdmin ? '您还未达到vip等级请继续努力哦！' : '请联系管理员查看'}}</view>
+      <button wx:if="{{isAdmin}}" bind:tap="linkTo" data-url="../agentLevel/agentLevel">等级详情</button>
+    </block>
+  </view>
+</view>

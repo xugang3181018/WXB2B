@@ -1,0 +1,35 @@
+<!--我的-->
+<view class="my">
+  <view class="info">
+    <image src="{{normalcardimg}}"></image>
+    <text class="name">{{info.agentFullName}}</text>
+    <text class="full-name">{{info.employeeName}}</text>
+  </view>
+  <view class="operation">
+    <block wx:for="{{operation}}" wx:key="index">
+      <view bind:tap="linkTo" data-url="{{item.url}}">
+        <view>
+          <image src="{{item.icon}}" class="icon"></image>
+          <text>{{item.name}}</text>
+        </view>
+        <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+      </view>
+    </block>
+  </view>
+  <view class="version">V 2.2.7</view>
+  <button bind:tap="logout">退出系统</button>
+  <view class="update-modal" wx:if="{{isUpdate}}">
+    <view>
+      <image src="{{updatePos}}"></image>
+      <view class="update-info">
+        <view class="update-info-title">{{updateInfo.title}}</view>
+        <view class="update-info-content">
+          <block wx:for="{{updateInfo.content}}" wx:key="index">
+            <text>{{item}}</text>
+          </block>
+        </view>
+      </view>
+      <view class="close-update-modal" bind:tap="closeUpdateModal">关闭</view>
+    </view>
+  </view>
+</view>

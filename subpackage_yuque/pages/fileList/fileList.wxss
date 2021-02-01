@@ -1,0 +1,47 @@
+page {
+  height: 100%;
+}
+.fileList .fillBox {
+  height: 102rpx;
+}
+.fileList .index {
+  height: 42rpx;
+  font-size: 42rpx;
+  line-height: 42rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  background: #5177BE;
+  padding: 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.fileList .list {
+  margin: 0 30rpx;
+  height: 99rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fileList .list image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.fileList .list view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.fileList .list view image {
+  margin-right: 28rpx;
+}
+.fileList .list view text {
+  color: #888888;
+  font-size: 28rpx;
+  max-width: 500rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

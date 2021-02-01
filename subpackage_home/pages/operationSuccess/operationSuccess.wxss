@@ -1,0 +1,92 @@
+page {
+  background: #fff;
+}
+.operationSuccess {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.operationSuccess image {
+  width: 330rpx;
+  height: 330rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 210rpx;
+}
+.operationSuccess .slogan {
+  position: absolute;
+  top: 450rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 60rpx;
+  color: #5177BE;
+}
+.operationSuccess .login-info {
+  position: absolute;
+  bottom: 330rpx;
+  left: 0;
+  right: 0;
+  min-height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 75rpx;
+}
+.operationSuccess .login-info .info {
+  height: 88rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #E8E8E8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  font-size: 30rpx;
+}
+.operationSuccess .login-info .info text:first-of-type {
+  color: #999;
+  font-size: 26rpx;
+}
+.operationSuccess .button-list {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.operationSuccess button {
+  width: 600rpx;
+  height: 90rpx;
+  font-size: 32rpx;
+  border-radius: 4rpx;
+  color: #5177BE;
+  background: #fff;
+  border: 2rpx solid #5177BE;
+  box-sizing: border-box;
+}
+.operationSuccess .first-button {
+  color: #fff;
+  background: #5177BE;
+}
+.operationSuccess .default-button {
+  background: #ccc;
+  border: 2rpx solid #ccc;
+}
+.operationSuccess .entry-tip {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.operationSuccess .login-info .clip {
+  font-size: 22rpx;
+  color: #000;
+  height: 60rpx;
+  width: 250rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.operationSuccess .login-info .clip text {
+  color: #5177BE;
+  font-size: 24rpx;
+}

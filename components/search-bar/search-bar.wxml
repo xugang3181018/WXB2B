@@ -1,0 +1,9 @@
+<!--搜索框-->
+<view class="search-bar">
+  <view class="box">
+    <image src="{{search}}" class="search-bar-search"></image>
+    <input type="text" bindfocus="onFocus" bindblur="onBlur" bindconfirm="onConfirm" bindinput="onInput" placeholder="{{placeholder}}" placeholder-class="placeHolder" value="{{content}}" class="input-class" placeholder-style="color: #fff" />
+    <image src="{{off}}" wx:if="{{hasValue && isFocus}}" bind:tap="onClear" class="search-bar-clear" />
+  </view>
+  <text wx:if="{{isFocus}}" bind:tap="onCancel" class="cancel">取消</text>
+</view>

@@ -1,0 +1,4 @@
+<!-- Tabs组件 -->
+<scroll-view class="tabs-component" scroll-x scroll-left="0" id="scroll-view" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
+  <view class="{{activeTab === index ? 'selected' : ''}}" wx:for="{{tabsList}}" wx:key="index" bindtap="changeTabs" id="item-{{item.id}}" data-active-tab="{{index}}">{{item.title}}</view>
+</scroll-view>

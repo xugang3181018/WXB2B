@@ -1,0 +1,144 @@
+.entryList {
+  position: relative;
+}
+.entryList .fillBox {
+  height: 88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.entryList .fillBox image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.entryList .list {
+  padding: 35rpx 0;
+  margin: 0 25rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #E5E5E5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.entryList .list > view:first-of-type .entryName {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 12rpx;
+  max-width: 550rpx;
+}
+.entryList .list > view:first-of-type .entryName .status {
+  width: 63rpx;
+  height: 36rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 36rpx;
+  display: inline-block;
+}
+.entryList .list > view:first-of-type .entryName .store {
+  background: #5177BE;
+}
+.entryList .list > view:first-of-type .entryName .merchant {
+  background: #5177BE;
+}
+.entryList .list > view:first-of-type .entryName .name {
+  margin-left: 24rpx;
+  font-size: 30rpx;
+  color: #333333;
+  max-width: 440rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.entryList .list > view:first-of-type .bankAccess {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 24rpx;
+  color: #888888;
+}
+.entryList .list > view:first-of-type .bankAccess .passage {
+  max-width: 370rpx;
+}
+.entryList .list > view:first-of-type .bankAccess .passage text {
+  width: 370rpx;
+  display: inline-block;
+}
+.entryList .list > view:first-of-type text {
+  font-size: 24rpx;
+  color: #888888;
+}
+.entryList .list > view:last-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  position: relative;
+}
+.entryList .list > view:last-of-type text {
+  font-size: 24rpx;
+  line-height: 35rpx;
+}
+.entryList .list > view:last-of-type image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 10rpx;
+}
+.entryList .passageImg {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 55rpx;
+  bottom: -45rpx;
+}
+.entryList .type {
+  position: fixed;
+  bottom: 120rpx;
+  right: 60rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 32rpx;
+  background: #5177BE;
+}
+.entryList .typeList {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.entryList .typeList text {
+  position: fixed;
+  bottom: 140rpx;
+  right: 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  background: #5177BE;
+}
+.entryList .typeList text:first-of-type {
+  bottom: 260rpx;
+}
+.entryList .typeList text:nth-of-type(2) {
+  right: 200rpx;
+}
+.entryList .typeList text:last-of-type {
+  bottom: 20rpx;
+}
+.entryList .success {
+  color: #51E50F;
+}
+.entryList .fail {
+  color: #FF4430;
+}
+.entryList .auditorStatus {
+  max-width: 145rpx;
+}

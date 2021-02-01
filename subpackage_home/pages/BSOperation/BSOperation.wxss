@@ -1,0 +1,52 @@
+page {
+  height: 100%;
+  background: #f7f7f7;
+}
+textarea {
+  padding: 20rpx;
+}
+.smallNotes {
+  height: 20rpx;
+}
+button {
+  margin-top: 50rpx;
+}
+.notChange {
+  padding-left: 40rpx;
+}
+.moduleContent .show-business-hours {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 20rpx;
+}
+.moduleContent .show-business-hours text, .moduleContent .show-business-hours text:last-of-type, .moduleContent .show-business-hours text:first-of-type {
+  white-space: unset;
+  max-width: 670rpx;
+  margin: 5rpx 0;
+  color: #333;
+  text-overflow: unset;
+  overflow: unset;
+}
+.moduleContent > .business-hours-input {
+  border: 0;
+}
+.notChange > view {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rpx 0 0;
+  height: 89rpx;
+  align-items: center;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+}
+.notChange > view > text:first-of-type {
+  color: #666;
+}
+.notes {
+  text-align: right;
+  padding-right: 40rpx;
+}

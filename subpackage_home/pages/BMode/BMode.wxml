@@ -1,0 +1,12 @@
+<!--创建商户的模式选择-->
+<view class="BMode">
+  <block wx:for="{{link}}" wx:key="index">
+    <navigator open-type="navigate" url="{{item.url}}">
+      <view>
+        <image src="{{item.img}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+      <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+    </navigator>
+  </block>
+</view>

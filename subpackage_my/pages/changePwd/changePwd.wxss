@@ -1,0 +1,6 @@
+page {
+  background: #fff;
+}
+button {
+  margin-top: 50rpx;
+}

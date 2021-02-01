@@ -1,0 +1,35 @@
+page {
+  background: #fff;
+}
+.businessList {
+}
+.businessList .business {
+  padding: 25rpx 30rpx;
+  margin: 0 20rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+  display: flex;
+  justify-content: space-between;
+}
+.businessList .business view {
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+}
+.businessList .business view:first-of-type {
+  flex-direction: column;
+  color: #999;
+}
+.businessList .business view:first-of-type text:first-of-type {
+  font-size: 34rpx;
+  color: #444;
+  margin-bottom: 8rpx;
+}
+.businessList .business view:last-of-type {
+  align-items: center;
+  color: #666;
+}
+.businessList .business view image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 10rpx;
+}

@@ -1,0 +1,84 @@
+<!--营业时间-->
+<view class="business-hours">
+  <view class="header">
+    <image src="{{carefulRed}}" />
+    <text>营业时间最多支持三个时间段</text>
+  </view>
+  <block wx:for="{{showList}}" wx:key="index">
+    <view class="list-item">
+      <view class="item-info">
+        <view class="date-info">
+          <text class="time">{{item.startTime}}-{{item.endTime}}</text>
+          <text class="date">{{item.date}}</text>
+        </view>
+        <!-- <switch checked="{{item.isChecked}}" type="switch" bindchange="changeSwitch" style="margin-right: 32rpx" data-index="{{index}}" /> -->
+      </view>
+      <view class="operations">
+        <view>
+          <view bind:tap="open" data-index="{{index}}" data-operation="edit">
+            <image src="{{editBusinessHours}}" />
+            <text>编辑</text>
+          </view>
+        </view>
+        <view>
+          <view bind:tap="delete" data-index="{{index}}">
+            <image src="{{deleteBusinessHours}}" />
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="add-business-hours" wx:if="{{showList.length < 3}}" bind:tap="open" data-operation="add">
+    <image src="{{addBusinessHours}}" />
+    <text>添加营业时间</text>
+  </view>
+  <button bind:tap="save">保存</button>
+</view>
+<popup show="{{popShow}}" position="bottom" height="auto" bind:onClose="close" data-type="popup">
+  <view class="popup">
+    <view class="time">
+      <view class="time-title">
+        <view>开始时间</view>
+        <view>结束时间</view>
+      </view>
+      <view class="time-picker">
+        <view>
+          <picker-view indicator-style="height: 100rpx;" style="width: 374rpx; height: 300rpx" value="{{start}}" bindchange="changeTime" data-type="start">
+            <picker-view-column>
+              <view wx:for="{{startHours}}" wx:key="index" style="line-height: 100rpx">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column>
+              <view wx:for="{{startMinute}}" wx:key="index" style="line-height: 100rpx">{{item}}</view>
+            </picker-view-column>
+          </picker-view>
+        </view>
+        <view class="border" />
+        <view>
+          <picker-view indicator-style="height: 100rpx;" style="width: 374rpx; height: 300rpx;" value="{{end}}" bindchange="changeTime" data-type="end">
+            <picker-view-column>
+              <view wx:for="{{endHours}}" wx:key="index" style="line-height: 100rpx">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column>
+              <view wx:for="{{endMinute}}" wx:key="index" style="line-height: 100rpx">{{item}}</view>
+            </picker-view-column>
+          </picker-view>
+        </view>
+      </view>
+    </view>
+    <view class="week">
+      <view class="title">营业周期</view>
+      <view class="options">
+        <block wx:for="{{weekOptions}}" wx:key="index">
+          <view class="{{weekFlag === index ? 'week-checked' : null}}" bind:tap="changeWeekOptions" data-index="{{index}}">{{item}}</view>
+        </block>
+      </view>
+      <checkbox-group bindchange="getCustomAry" wx:if="{{weekFlag === 2}}" value="{{customData}}">
+        <label class="checkbox" wx:for="{{customList}}" wx:key="index">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="operation" bind:tap="operations">{{operation === 'create' ? '添加' : '确定'}}</view>
+  </view>
+</popup>

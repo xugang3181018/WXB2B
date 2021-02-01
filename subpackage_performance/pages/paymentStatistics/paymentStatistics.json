@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "支付方式统计",
+  "usingComponents": {
+    "ec-canvas": "../../componets/ec-canvas/ec-canvas"
+  }
+}

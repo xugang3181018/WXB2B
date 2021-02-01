@@ -1,0 +1,32 @@
+<view class="pickers">
+  <picker mode="{{mode}}" range="{{range}}" range-key="1" value="{{column}}" bindcolumnchange="columnChange" bindchange="checkChange" data-range="{{range}}" disabled="{{disabled}}">
+    <view class="box">
+      <!-- 地区 -->
+      <block wx:if="{{type === 'area'}}">
+        <text class="hasValue" wx:if="{{select}}">{{select["province"]}}-{{select["city"]}}-{{select["area"]}}</text>
+        <text wx:else style="font-size: 24rpx">请选择</text>
+      </block>
+      <!-- 银行地区 -->
+      <block wx:if="{{type === 'bankArea'}}">
+        <text class="hasValue" wx:if="{{select}}">{{select["subbranchProvince"]}}-{{select["subbranchCity"]}}</text>
+        <text wx:else style="font-size: 24rpx">请选择</text>
+      </block>
+      <!-- 所属行业 -->
+      <block wx:if="{{type === 'trade'}}">
+        <text class="hasValue" wx:if="{{select}}">{{select["trade"]}}，{{select['category']}}</text>
+        <text wx:else style="font-size: 24rpx">请选择</text>
+      </block>
+      <!-- 经营类目 -->
+      <block wx:if="{{type === 'category'}}">
+        <text class="hasValue" wx:if="{{select}}">{{select["category"]}}</text>
+        <text wx:else style="font-size: 24rpx">请选择</text>
+      </block>
+      <!-- 银行 -->
+      <block wx:if="{{type === 'bank'}}">
+        <text class="hasValue" wx:if="{{select}}">{{select["bankName"]}}</text>
+        <text wx:else style="font-size: 24rpx">请选择</text>
+      </block>
+      <mp-icon icon="arrow" extClass="arrow" wx:if="{{!disabled}}" color="#aaa" size="15"></mp-icon>
+    </view>
+  </picker>
+</view>

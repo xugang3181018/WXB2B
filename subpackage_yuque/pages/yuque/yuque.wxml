@@ -1,0 +1,20 @@
+<!--语雀-->
+<view class="yuque">
+  <search-bar
+    placeholder="请输入关键字搜索"
+    bind:onClear="clearSearch"
+    bind:onConfirm="search"
+  />
+  <view wx:for="{{list}}" wx:key="index" wx:if="{{item.public}}" class="list" bindtap="linkTo" data-namespace="{{type === 0 ? item.namespace: item.url}}" data-slug="{{type === 1 ? item.target.slug : null}}">
+    <view>
+      <image src="{{ider}}"></image>
+      <text>{{type === 0 ? item.name : item.target.title}}</text>
+    </view>
+    <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+  </view>
+  <view class="loadMore" wx:if="{{list.length > 0}}">{{loading}}</view>
+  <view class="default" wx:else>
+    <image src="{{dataempty}}"></image>
+    <text>没有数据</text>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+.tabs-component {
+  white-space: nowrap;
+  background: #fff;
+}
+.tabs-component view {
+  width: 188rpx;
+  height: 84rpx;
+  text-align: center;
+  display: inline-block;
+  line-height: 90rpx;
+  border-bottom: 6rpx solid transparent;
+}
+.tabs-component .selected {
+  border-bottom: 6rpx solid #5177BE;
+  font-size: 36rpx;
+  color: #5177BE;
+}

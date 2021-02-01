@@ -1,0 +1,145 @@
+<view class="BSDetail">
+  <view class="{{pattern === 'business'? 'businessBG': 'storeBG'}}">
+    <text wx:if="{{pattern === 'business'}}">{{BSInfo.merchantName}}</text>
+    <text wx:else>{{BSInfo.storeFullName}}</text>
+    <text>{{BSInfo.merchantFullName}}</text>
+    <view class="business" wx:if="{{pattern === 'business'}}">
+      <view>{{BSInfo.storeNum}}家门店</view>
+      <text wx:if="{{BSInfo.status === 0}}">启用</text>
+      <text wx:elif="{{BSInfo.status === 1 || BSInfo.status === 2}}">停用</text>
+      <text wx:else>注销</text>
+    </view>
+    <block wx:else>
+      <text class="store" wx:if="{{BSInfo.status === 0}}">启用</text>
+      <text class="store" wx:elif="{{BSInfo.status === 1 || BSInfo.status === 2}}">停用</text>
+      <text class="store" wx:else>注销</text>
+    </block>
+  </view>
+  <view class="moduleContent">
+    <view>
+      <text>联系人</text>
+      <text>{{BSInfo.contactName}}</text>
+    </view>
+    <view>
+      <text>联系人手机号</text>
+      <text>{{BSInfo.contactPhone}}</text>
+    </view>
+    <view>
+      <text>联系人邮箱</text>
+      <text wx:if="{{BSInfo.contactEmail}}">{{BSInfo.contactEmail}}</text>
+    </view>
+    <view>
+      <text>商户所在地区</text>
+      <text>{{BSInfo.province}}-{{BSInfo.city}}-{{BSInfo.area}}</text>
+    </view>
+    <view>
+      <text>商户详细地址</text>
+      <text>{{BSInfo.address}}</text>
+    </view>
+    <view>
+      <text>所属业务员</text>
+      <text>{{BSInfo.salesmanName}}</text>
+    </view>
+    <view>
+      <text>可用通道</text>
+      <view>
+        <image wx:if="{{BSInfo.hfId}}" src="{{hf}}"></image>
+        <image wx:if="{{BSInfo.alipayId}}" src="{{alipayImg}}"></image>
+        <image wx:if="{{BSInfo.wechatId}}" src="{{weixin}}"></image>
+        <image wx:if="{{BSInfo.ksId}}" src="{{meizhou}}"></image>
+        <image wx:if="{{BSInfo.wsId}}" src="{{wspay}}"></image>
+        <image wx:if="{{BSInfo.ykId}}" src="{{ls}}"></image>
+      </view>
+    </view>
+    <view>
+      <text>产品使用版本</text>
+      <text wx:if="{{BSInfo.productName}}">{{BSInfo.productName}}</text>
+    </view>
+    <view>
+      <text>登录名</text>
+      <view>
+        <text>{{BSInfo.loginName}}</text>
+        <view data-clip="{{BSInfo.loginName}}" bind:tap="clipBoard" class="clip">复制</view>
+      </view>
+    </view>
+    <view wx:if="{{pattern === 'business'}}">
+      <text>商户ID</text>
+      <view>
+        <text>{{BSInfo.merchantCode}}</text>
+        <view data-clip="{{BSInfo.merchantCode}}" bind:tap="clipBoard" class="clip">复制</view>
+      </view>
+    </view>
+    <view wx:else>
+      <text>门店ID</text>
+      <view>
+        <text>{{BSInfo.storeCode}}</text>
+        <view data-clip="{{BSInfo.storeCode}}" bind:tap="clipBoard" class="clip">复制</view>
+      </view>
+    </view>
+    <view wx:if="{{BSInfo.activationCode}}">
+      <text>激活码</text>
+      <view class="activationCode">
+        <text>{{BSInfo.activationCode}}</text>
+        <view data-clip="{{BSInfo.activationCode}}" bind:tap="clipBoard" class="clip">复制</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{pattern === 'store'}}">
+    <view class="moduleTitle {{pattern === 'business'? '':'storeColor'}}">支付配置</view>
+    <view class="moduleContent">
+      <view>
+        <text>支付宝配置</text>
+        <view wx:if="{{alipayConfigures.length === 1}}">
+          <text>无</text>
+          <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+        </view>
+        <picker wx:else name="alipay" range="{{alipayConfigures}}" bindchange="changeRate" value="{{alipay}}"
+          data-type="alipay">
+          <view>
+            <text style="color: #333;min-width: 350rpx;text-align: right">{{alipayConfigures[alipay]}}</text>
+            <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+          </view>
+        </picker>
+      </view>
+      <view>
+        <text>微信配置</text>
+        <view wx:if="{{wechatConfigures.length === 1}}">
+          <text>无</text>
+          <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+        </view>
+        <picker wx:else name="wechat" range="{{wechatConfigures}}" bindchange="changeRate" value="{{wechat}}"
+          data-type="wechat">
+          <view>
+            <text style="color: #333;min-width: 350rpx;text-align: right">{{wechatConfigures[wechat]}}</text>
+            <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="moduleTitle {{pattern === 'business'? '':'storeColor'}}">进件信息</view>
+    <view class="moduleContent">
+      <view bind:tap="toBankPassage" data-passtype="11">
+        <text>汇付通道</text>
+        <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+      </view>
+      <view bind:tap="toBankPassage" data-passtype="8">
+        <text>客商银行</text>
+        <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+      </view>
+      <view bind:tap="toBankPassage" data-passtype="7">
+        <text>网商银行</text>
+        <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+      </view>
+      <view bind:tap="toBankPassage" data-passtype="9">
+        <text>乐刷通道</text>
+        <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+      </view>
+    </view>
+  </view>
+  <button class="{{pattern === 'business'? 'businessBG': 'storeBG'}}" bind:tap="toEdit" wx:if="{{BSInfo.status !== 4}}">编辑</button>
+  <view class="canNotEdit" wx:else>编辑</view>
+  <button bind:tap="changePassword" class="{{pattern === 'business'? 'businessBG': 'storeBG'}}">重置密码</button>
+  <view style="height: 30rpx;"></view>
+</view>

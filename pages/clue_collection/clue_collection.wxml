@@ -1,0 +1,42 @@
+<form bind:submit="submit" class="clue-collection" wx:if="{{!isSubmit}}">
+  <view class="moduleContent">
+    <view>
+      <text><text class="required">*</text>联系人名称</text>
+      <input type="text" value="{{contact_name}}" name="contact_name" placeholder="请输入" maxlength="30" placeholder-class="placeholder" />
+    </view>
+    <view>
+      <text><text class="required">*</text>联系人手机号</text>
+      <input type="text" value="{{contact_phone}}" name="contact_phone" placeholder="11位以内" maxlength="11" placeholder-class="placeholder" />
+    </view>
+    <view>
+      <text><text class="required">*</text>公司名称</text>
+      <input type="text" value="{{corporate_name}}" name="corporate_name" placeholder="请输入" maxlength="15" placeholder-class="placeholder" />
+    </view>
+    <view class="inputColor">
+      <text><text class="required">*</text>所在地区</text>
+      <pickers type="area" passType="7" bindpickers="changePickers" data-type='area' />
+    </view>
+    <view>
+      <text>行业</text>
+      <input type="text" value="{{trade_type_name}}" name="trade_type_name"placeholder="请输入" maxlength="30" placeholder-class="placeholder" />
+    </view>
+    <view>
+      <text>主做品牌</text>
+      <input type="text" value="{{independent_brand}}" name="independent_brand" placeholder="请输入" maxlength="30" placeholder-class="placeholder"/>
+    </view>
+    <view>
+      <text>目前体量</text>
+      <input type="text" value="{{current_volume}}" name="current_volume" placeholder="请输入" maxlength="30" placeholder-class="placeholder" />
+    </view>
+    <view>
+      <text>介绍人</text>
+      <input type="text" value="{{introducer_name}}" name="introducer_name" placeholder="没有可不填写" maxlength="10" placeholder-class="placeholder"/>
+    </view>
+  </view>
+  <view class="notes">提交后销售经理会第一时间联系您！</view>
+  <button form-type="submit">提交</button>
+</form>
+<view class="live-code" wx:else>
+  <image src="{{liveCode}}"></image>
+  <text>扫码观看直播</text>
+</view>

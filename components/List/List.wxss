@@ -1,0 +1,31 @@
+.list-component {
+  position: relative;
+}
+/* 加载样式 */
+.list-component .loadMore {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #aaa;
+}
+/* 没有数据的默认样式 */
+.list-component .default {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+.list-component .default view text {
+  color: #ccc;
+  font-size: 30rpx;
+}
+.list-component .default image {
+  width: 200rpx;
+  height: 200rpx;
+}

@@ -1,7 +1,0 @@
-<view class='empty' animation="{{imageAnm}}" >
-    <image class='empty-image' src='../../assets/empty/{{type}}.png' />
-    <view class="empty-content" animation="{{textAnm}}">
-      <view class='empty-text' wx:if="{{text}}">{{text}}</view>
-      <slot />
-    </view>
-</view>

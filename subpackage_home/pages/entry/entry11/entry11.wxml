@@ -1,0 +1,395 @@
+<movable-area class="movable-area" scale-area="false">
+  <form bind:submit="nextStep" class="entry11">
+    <progress percent="{{progress}}" activeColor="#5177BE" backgroundColor="#f7f7f7" active="true" duration="10" active-mode="forwards" class="progress" wx:if="{{change === '0'}}" />
+    <view class="fliiBox" wx:if="{{change === '0'}}"></view>
+    <!-- 第一步 -->
+    <view class="fliiBox"></view>
+    <block wx:if="{{step === 1}}">
+      <view class="moduleContent" style="background: #f7f7f7;">
+        <block wx:if="{{pattern === 'store'}}">
+          <view>
+            <text>门店名称</text>
+            <text>{{storeFullName}}</text>
+          </view>
+          <view>
+            <text>门店编号</text>
+            <text>{{storeNo}}</text>
+          </view>
+        </block>
+        <view>
+          <text>商户名称</text>
+          <text>{{merchantFullName}}</text>
+        </view>
+        <view>
+          <text>商户编号</text>
+          <text>{{merchantCode}}</text>
+        </view>
+      </view>
+      <view class="moduleContent">
+        <view>
+          <text>配置名称</text>
+          <input class="config" type="text" name="configureName" placeholder="请输入配置名称" value="{{configureName}}" maxlength="100" placeholder-class="placeholder" />
+        </view>
+      </view>
+      <view class="notes">默认值，可编辑，主要在门店配置支付中进行选择。</view>
+      <view class="moduleContent" style="margin-bottom: 32rpx">
+        <view class="inputColor">
+          <text>通道名称</text>
+          <picker name="channel" range="{{channel.list}}" bindchange="changeData" data-type="channel" disabled="{{change > 0}}" value="{{channel.index}}">
+            <view>
+              <text wx:if='{{channel.index === null}}' style="font-size: 24rpx">选择通道</text>
+              <text wx:else class="{{change > 0 ? 'changeColor': 'normalColor'}}">{{channel.list[channel.index]}}</text>
+              <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+            </view>
+          </picker>
+        </view>
+        <view class="inputColor">
+          <text>支付宝费率</text>
+          <text wx:if="{{change === '1' && !alipayRateId}}" class="changeColor">无法更改</text>
+          <picker name="alipay" range="{{alipay.list}}" bindchange="rateChange" data-type="alipay" disabled="{{channel.index === null}}" value="{{alipay.index}}" wx:else>
+            <view>
+              <text bind:tap="chooseChannel" wx:if='{{alipay.index === null}}' style="font-size: 24rpx">请选择支付宝交易费率</text>
+              <text wx:else style="color: #333">{{alipay.list[alipay.index]}}</text>
+              <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+            </view>
+          </picker>
+        </view>
+        <view class="inputColor">
+          <text>微信费率</text>
+          <text wx:if="{{change === '1' && !wechatRateId}}" class="changeColor">无法更改</text>
+          <picker name="wechat" range="{{wechat.list}}" bindchange="rateChange" data-type="wechat" disabled="{{channel.index === null}}" value="{{wechat.index}}}" wx:else>
+            <view>
+              <text bind:tap="chooseChannel" wx:if='{{wechat.index === null}}' style="font-size: 24rpx">请选择微信交易费率</text>
+              <text wx:else style="color: #333">{{wechat.list[wechat.index]}}</text>
+              <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="moduleContent">
+        <view class="inputColor">
+          <text>配置备注(可空)</text>
+          <input type="text" name="configureRemark" value="{{configureRemark}}" placeholder="请输入配置备注" maxlength="15" placeholder-class="placeholder" />
+        </view>
+        <view class="inputColor">
+          <text>商户种类</text>
+          <text style="color: #bbb" wx:if="{{change > 0}}">{{merchantClassList[MCIndex]}}</text>
+          <picker name="MCIndex" range="{{merchantClassList}}" bindchange="changeData" value="{{MCIndex}}" data-type="MCIndex" wx:else>
+            <view>
+              <text wx:if='{{MCIndex === null}}' style="font-size: 24rpx">请选择商户种类</text>
+              <text wx:else class="{{change > 0 ? 'changeColor': 'normalColor'}}">{{merchantClassList[MCIndex]}}</text>
+              <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+            </view>
+          </picker>
+        </view>
+        <view class="inputColor">
+          <view>
+            <text style="color: #666">商户类型</text>
+            <image bind:tap="linkTo" data-url="../../notes/notes?notes=type" src="{{moreinfo}}"></image>
+          </view>
+          <text style="color: #bbb" wx:if="{{change > 0}}">{{merchantTypeList[MTIndex]}}</text>
+          <picker name="MTIndex" range="{{merchantTypeList}}" bindchange="changeData" value="{{MTIndex}}" data-type="MTIndex" wx:else>
+            <view>
+              <text wx:if='{{MTIndex === null}}' style="font-size: 24rpx">请选择商户类型</text>
+              <text wx:else class="{{change > 0 ? 'changeColor': 'normalColor'}}">{{merchantTypeList[MTIndex]}}</text>
+              <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+            </view>
+          </picker>
+        </view>
+        <view class="inputColor">
+          <text>经营类目</text>
+          <view bind:tap="linkTo" data-url="../category/category?passType=11&type={{MTIndex}}" data-type="category">
+            <text wx:if="{{!businessCategoryName}}" style="font-size: 24rpx">请选择经营类目</text>
+            <text wx:else style="color: #333333">{{businessCategoryName}}</text>
+            <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 第二步 -->
+    <block wx:if="{{step === 2}}">
+      <view class="moduleContent">
+        <view>
+          <text>商户简称</text>
+          <input type="text" value="{{nameCn}}" name="nameCn" placeholder="15字以内" maxlength="15" placeholder-class="placeholder" />
+        </view>
+        <block wx:if="{{merchantType > 1}}">
+          <view style="height: 120rpx">
+            <text>营业执照</text>
+            <image bind:tap="uploadImg" src="{{businessLicenseUrl ? businessLicenseUrl : defaultPic}}" class="upload" data-name="businessLicenseUrl" data-othername="hfBusinessLicenseUrl" data-ocr="BUSINESS_LICENSE" data-type='01'></image>
+          </view>
+          <view>
+            <text>营业执照名称</text>
+            <input type="text" name="fullNameCn" value="{{fullNameCn}}" placeholder="30字以内" maxlength="40" placeholder-class="placeholder" />
+          </view>
+          <view>
+            <text>营业执照编号</text>
+            <input type="text" name="businessLicenseNo" value="{{businessLicenseNo}}" placeholder="15或18位，只能为数字和字母" maxlength="18" placeholder-class="placeholder" />
+          </view>
+          <view>
+            <text>营业执照注册日期</text>
+            <picker mode="date" value="{{businessStartDate}}" bindchange="changeDate" data-type="businessStartDate">
+              <view>
+                <text wx:if='{{!businessStartDate}}' style="color: #ccc; font-size: 24rpx">请选择</text>
+                <text wx:else>{{businessStartDate}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+              </view>
+            </picker>
+          </view>
+          <view>
+            <text>营业执照是否永久有效</text>
+            <switch checked="{{forever1}}" bindchange="changeData" data-type="forever1" color="#5177BE" />
+          </view>
+          <view wx:if="{{!forever1}}">
+            <text>营业执照截止日期</text>
+            <picker mode="date" value="{{businessDeadline}}" bindchange="changeDate" data-type="businessDeadline">
+              <view>
+                <text wx:if='{{!businessDeadline}}' style="color: #ccc; font-size: 24rpx">请选择</text>
+                <text wx:else>{{businessDeadline}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+              </view>
+            </picker>
+          </view>
+        </block>
+        <view class="inputColor">
+          <text>商户所属地区</text>
+          <pickers columnAry="{{areaAry}}" type="area" passType="11" bindpickers="changePickers" data-type='area' />
+        </view>
+        <textarea name="address" value="{{address}}" placeholder="请输入详细地址，字数限制为5-40" style="font-size: 24rpx" placeholder-class="placeholder" maxlength="40"></textarea>
+        <view>
+          <text>联系人手机号</text>
+          <input type="text" name="mobile" value="{{mobile}}" placeholder="11位以内" maxlength="11" placeholder-class="placeholder" />
+        </view>
+        <view>
+          <text>客服电话</text>
+          <input type="text" name="customerPhone" value="{{customerPhone}}" placeholder="20位以内" maxlength="20" placeholder-class="placeholder" />
+        </view>
+        <view>
+          <text>联系人邮箱</text>
+          <input type="text" name="contactEmail" value="{{contactEmail}}" placeholder="20位以内" maxlength="20" placeholder-class="placeholder" />
+        </view>
+        <block wx:if="{{merchantType > 1}}">
+          <view>
+            <text>法人证件类型</text>
+            <picker name="CHTIndex" range="{{CHTList}}" bindchange="changeData" data-type="CHTIndex" value="{{CHTIndex}}">
+              <view>
+                <text wx:if='{{CHTIndex === null}}' style="color: #ccc; font-size: 24rpx">请选择法人证件类型</text>
+                <text wx:else>{{CHTList[CHTIndex]}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+              </view>
+            </picker>
+          </view>
+          <view style="height: 120rpx">
+            <text>法人身份证（人像面）</text>
+            <image bind:tap="uploadImg" src="{{identificationFrontUrl ? identificationFrontUrl : defaultPic}}" class="upload" data-name="identificationFrontUrl" data-othername="hfIdentificationFrontUrl " data-type='06' data-ocr="IDCARD"></image>
+          </view>
+          <view style="height: 120rpx">
+            <text>法人身份证（国徽面）</text>
+            <image bind:tap="uploadImg" src="{{identificationOppositeUrl ? identificationOppositeUrl : defaultPic}}" class="upload" data-name="identificationOppositeUrl" data-othername="hfIdentificationOppositeUrl" data-type='05'></image>
+          </view>
+          <view>
+            <text>法人姓名</text>
+            <input type="text" name="companyCorporation" value="{{companyCorporation}}" placeholder="10字以内，仅支持中文" maxlength="10" placeholder-class="placeholder" />
+          </view>
+          <view>
+            <text>法人证件号</text>
+            <input type="text" name="certificateHolderNo" value="{{certificateHolderNo}}" bind:blur="changeData" data-type="idCard" placeholder="18字以内" maxlength="18" placeholder-class="placeholder" />
+          </view>
+          <view>
+            <text>法人证件开始日期</text>
+            <picker mode="date" value="{{companyCorporationStartDate}}" bindchange="changeDate" data-type="companyCorporationStartDate">
+              <view>
+                <text wx:if='{{!companyCorporationStartDate}}' style="color: #ccc; font-size: 24rpx">请选择</text>
+                <text wx:else>{{companyCorporationStartDate}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+              </view>
+            </picker>
+          </view>
+          <view>
+            <text>法人证件是否永久有效</text>
+            <switch checked="{{forever2}}" bindchange="changeData" data-type="forever2" color="#5177BE" />
+          </view>
+          <view wx:if="{{!forever2}}">
+            <text>法人证件到期日期</text>
+            <picker mode="date" value="{{companyCorporationDeadline}}" bindchange="changeDate" data-type="companyCorporationDeadline">
+              <view>
+                <text wx:if='{{!companyCorporationDeadline}}' style="color: #ccc; font-size: 24rpx">请选择</text>
+                <text wx:else>{{companyCorporationDeadline}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+              </view>
+            </picker>
+          </view>
+        </block>
+        <view style="height: 120rpx">
+          <text>门头照</text>
+          <image bind:tap="uploadImg" src="{{doorUrl ? doorUrl : defaultPic}}" class="upload" data-name="doorUrl" data-othername="hfDoorUrl" data-type='15'></image>
+        </view>
+        <view style="height: 120rpx">
+          <text>经营场所内设照片</text>
+          <image bind:tap="uploadImg" src="{{stroeEnvironmentPhotoUrl ? stroeEnvironmentPhotoUrl : defaultPic}}" class="upload" data-name="stroeEnvironmentPhotoUrl" data-othername="hfStroeEnvironmentPhotoUrl" data-type='17'></image>
+        </view>
+        <view style="height: 120rpx">
+          <text>收银台照</text>
+          <image bind:tap="uploadImg" src="{{cashierPhotoUrl ? cashierPhotoUrl : defaultPic}}" class="upload" data-name="cashierPhotoUrl" data-othername="hfCashierPhotoUrl" data-type='16'></image>
+        </view>
+      </view>
+      <view class="notes">要求收银台或收款二维码清晰可见，展示店内实际收银场景。</view>
+    </block>
+    <!-- 第三步 -->
+    <block wx:if="{{step === 3}}">
+      <view class="moduleContent">
+        <view>
+          <text>账户类型</text>
+          <text wx:if="{{merchantType === 1}}" class="{{change > 0 ? 'changeColor': 'normalColor'}}">个人</text>
+          <picker wx:else name="accountType" range="{{accountTypeList}}" value="{{accountType}}" bindchange="changeData" data-type="accountType" disabled="{{change > 0}}">
+            <view>
+              <text wx:if='{{accountType === null}}' style="color: #ccc; font-size: 24rpx">请选择账户类型</text>
+              <text class="{{change > 0 ? 'changeColor': 'normalColor'}}" wx:else>{{accountTypeList[accountType]}}</text>
+              <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+            </view>
+          </picker>
+        </view>
+        <view wx:if="{{merchantType > 1 && accountType === 1}}">
+          <text>结算人类型</text>
+          <picker name="legalFlag" range="{{legalList}}" bindchange="changeData" data-type="legalFlag" value="{{legalFlag}}" disabled="{{change > 0}}">
+            <view>
+              <text wx:if='{{legalFlag === null}}' style="color: #ccc; font-size: 24rpx">请选择结算人类型</text>
+              <text class="{{change > 0 ? 'changeColor': 'normalColor'}}" wx:else>{{legalList[legalFlag]}}</text>
+              <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+            </view>
+          </picker>
+        </view>
+        <block wx:if="{{accountType === 0 || merchantType > 1 && accountType === 1 && legalFlag === 1}}">
+          <view>
+            <text>法人姓名</text>
+            <text class="changeColor">{{companyCorporation}}</text>
+          </view>
+          <view>
+            <text>法人身份证号</text>
+            <text class="changeColor">{{certificateHolderNo}}</text>
+          </view>
+        </block>
+        <view style="height: 120rpx"  wx:if="{{accountType === 0}}">
+          <text>开户许可证</text>
+          <image bind:tap="{{change > 0 ? '' : 'uploadImg'}}" src="{{openingPermitUrl ? openingPermitUrl : defaultPic}}" class="upload" data-name="openingPermitUrl" data-ocr="BANK_CARD" data-othername="hfOpeningPermitUrl" data-type='18'></image>
+        </view>
+        <block wx:if="{{accountType === 1 || merchantType === 1}}">
+          <view style="height: 120rpx">
+            <text>银行卡正面</text>
+            <image bind:tap="uploadImg" src="{{bankCardFrontUrl ? bankCardFrontUrl : defaultPic}}" class="upload" data-name="bankCardFrontUrl" data-othername="hfBankCardFrontUrl" data-ocr="BANK_CARD" data-type='18'></image>
+          </view>
+          <view style="height: 120rpx">
+            <text>银行卡反面</text>
+            <image bind:tap="uploadImg" src="{{bankCardOppositeUrl ? bankCardOppositeUrl : defaultPic}}" class="upload" data-name="bankCardOppositeUrl" data-othername="hfBankCardOppositeUrl" data-type='19'></image>
+          </view>
+          <view>
+            <text>银行卡号</text>
+            <input type="text" value="{{cardNo}}" name="cardNo" placeholder="25位以内" maxlength="25" placeholder-class="placeholder" />
+          </view>
+        </block>
+        <view class="inputColor">
+          <view>
+            <text style="color: #666">开户银行</text>
+            <image bind:tap="linkTo" data-url="../../notes/notes?notes=card" src="{{moreinfo}}"></image>
+          </view>
+          <view bind:tap="toBankList">
+            <text wx:if="{{!bankName}}" style="font-size: 24rpx">请选择</text>
+            <text wx:else style="color: #333333">{{bankName}}</text>
+            <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+          </view>
+        </view>
+        <view class="inputColor">
+          <text>开户银行所在省市</text>
+          <pickers columnAry="{{areaAry2}}" type='bankArea' passType="11" bindpickers="changePickers" data-type="bankArea" />
+        </view>
+        <view class="inputColor">
+          <text>开户支行名称</text>
+          <view bind:tap="toBankBranchList">
+            <text wx:if="{{!bankBranchName}}" style="font-size: 24rpx">请选择</text>
+            <text wx:else style="color: #333333">{{bankBranchName}}</text>
+            <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15"></mp-icon>
+          </view>
+        </view>
+        <block wx:if="{{accountType === 0}}">
+          <view>
+            <text>对公账户</text>
+            <input type="text" value="{{cardNo}}" name="cardNo" placeholder="25位以内" maxlength="25" placeholder-class="placeholder" />
+          </view>
+          <view>
+            <text>企业名称</text>
+            <input type="text" name="accountHolder" class="{{change > 0 ? 'changeColor': 'normalColor'}}" value="{{accountHolder}}" placeholder="20字以内，仅支持中文" disabled="{{true}}" maxlength="20" placeholder-class="placeholder" disabled="{{change > 0}}" />
+          </view>
+        </block>
+        <view wx:if="{{accountType === 1}}">
+          <text>开户人</text>
+          <input type="text" name="accountHolder" value="{{accountHolder}}" placeholder="10字以内，仅支持中文" maxlength="10" placeholder-class="placeholder" disabled="{{change > 0}}" class="{{change > 0 ? 'changeColor': 'normalColor'}}" />
+        </view>
+        <block wx:if="{{merchantType === 1 || legalFlag === 0}}">
+          <view>
+            <text>结算人证件类型</text>
+            <picker name="rmk3Index" range="{{rmk3List}}" bindchange="changeData" data-type="rmk3Index" value="{{rmk3Index}}" disabled="{{change > 0}}">
+              <view>
+                <text wx:if='{{rmk3Index === null}}' style="color: #ccc; font-size: 24rpx">请选择结算人证件类型</text>
+                <text class="{{change > 0 ? 'changeColor': 'normalColor'}}" wx:else>{{rmk3List[rmk3Index]}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+              </view>
+            </picker>
+          </view>
+          <view style="height: 120rpx">
+            <text>结算人证件照片（人像面）</text>
+            <image bind:tap="{{change > 0 ? '' : 'uploadImg'}}" src="{{nonLegIdentificationFrontUrl ? nonLegIdentificationFrontUrl : defaultPic}}" class="upload" data-name="nonLegIdentificationFrontUrl" data-othername="hfNonLegIdentificationFrontUrl" data-ocr="IDCARD" data-type='08'></image>
+          </view>
+          <view style="height: 120rpx">
+            <text>结算人证件照片（国徽面）</text>
+            <image bind:tap="{{change > 0 ? '' : 'uploadImg'}}" src="{{nonLegIdentificationOppositeUrl ? nonLegIdentificationOppositeUrl : defaultPic}}" class="upload" data-name="nonLegIdentificationOppositeUrl" data-othername="hfNonLegIdentificationOppositeUrl" data-type='07'></image>
+          </view>
+          <view wx:if="{{merchantType === 1}}">
+            <text>结算人证件号码</text>
+            <input type="text" name="certificateHolderNo" value="{{certificateHolderNo}}" bind:blur="changeData" data-type="idCard" placeholder="18字以内" maxlength="18" placeholder-class="placeholder" disabled="{{change > 0}}" class="{{change > 0 ? 'changeColor': 'normalColor'}}" />
+          </view>
+          <view wx:if="{{legalFlag === 0}}">
+            <text>结算人证件号码</text>
+            <input type="text" name="legalFlagCardNo" value="{{legalFlagCardNo}}" bind:blur="changeData" data-type="idCard" placeholder="18字以内" maxlength="18" placeholder-class="placeholder" disabled="{{change > 0}}" class="{{change > 0 ? 'changeColor': 'normalColor'}}" />
+          </view>
+          <view>
+            <text>结算人证件开始日期</text>
+            <picker mode="date" value="{{certificateStartDate}}" bindchange="changeDate" data-type="certificateStartDate" disabled="{{change > 0}}">
+              <view>
+                <text wx:if='{{!certificateStartDate}}' style="color: #ccc; font-size: 24rpx">请选择</text>
+                <text wx:else class="{{change > 0 ? 'changeColor': 'normalColor'}}">{{certificateStartDate}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+              </view>
+            </picker>
+          </view>
+          <view>
+            <text>结算人证件是否永久有效</text>
+            <switch checked="{{forever3}}" bindchange="changeData" data-type="forever3" color="#5177BE" disabled="{{change > 0}}" />
+          </view>
+          <view wx:if="{{!forever3}}">
+            <text>结算人证件到期日期</text>
+            <picker mode="date" value="{{certificateDeadline}}" bindchange="changeDate" data-type="certificateDeadline" disabled="{{change > 0}}">
+              <view>
+                <text wx:if='{{!certificateDeadline}}' style="color: #ccc; font-size: 24rpx">请选择</text>
+                <text wx:else class="{{change > 0 ? 'changeColor': 'normalColor'}}">{{certificateDeadline}}</text>
+                <mp-icon icon="arrow" extClass="arrow" color="#aaa" size="15" wx:if="{{change === '0'}}"></mp-icon>
+              </view>
+            </picker>
+          </view>
+          <view style="height: 120rpx" wx:if="{{legalFlag === 0}}">
+            <text>非法人结算授权照片</text>
+            <image bind:tap="{{change > 0 ? '' : 'uploadImg'}}" src="{{nonLegSettleAuthUrl ? nonLegSettleAuthUrl : defaultPic}}" class="upload" data-name="nonLegSettleAuthUrl" data-othername="hfNonLegSettleAuthUrl" data-type='26'></image>
+          </view>
+        </block>
+      </view>
+    </block>
+    <button form-type="submit" wx:if="{{step === 1}}" data-type="{{change > 0 ? 'submit' : 'next'}}">{{change > 0 ? '提交' : '下一步'}}</button>
+    <view class="stepButton" wx:else>
+      <button form-type="submit" data-type="last" class="last" wx:if="{{change === '0'}}">上一步</button>
+      <button form-type="submit" data-type="next" class="next" wx:if="{{step < 3}}">下一步</button>
+      <button form-type="submit" data-type="submit" class="{{change > 0 ? 'changeNext' : 'next'}}" wx:else>提交</button>
+    </view>
+    <movable-view class="movable-vlew" direction="vertical" x="{{x}}" y="{{y}}" wx:if="{{resubmit === '0' && change === '0'}}">
+      <button style="margin: 0" form-type="submit" data-type="save" class="saveBtn">临时保存</button>
+    </movable-view>
+  </form>
+</movable-area>
