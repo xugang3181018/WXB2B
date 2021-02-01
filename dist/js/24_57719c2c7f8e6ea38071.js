@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{jGnb:function(e,n,t){"use strict";t.r(n),t.d(n,"default",(function(){return o}));n=t("q1tI");var r=t.n(n),u=t("oSW2");function o(e){return r.a.createElement("div",null,e.routes&&r.a.createElement(u.a,{routes:e.routes}))}}}]);

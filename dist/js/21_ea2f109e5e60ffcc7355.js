@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[21],{"5Ijw":function(e,t,n){"use strict";n.r(t),n.d(t,"default",(function(){return a}));t=n("q1tI");var r=n.n(t),u=n("Ty5D"),o=n("oSW2");function a(e){return Object(u.i)(),r.a.createElement("div",null,e.routes&&r.a.createElement(o.a,{routes:e.routes}))}}}]);

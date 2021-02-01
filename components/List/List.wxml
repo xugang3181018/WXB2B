@@ -1,9 +1,0 @@
-<!-- List组件 -->
-<scroll-view class="list-component" style="height: {{height}}px" scroll-y="true" scroll-top="{{scrollTop}}" lower-threshold="10" enable-back-to-top="true" refresher-enabled="{{pageSize}}" refresher-threshold="45" refresher-triggered="{{isRefresh}}" bindrefresherrefresh="pullDownRefresh" bindscrolltolower="reachBottom">
-  <slot></slot>
-  <view class="loadMore" wx:if="{{hasData}}">{{hasMore ? '加载更多' : '已加载全部'}}</view>
-  <view class="default" wx:else>
-    <image src="{{dataempty}}" ></image>
-    <text>没有数据</text>
-  </view>
-</scroll-view>

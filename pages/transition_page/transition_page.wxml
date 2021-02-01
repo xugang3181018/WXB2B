@@ -1,5 +1,0 @@
-<!--过渡页-->
-<view class="transition-page">
-  <!-- <view class="timer" bind:tap="toLogin">{{time}}</view> -->
-  <image src="{{startPage}}"></image>
-</view>

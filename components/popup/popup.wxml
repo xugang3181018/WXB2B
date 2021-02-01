@@ -1,6 +1,0 @@
-<!-- 侧边栏 -->
-<view class="popup" wx:if="{{show}}" bind:tap="close">
-  <view style="{{style}}" catch:tap="other" class="box">
-    <slot></slot>
-  </view>
-</view>

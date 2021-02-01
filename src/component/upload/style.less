@@ -1,0 +1,53 @@
+.upload {
+  &-image {
+    &-item {
+      width: 90px;
+      height: 90px;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      &::after {
+        content: '编辑';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 12px;
+        padding: 0 12px;
+        text-align: center;
+      }
+    }
+  }
+  &-button {
+    width: 90px;
+    height: 90px;
+    background: #f4f4f4;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    border: 1px dashed darken(#f0f0f0, 12%);
+    color: #888;
+    font-size: 12px;
+    &:hover {
+      border: 1px dashed darken(#f0f0f0, 22%);
+      background: #fff;
+    }
+    .ico {
+      font-size: 22px;
+    }
+    &.none-border {
+      border: none;
+    }
+  }
+  &-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: visible;
+  }
+}

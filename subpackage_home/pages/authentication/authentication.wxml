@@ -1,7 +1,0 @@
-<!--开户支行列表-->
-<view class="authentication">
-  <image src="{{codeImg}}" />
-  <text>需要进行微信二次认证后方可切换</text>
-  <view class="help" bind:tap="toHelp">查看帮助</view>
-  <view class="finish" bind:tap="finish">认证完成</view>
-</view>
