@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "orderGoods": "/components/orderGoods/index",
+    "home":"/components/home/index",
+    "payment": "/components/payment/index",
+    "generalWindow": "/components/general-window/index"
+  },
+  "navigationBarTextStyle": "white"
+}

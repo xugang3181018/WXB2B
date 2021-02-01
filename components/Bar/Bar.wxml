@@ -1,3 +1,0 @@
-<view class="page-bar {{isPX? 'px' : ''}}">
-    <slot />
-</view>

@@ -1,6 +1,11 @@
-page{
-    background:#fff;
+@import "../../icon.wxss";
+
+page {
+    background: #fff;
+    margin: 0;
+    padding: 0;
 }
+
 .login-logo {
     font-size: 160rpx;
     display: flex;
@@ -36,6 +41,7 @@ page{
 
 .logo-img image {
     height: 180rpx;
+    margin: 90rpx 0 20rpx;
 }
 
 .login>view:after {
@@ -49,21 +55,26 @@ page{
 }
 
 .login .ico {
-    font-size: 44rpx;
-    margin-right: 20rpx;
+    font-size: 40rpx;
+    margin-right: 94rpx;
     color: #888;
 }
 
+.placeholder {
+    font-size: 14px;
+    color: #DCDCDC;
+}
+
 .login>view.focus:after {
-    border-bottom: 1px solid #00cc99;
+    border-bottom: 1px solid #B19361;
 }
 
 .focus .ico {
-    color: #00cc99;
+    color: #B19361;
 }
 
 .login-page {
-    padding: 0 60rpx;
+    padding: 0 138rpx;
     background: #fff;
     position: fixed;
     left: 0;
@@ -86,12 +97,22 @@ page{
     color: #00cc99;
 }
 
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+
 .login-page .button {
-    margin-top: 50rpx;
+    width: 380rpx;
+    height: 92rpx;
+    border-radius: 92rpx;
+    font-size: 32rpx;
+    margin-top: 160rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 88rpx;
+    background: #B19361;
+    color: #fff;
     padding: 0;
     line-height: 88rpx;
     position: relative;
@@ -108,7 +129,8 @@ page{
     z-index: 2;
 }
 
-.getuserinfo::after, .getuserinfo::beforE {
+.getuserinfo::after,
+.getuserinfo::beforE {
     border: none;
     opacity: 0;
 }
@@ -117,7 +139,8 @@ page{
     background: #fff;
 }
 
-.button:after, .button:before {
+.button:after,
+.button:before {
     border: none;
 }
 
@@ -140,35 +163,45 @@ page{
     justify-content: center;
     transition: 0.4s;
 }
+
 .input-clear-touch {
     color: #888;
 }
+
 .sm-list {
     padding: 0;
 }
+
 .sm-item>view {
     width: 30%;
 }
+
 .sm-list>view {
     padding: 34rpx 0;
     margin: 0 40rpx;
 }
+
 .sm-list>view:last-child::before {
     border: none;
 }
+
 .sm-item>view:first-child {
     width: 40%;
 }
+
 .sm-name {
     font-weight: 800;
 }
-.hint-box{
-  margin-top:20rpx;
-  font-size:24rpx;
-  color:#9a9a9a;
-  text-align: center;
+
+.hint-box {
+    position: absolute;
+    bottom: 20px;
+    margin-top: 20rpx;
+    font-size: 20rpx;
+    color: #999999;
+    text-align: center;
 }
 
-.hint-text{
-  color:#F06E6C;
+.hint-text {
+    color: #F06E6C;
 }

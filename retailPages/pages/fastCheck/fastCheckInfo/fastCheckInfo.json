@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "popUpBtn":"../../popUpBtn/popUpBtn"
-  },
-  "navigationBarTitleText":"快速盘点单的详情"
-}

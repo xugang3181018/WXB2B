@@ -1,4 +1,0 @@
-/* pages/membersModify/membersModify.wxss */
-.button{
-    margin:40rpx;
-}

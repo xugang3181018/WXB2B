@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText":"筛选",
-  "usingComponents": {
-    "Calendar": "../../../../components/Calendar/Calendar"
-  }
-}

@@ -1,0 +1,128 @@
+<!--index.wxml-->
+<view style="height:50px; background:#108ee9"></view>
+<navbar backgroundColor="#108ee9">
+  <view class="navbars interval" slot="content">
+    <view class="shop_box">
+      <image class="quit_img" src="../../images/quit.png" bindtap="onQuit" />
+    </view>
+    <!-- <Select wx:if="{{length > 1}}" class="navbar_content shop_box " prop-array='{{merchantLists}}' bind:myget='getDate' /> -->
+    <view wx:if="{{length > 1}}" class="picker">
+      <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{merchantLists}}" range-key="merchantName">
+        <view class="merchant_name">
+          {{merchantLists[index].merchantName}}
+        </view>
+      </picker>
+      <image class="merchant_img" src="../../images/white-arrows.png" />
+    </view>
+    <view wx:else class="navbar_content"></view>
+    <view class="navbar_content">{{"老板助手"}}</view>
+    <view class="navbar_content"></view>
+  </view>
+</navbar>
+<view class="header interval">
+  <view class="head_box">
+    <view class="time_box">
+      <view class="section picker">
+        <picker mode="date" value="{{date}}" start="2000-01-01" end="{{timeData}}" bindchange="bindDateChange1">
+          <view class="picker">
+            截止日期：{{date1}}
+            <image class="data_img" src="../../images/white-arrows.png" />
+          </view>
+        </picker>
+        <view class="cutting_line">至</view>
+        <picker mode="date" value="{{date}}" start="{{date1}}" end="{{timeData}}" bindchange="bindDateChange2">
+          <view class="picker">
+            {{date2}}
+            <image class="data_img" src="../../images/white-arrows.png" />
+          </view>
+        </picker>
+        <view wx:if="{{hideBtn}}" class="query_btn" bindtap="clickQuery">查询</view>
+      </view>
+    </view>
+  </view>
+  <view class="select_time">
+    <text class='{{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>今日</text>
+    <text class='{{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>昨日</text>
+    <text class='{{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>上周</text>
+  </view>
+</view>
+<view class="top_box interval">
+  <view class="earnings">
+    <view class="sumMoney">
+      <view class="sale"></view>
+      <view class="money sale">
+        <text>{{data.totalSettleAmt || 0}}</text>
+      </view>
+      <view class="sale contrast" wx:if="{{hide}}">
+        <text>比昨日</text>
+        <image wx:if="{{contrastStatus}}" class="comparison_img" src="../../images/decline-arrows.png" />
+        <image wx:else class="comparison_img" src="../../images/rise-arrows.png" />
+        <text class="sale_money">{{difference || 0}}</text>
+      </view>
+      <view class="sale" wx:else></view>
+    </view>
+    <view class="comparison">
+      <view class="sale"></view>
+      <view class="sale">
+        <text>{{timeStatus}}销售额(元)</text>
+      </view>
+      <view class="sale">
+        <text>到账金额：</text>
+        <text class="sale_money">{{accountMoney || 0}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="interval">
+  <shade-box class="collect_box">
+    <view class="collect">
+      <view class="collect_content">
+        <text class="collect_number">{{data.totalTradeCnt || 0}}</text>
+        <view class="collect_mark">订单数</view>
+      </view>
+      <view class="partition">|</view>
+      <view class="collect_content">
+        <text class="collect_number">{{singleton || 0}}</text>
+        <view class="collect_mark">客单价</view>
+      </view>
+      <view class="partition">|</view>
+      <view class="collect_content">
+        <text class="collect_number">{{grossProfit || 0}}</text>
+        <view class="collect_mark">毛利额</view>
+      </view>
+    </view>
+    <view class="collect">
+      <view class="collect_content collect_mark">
+        <text>新增会员</text>
+        <text class="collect_number">{{count || 0}}</text>
+      </view>
+      <view class="collect_content collect_mark">
+        <text>毛利</text>
+        <text class="collect_number">{{grossRate || 0}}%</text>
+      </view>
+      <view class="collect_content collect_mark">
+        <text>会员贡献</text>
+        <text class="collect_number">{{data.memberTradeAmt?memberContribution:0}}%</text>
+      </view>
+    </view>
+  </shade-box>
+  <view class="space"></view>
+  <shade-box class="pay_list">
+    <titles title="支付方式统计" />
+    <list-content img="../../images/wechat.png" title="微信支付" number1="{{data.wechatTradeCnt}}" number2="{{data.wechatSettleAmt}}" />
+    <list-content img="../../images/alipay.png" title="支付宝支付" number1="{{data.alipayTradeCnt}}" number2="{{data.alipaySettleAmt}}" />
+    <list-content img="../../images/POS.png" title="POS支付" number1="{{data.posTradeCnt}}" number2="{{data.posSettleAmt}}" />
+    <list-content img="../../images/money.png" title="现金支付" number1="{{data.cashTradeCnt}}" number2="{{data.cashTradeAmt}}" />
+    <list-content img="../../images/member.png" title="会员支付" number1="{{data.memberTradeCnt}}" number2="{{data.memberTradeAmt}}">
+      <view style="height:16px;"></view>
+    </list-content>
+  </shade-box>
+  <!-- <shade-box>
+    <titles title="上周业绩趋势" />
+    <view class="gap"></view>
+    <view class="container">
+      <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+    </view>
+  </shade-box> -->
+  <view class="bottom_interval"></view>
+</view>

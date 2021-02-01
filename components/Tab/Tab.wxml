@@ -1,4 +1,0 @@
-<!--components/Tab/Tab.wxml-->
-<view class='tab' bindtap='toggleTab'>
-	<view data-id="{{index}}" class='tab-item {{index == current ? "active" : ""}}' wx:for="{{list}}" wx:key="tabs">{{item}}</view>
-</view>

@@ -1,0 +1,174 @@
+@import '/app.wxss';
+
+.orderGoods {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.orderGoods .total {
+  width: 100%;
+  height: 78rpx;
+  padding: 0 30rpx;
+  border-bottom: 1px solid #EEE;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 78rpx;
+}
+
+.orderGoods .orderInfo {
+  width: 100%;
+  height: 78rpx;
+  line-height: 78rpx;
+  border-bottom: 1px solid #eee;
+  padding: 0 30rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.orderGoods .orderInfo text:nth-child(2) {
+  margin-left: 20rpx;
+}
+
+.goods-content-box {
+  padding-top: 10rpx;
+  width: 100%;
+  margin-left: -30rpx;
+  height: 80rpx;
+  display: flex;
+  background: #fff;
+  justify-content: space-around;
+  /* border-bottom:1px solid #f0f0f0; */
+}
+
+.input-box {
+  display: flex;
+  font-size: 26rpx;
+  color: #868686;
+}
+
+/* .number-input {
+  width: 120rpx;
+  height: 40rpx;
+  border: 1px solid #eee;
+  text-align: center;
+  margin-left: 20rpx;
+  color: #000;
+} */
+
+.interval-bottom {
+  /* padding-bottom:10rpx; */
+}
+
+.item {
+  display: flex;
+  background: #fff;
+  padding: 21rpx 20rpx 21rpx;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  /* margin-bottom:30rpx; */
+  /* border-top:1px solid #f0f0f0; */
+  /* margin-left:-30rpx; */
+}
+
+.item .pictrue {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 40rpx;
+  /* float: left; */
+}
+
+.item .pictrue image {
+  width: 100%;
+  height: 100%;
+}
+
+.item .text {
+  flex: 1;
+}
+
+.item .text .code {
+  font-size: 24rpx;
+  color: #ccc;
+  padding: 10rpx 0;
+}
+
+.item .text .content {
+  display: flex;
+  font-size: 24rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.item .text .content .name {
+  flex: 1;
+}
+
+.money-number {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.unit {
+  font-size: 20rpx;
+  color: #999
+}
+
+.goods-info {
+  display: flex;
+  font-size: 20rpx;
+  color: #666666;
+  align-items: center;
+}
+
+.goods-info .attr {
+  flex: 1;
+}
+
+.goods-info .attr .number {
+  font-size: 20rpx;
+  color: #666666;
+  margin-right: 30rpx;
+}
+
+.goods-info .input-box {
+  flex: 1;
+  font-size: 20rpx;
+  color: #666666;
+  align-items:center;
+  margin-top:16rpx;
+
+}
+
+.goods-info .input-box .title{
+  width:100rpx;
+}
+
+.goods-info .input-box input{
+  width:136rpx;
+  height:36rpx;
+  min-height:36rpx;
+  border:1px solid #e0e0e0;
+  text-align: center;
+  line-height:30rpx;
+}
+
+.goods-info .input-box .btn{
+  width:40rpx;
+  height:40rpx;
+  border:1px solid #e0e0e0;
+  text-align:center;
+  line-height:center;
+  font-size:26rpx;
+}
+
+.goods-info .input-box .number-input{
+  width:62rpx;
+  border-width: 1px 0 1px 0;
+}
+
+.sales{
+  padding:10rpx 20rpx;
+  background:#B19361;
+  color:#fff;
+  border-radius: 4rpx;
+}

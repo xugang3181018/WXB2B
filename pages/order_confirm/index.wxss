@@ -1,0 +1,402 @@
+.order-submission .line {
+  width: 100%;
+  height: 3rpx;
+}
+
+.order-submission .line image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.order-submission .address {
+  padding: 28rpx 30rpx;
+  background-color: #fff;
+}
+
+.order-submission .address .addressCon {
+  width: 610rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.order-submission .address .addressCon .name {
+  font-size: 30rpx;
+  color: #282828;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.order-submission .address .addressCon .name .phone {
+  margin-left: 50rpx;
+}
+
+.order-submission .address .addressCon .default {
+  margin-right: 12rpx;
+}
+
+.order-submission .address .addressCon .setaddress {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.order-submission .address .iconfont {
+  font-size: 35rpx;
+  color: #707070;
+}
+
+.order-submission .allAddress {
+  width: 100%;
+  background-image: linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
+  background-image: -webkit-linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
+  background-image: -moz-linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
+  padding-top: 100rpx;
+}
+
+.order-submission .allAddress .nav {
+  width: 710rpx;
+  margin: 0 auto;
+}
+
+.order-submission .allAddress .nav .item {
+  width: 355rpx;
+}
+
+.order-submission .allAddress .nav .item.on {
+  position: relative;
+  width: 250rpx;
+}
+
+.order-submission .allAddress .nav .item.on::before {
+  position: absolute;
+  bottom: 0;
+  content: "订单信息";
+  font-size: 28rpx;
+  display: block;
+  height: 0;
+  width: 336rpx;
+  border-width: 0 20rpx 80rpx 0;
+  border-style: none solid solid;
+  border-color: transparent transparent #fff;
+  z-index: 2;
+  border-radius: 7rpx 30rpx 0 0;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.order-submission .allAddress .nav .item:nth-of-type(2).on::before {
+  content: "收货人信息";
+  border-width: 0 0 80rpx 20rpx;
+  border-radius: 30rpx 7rpx 0 0;
+}
+
+.order-submission .allAddress .nav .item.on2 {
+  position: relative;
+}
+
+.order-submission .allAddress .nav .item.on2::before {
+  position: absolute;
+  bottom: 0;
+  content: "收货人信息";
+  font-size: 28rpx;
+  display: block;
+  height: 0;
+  width: 400rpx;
+  border-width: 0 0 60rpx 60rpx;
+  border-style: none solid solid;
+  border-color: transparent transparent #f7c1bd;
+  border-radius: 40rpx 6rpx 0 0;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.order-submission .allAddress .nav .item:nth-of-type(1).on2::before {
+  content: "订单信息";
+  border-width: 0 60rpx 60rpx 0;
+  border-radius: 6rpx 40rpx 0 0;
+}
+
+.order-submission .allAddress .address {
+  width: 710rpx;
+  /* height: 150rpx; */
+  margin: 0 auto;
+}
+
+.order-submission .allAddress .line {
+  width: 710rpx;
+  margin: 0 auto;
+}
+
+.order-submission .wrapper .item .discount .placeholder {
+  color: #ccc;
+}
+
+.order-submission .wrapper {
+  background-color: #fff;
+  margin-top: 13rpx;
+}
+
+.order-submission .wrapper .item {
+  padding: 27rpx 30rpx;
+  font-size: 30rpx;
+  color: #282828;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.order-submission .wrapper .item .discount {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.order-submission .wrapper .item .discount input {
+  text-align: right;
+}
+
+.order-submission .wrapper .item .discount .iconfont {
+  color: #515151;
+  font-size: 30rpx;
+  margin-left: 15rpx;
+}
+
+.order-submission .wrapper .item .discount .num {
+  font-size: 32rpx;
+  margin-right: 20rpx;
+}
+
+.order-submission .wrapper .item .shipping {
+  font-size: 30rpx;
+  color: #999;
+  position: relative;
+  padding-right: 58rpx;
+}
+
+.order-submission .wrapper .item .shipping .iconfont {
+  font-size: 35rpx;
+  color: #707070;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 30rpx;
+}
+
+.order-submission .wrapper .item textarea {
+  background-color: #f9f9f9;
+  width: 690rpx;
+  height: 140rpx;
+  border-radius: 3rpx;
+  margin-top: 30rpx;
+  padding: 25rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.order-submission .wrapper .item .placeholder {
+  color: #ccc;
+}
+
+.order-submission .wrapper .item .list {
+  margin-top: 35rpx;
+}
+
+.order-submission .wrapper .item .list .payItem {
+  border: 1px solid #eee;
+  border-radius: 6rpx;
+  height: 86rpx;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #282828;
+}
+
+.order-submission .wrapper .item .list .payItem.on {
+  border-color: #fc5445;
+  color: #e93323;
+}
+
+.order-submission .wrapper .item .list .payItem .name {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid #eee;
+}
+
+.order-submission .wrapper .item .list .payItem .name .iconfont {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 44rpx;
+  background-color: #fe960f;
+  color: #fff;
+  font-size: 30rpx;
+  margin-right: 15rpx;
+}
+
+.order-submission .wrapper .item .list .payItem .name .iconfont.icon-weixin2 {
+  background-color: #41b035;
+}
+
+.order-submission .wrapper .item .list .payItem .tip {
+  width: 49%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #aaa;
+}
+
+.order-submission .moneyList {
+  margin-top: 12rpx;
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.order-submission .moneyList .item {
+  font-size: 28rpx;
+  color: #282828;
+}
+
+.order-submission .moneyList .item~.item {
+  margin-top: 20rpx;
+}
+
+.order-submission .moneyList .item .money {
+  color: #868686;
+}
+
+.order-submission .footer {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  /* padding: 0 30rpx; */
+  padding-left:30rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.order-submission .footer .settlement {
+  font-size: 30rpx;
+  color: #fff;
+  width: 240rpx;
+  height: 70rpx;
+  background-color: #e93323;
+  border-radius: 50rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.footer .transparent {
+  opacity: 0;
+}
+
+
+.footer .bnt {
+  /* width: 444rpx; */
+  height: 76rpx;
+}
+
+.footer .bnt .bnts {
+  width: 222rpx;
+  text-align: center;
+  line-height: 76rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.footer .bnt .joinCart {
+  border-radius: 50rpx 0 0 50rpx;
+  background-image: linear-gradient(to right, #fea10f 0%, #fa8013 100%);
+}
+
+.footer .bnt .buy {
+  border-radius: 0 50rpx 50rpx 0;
+  background-image: linear-gradient(to right, #fa6514 0%, #e93323 100%);
+}
+
+.footer .bnt .take {
+  border-radius: 50rpx;
+  background-image: linear-gradient(to right, #fa6514 0%, #e93323 100%);
+}
+
+.status-content .status {
+  display: inline-block;
+  width: 300rpx;
+}
+
+
+
+/* 改版后样式 */
+.head {
+  height: 60rpx;
+  width: 100%;
+  background: #B19361;
+  position: absolute;
+  z-index: -1;
+}
+
+.order-submission .nav {
+  height: 99rpx;
+  background: #fff;
+  border-radius: 10rpx 10rpx 0 0;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.order-submission .nav .item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.order-submission .nav .item.on::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  height: 0;
+  width: 160rpx;
+  border-bottom: 6rpx solid #B19361;
+  bottom: -28rpx;
+  left: 98rpx;
+  color: #B19361;
+}
+
+.order-submission .address {
+  padding: 21rpx 0 16rpx 35rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.order-submission .address .status-content{
+  padding-bottom:12rpx;
+}
+
+.take-name{
+  display: inline-block;
+  width:140rpx;
+  text-align: right;
+}
+
+.footer .btn{
+  width:180rpx;
+  height:90rpx;
+  text-align: center;
+  line-height:90rpx;
+  font-size:28rpx;
+}
+
+.footer .cancel{
+  background: #E7DECF;
+  color:#333;
+}
+.footer .audit{
+  
+  background:#B19361;
+  color:#fff;
+}
+.footer .affirm{
+  width:240rpx;
+}

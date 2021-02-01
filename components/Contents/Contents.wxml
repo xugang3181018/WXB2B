@@ -1,4 +1,0 @@
-<Load class="loading" wx:if="{{loading}}" color="{{loadingcolor}}" />
-<Empty wx:elif="{{error}}" msg="{{errorMsg}}" icon="{{icon}}" />
-<slot wx:else />
-<view wx:if="{{isPX}}" style="height:36px;width:100%;" />

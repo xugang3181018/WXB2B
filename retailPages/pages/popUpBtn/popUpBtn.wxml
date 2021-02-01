@@ -1,8 +1,0 @@
-<!--pages/retail/popUpBtn/popUpBtn.wxml-->
-<view class="cpm" catchtap="onDeselect">
-	<view class="option">
-		<view class="btn" catchtap="onScan">{{btnList[0]}}</view>
-		<view class="btn" catchtap="onManual">{{btnList[1]}}</view>
-		<view class="btn" catchtap="onDeselect">{{btnList[2]}}</view>
-	</view>
-</view>

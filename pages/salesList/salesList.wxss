@@ -1,0 +1,2 @@
+/* pages/salesList/salesList.wxss */
+@import "../order_list/index.wxss";

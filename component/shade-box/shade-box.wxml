@@ -1,0 +1,4 @@
+<!--components/shade-box/shade-box.wxml-->
+<view class="shade_box">
+<slot/>
+</view>

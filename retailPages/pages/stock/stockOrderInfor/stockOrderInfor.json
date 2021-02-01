@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "supplierList":"../../supplierList/supplierList",
-    "popUpBtn":"../../popUpBtn/popUpBtn"
-  },
-  "navigationBarTitleText":"进货单详情"
-}

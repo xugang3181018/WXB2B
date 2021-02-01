@@ -1,7 +1,0 @@
-<view class="page-panel" wx:if="{{open}}" style="z-index:{{zindex?zindex:''}}">
-  <view class="page-panel-inner {{type ? type :''}}"  animation="{{animationData}}" style="bottom:{{barHeight}}px;min-height:{{miniHeight}}rpx;bottom:{{bottom? bottom : ''}}px;">
-    <view class="page-panel-title line" wx:if="{{title}}">{{title}}</view>
-    <slot />
-  </view>
-  <view class="page-panel-mask" hover-stop-propagation="true" animation="{{animationMask}}" bindtap="togglePanel" />
-</view>

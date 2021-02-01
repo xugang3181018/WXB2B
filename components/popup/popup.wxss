@@ -1,0 +1,83 @@
+/* components/popup/popup.wxss */
+.wx-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+
+.popup-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 80%;
+  max-width: 600rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  box-sizing: bordre-box;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background: #fff;
+}
+
+.wx-popup-title {
+  width: 100%;
+  padding-top: 40rpx;
+  text-align: center;
+  font-size: 40rpx;
+  /* border-bottom:1rpx solid #999; */
+}
+
+.wx-popup-con {
+  margin: 60rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* text-align: center; */
+}
+
+.password {
+  /* text-align: center; */
+  line-height: 64rpx;
+  display: flex;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+  color: #333;
+  justify-content: center;
+}
+
+input {
+  border: 1px solid #eee;
+  height: 60rpx;
+  padding-left: 10rpx;
+}
+
+.wx-popup-btn {
+  display: flex;
+  justify-content: space-around;
+  /* margin-bottom: 40rpx; */
+  height:110rpx;
+  border-top:1rpx solid #999;
+  align-items: center;
+}
+
+.wx-popup-btn button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:49.8%;
+  height:100%;
+  color:#333;
+  font-weight:bold;
+  font-size:32rpx;
+  border-radius: 0;
+  /* border: 2rpx solid #ccc; */
+  /* border-radius: 88rpx; */
+}
+.wx-popup-btn button:nth-child(2){
+  color:#B19361;
+  border-left:1rpx solid #999;
+}

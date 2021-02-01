@@ -1,6 +1,0 @@
-<view class="tabs">
-  <view class="tabs-date">
-    <view wx:key="dateTabbar" class="tab-item {{current == index && dateValue==='' ? 'active' : ''}}" wx:for="{{data}}" data-index="{{index}}" bindtap="clickTab">{{item.value}}</view>
-  </view>
-	<view class="date-other arr" bindtap="otherDate">自定义时间</view>
-</view>

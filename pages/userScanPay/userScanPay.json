@@ -1,6 +1,0 @@
-{
-    "disableScroll": true,
-    "usingComponents": {
-        "load": "/components/loading/loading"
-    }
-}

@@ -1,0 +1,115 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='user'>
+  <view class="head">
+    <view class="head-l">
+      <image class="head-img" src="../../images/4-002.png"></image>
+    </view>
+    <view class="head-r">
+      <view class="super-name">{{operatorName}}</view>
+      <view class="name">{{merchantName}}</view>
+    </view>
+  </view>
+  <view class='wrapper'>
+    <view class='myOrder'>
+      <view  catchtap="onTab" data-index="-1" class='title acea-row row-between-wrapper'>
+        <view>我的订单</view>
+        <view class='allOrder'>全部订单
+          <text class='iconfont icon-jiantou'></text>
+        </view>
+      </view>
+      <view class='orderState acea-row row-middle' wx:if="{{merchantType !=5}}">
+          <view class='item' catchtap="onTab" data-index="2">
+            <view class='pictrue'>
+              <view class='num'>{{deliverNum}}</view>
+              <image class="dfh-img" src='/images/dfh.png'></image>
+              <text class="order-status-num"
+                wx:if="{{orderStatusNum.unpaid_count > 0}}">{{ orderStatusNum.unpaid_count }}</text>
+            </view>
+            <view>待发货</view>
+          </view>
+          <view class="item" catchtap="onTab" data-index="6">
+            <view class='pictrue'>
+              <view class='num'>{{takeNum}}</view>
+              <image src='/images/dsh.png'></image>
+              <text class="order-status-num"
+                wx:if="{{orderStatusNum.unshipped_count > 0}}">{{ orderStatusNum.unshipped_count }}</text>
+            </view>
+            <view>待收货</view>
+          </view>
+          <view class='item' catchtap="onTab" data-index="7">
+            <view class='pictrue'>
+              <image src='/images/ysh.png'></image>
+              <text class="order-status-num"
+                wx:if="{{orderStatusNum.received_count > 0}}">{{ orderStatusNum.received_count }}</text>
+            </view>
+            <view>已收货</view>
+          </view>
+          <view class='item' catchtap="onTab" data-index="8">
+            <view class='pictrue'>
+              <image class="bfsh-ing" src='/images/bfsh.png'></image>
+              <text class="order-status-num"
+                wx:if="{{orderStatusNum.evaluated_count > 0}}">{{ orderStatusNum.evaluated_count }}</text>
+            </view>
+            <view>部分收货</view>
+          </view>
+          <view class='item' catchtap="onTab" data-index="9">
+            <view class='pictrue'>
+              <image class="yqx-img" src='/images/yqx.png'></image>
+              <text class="order-status-num"
+                wx:if="{{orderStatusNum.refund_count > 0}}">{{ orderStatusNum.refund_count }}</text>
+            </view>
+            <view>已取消</view>
+          </view>
+      </view>
+      <view class='orderState acea-row row-middle' wx:else>
+          <view class='item' catchtap="onTab" data-index="0">
+            <view class='pictrue'>
+              <view class='num'>{{deliverNum}}</view>
+              <image class="dfh-img" src='/images/dfh.png'></image>
+              <!-- <text class="order-status-num"
+                wx:if="{{orderStatusNum.unpaid_count > 0}}">{{ orderStatusNum.unpaid_count }}</text> -->
+            </view>
+            <view>待发货</view>
+          </view>
+          <view class="item" catchtap="onTab" data-index="1">
+            <view class='pictrue'>
+              <!-- <view class='num'>{{takeNum}}</view> -->
+              <image src='/images/dsh.png'></image>
+              <!-- <text class="order-status-num"
+                wx:if="{{orderStatusNum.unshipped_count > 0}}">{{ orderStatusNum.unshipped_count }}</text> -->
+            </view>
+            <view>已发货</view>
+          </view>
+          <view class='item' catchtap="onTab" data-index="4">
+            <view class='pictrue'>
+              <image class="yqx-img" src='/images/yqx.png'></image>
+              <!-- <text class="order-status-num"
+                wx:if="{{orderStatusNum.refund_count > 0}}">{{ orderStatusNum.refund_count }}</text> -->
+            </view>
+            <view>已取消</view>
+          </view>
+          <!-- <view class='item' catchtap="onTab" data-index="true">
+            <view class='pictrue'>
+              <image class="yqx-img" src='/images/yqx.png'></image>
+            </view>
+            <view>退货单</view>
+          </view> -->
+      </view>
+    </view>
+    <view class="quit" bindtap="exitSys">
+      <!-- <image class="tc-img" src='/images/tc.png'></image> -->
+      <text>退出账号</text>
+      <text class='iconfont icon-jiantou'></text>
+    </view>
+    <view class="quit" bindtap="amendPsw">
+      <!-- <image class="tc-img" src='/images/tc.png'></image> -->
+      <text>修改密码</text>
+      <text class='iconfont icon-jiantou'></text>
+    </view>
+  </view>
+  <!-- <image src='/images/support.png' class='support'></image> -->
+</view>
+<generalWindow generalActive='{{generalActive}}' generalContent='{{generalContent}}' bind:generalWindow='generalWindow'
+  wx:if='{{generalContent}}'></generalWindow>
+<popup id='popup' title='修改密码' bind:pswInput="pswInput">
+</popup>

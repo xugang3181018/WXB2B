@@ -1,0 +1,57 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='my-order'>
+  <view class='header'>
+  </view>
+  <view class='nav acea-row row-around'>
+      <view class='item {{orderStatus==-1 ? "on": ""}}' data-id="{{-1}}" bindtap="statusClick">
+        <view>全部</view>
+      </view>
+      <view class='item {{orderStatus==0 ? "on": ""}}' data-id="{{0}}" bindtap="statusClick">
+        <view>待提交</view>
+        <!-- <view class='num'>{{deliverNum > 99 ?"+"+"99":didNum}}</view> -->
+      </view>
+      <view class='item {{orderStatus==1 ? "on": ""}}' data-id="{{1}}" bindtap="statusClick">
+        <view>待审核</view>
+      </view>
+      <view class='item {{orderStatus==2 ? "on": ""}}' data-id="{{2}}" bindtap="statusClick">
+        <view>已通过</view>
+      </view>
+  </view>
+  <view class='list'>
+    <view class='item' wx:for="{{orderList}}" wx:key='index'>
+      <view bindtap='goOrderDetails'>
+        <view class='title acea-row row-between-wrapper'>
+          <view class="acea-row row-middle">
+            <text class="sign">订单编号：</text>
+            <text class="sign">6321316545644</text>
+          </view>
+          <view>
+            <text class='iconfont icon-jiantou'></text>
+          </view>
+        </view>
+        <view class='item-info acea-row row-between row-top'>
+          <view class='text'>
+            <view class="text-content">
+              <view class='name line2'>
+                <text>{{"就看见"}}</text>
+              </view>
+              <view class='time-data'>
+                <text>{{"2021"}}</text>
+              </view>
+              <view class="info">
+                <text>数量：{{"23"}}</text>
+                <text>金额：{{"$1230"}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='noCart' wx:if="{{orderList.length == 0}}">
+  <view class='pictrue'>
+    <image src='/images/noOrder.png'></image>
+  </view>
+</view>
+<view style="height:48rpx"></view>

@@ -1,0 +1,87 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='order-submission'>
+  <view class="head"></view>
+  <view style="padding:0 20rpx;">
+    <view class="nav acea-row">
+      <view class="item {{shippingType == 0 ? 'on font-color' : ''}}" data-index="0" bindtap="addressType">采购信息</view>
+      <view class="item {{shippingType == 1 ? 'on font-color' : ''}}" data-index="1" bindtap="addressType">收货人信息</view>
+    </view>
+    <view class='address'>
+      <block wx:if="{{shippingType == 0}}">
+        <view class="status-content">
+          <text>{{merchantType == 5?'批发单编号：':'采购单编号：'}}</text>
+          <text class="status">{{dataDetail.recordNo || dataDetail.orderNo}}</text>
+        </view>
+        <view wx:if="{{merchantType == 5}}" class="status-content">
+          <text>批发单状态：</text>
+          <text class="status">{{wholesaleStatus[dataDetail.deliverGoodsStatus]}}</text>
+        </view>
+        <view wx:else class="status-content">
+          <text>采购单状态：</text>
+          <text class="status">{{GoodsState[dataDetail.status]}}</text>
+        </view>
+        <view class="status-content">
+          <text>{{merchantType == 5?'批发单日期：':'采购单日期：'}}</text>
+          <text class="status">{{dataDetail.auditTime || dataDetail.createTime}}</text>
+        </view>
+        <view class="status-content">
+          <text>{{merchantType == 5?'批发单期限：':'采购单期限：'}}</text>
+          <text class="status">{{dataDetail.validityDate || dataDetail.auditTime || pastDueTime}}</text>
+        </view>
+        <!-- <view  class="status-content">
+          <text>采购总金额：</text>
+          <text class="status">{{dataDetail.recordNo}}</text>
+        </view> -->
+      </block>
+      <block wx:if="{{shippingType == 1}}">
+        <view class="status-content">
+          <text class="take-name">收货人：</text>
+          <text>{{institutionDetail.contactName}}</text>
+        </view>
+        <view class="status-content">
+          <text>联系方式：</text>
+          <text>{{institutionDetail.contactMobile}}</text>
+        </view>
+        <view class="status-content">
+          <text>收货地址：</text>
+          <text>{{institutionDetail.address}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view style="margin:0 20rpx;">
+    <block wx:if="{{merchantType == 5}}">
+      <orderGoods cartInfo="{{dataDetail.detailDtoList}}" orderId="{{dataDetail.detailDtoList.orderStatus}}"
+        merchantType="{{merchantType}}" merchantName="{{dataDetail.merchantName}}" status="{{dataDetail.deliverGoodsStatus}}" bind:sales="salesInfo"></orderGoods>
+    </block>
+    <block wx:else>
+      <orderGoods wx:if="{{dataDetail.status == 6}}" cartInfo="{{stockInRecordData.stockInRecordDetailList}}"
+        orderId="{{dataDetail.status}}" data="{{dataDetail.detailResponseList}}" bind:quantitytNum="quantitytNum"
+        bind:sellingPricetNum="sellingPricetNum" merchantName="{{stockInRecordData.supplierName}}" bind:cut="cut"
+        bind:add="add"></orderGoods>
+      <orderGoods wx:else cartInfo="{{dataDetail}}" orderId="{{dataDetail.status}}" deliveryDetail="{{deliveryDetail}}"
+        merchantName="{{dataDetail.supplierName}}" bind:cut="cut" bind:add="add"></orderGoods>
+    </block>
+  </view>
+  <view style='height:100rpx;'></view>
+  <view class='footer acea-row row-between-wrapper'>
+    <view style="font-weight:bold;">合计:
+      <text class="icon-color" style="font-size:24rpx">￥</text>
+      <text class='icon-color'>{{totalAmount || 0}}</text>
+    </view>
+    <view class='acea-row' wx:if="{{dataDetail.status == 1 || dataDetail.deliverGoodsStatus == 0}}">
+      <view class='btn cancel' catchtap="cancel">取消</view>
+      <view wx:if="{{dataDetail.status == 1}}" class='btn audit' catchtap="audit">审核</view>
+    </view>
+    <view class='acea-row' wx:if="{{dataDetail.status == 6}}">
+      <view class='btn affirm audit' catchtap="affirm">确认收货</view>
+    </view>
+    <!-- <view class='acea-row' wx:if="{{dataDetail.deliverGoodsStatus == 1}}">
+      <view class='btn affirm audit' catchtap="sales">申请退货</view>
+    </view> -->
+  </view>
+</view>
+<!-- <coupon-list-window coupon='{{coupon}}' bind:ChangCouponsClone="ChangCouponsClone" openType='{{openType}}' cartId='{{cartId}}' bind:ChangCoupons="ChangCoupons"></coupon-list-window>
+<address-window bind:changeTextareaStatus="changeTextareaStatus" address='{{address}}' pagesUrl="{{pagesUrl}}" id="address-window" bind:OnChangeAddress="OnChangeAddress"></address-window>
+<authorize bind:onLoadFun='onLoadFun'></authorize> -->
+<!-- <home></home> -->

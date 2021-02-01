@@ -1,4 +1,0 @@
-/* pages/sales/banlanceForm/banlanceForm.wxss */
-.form-input .price{
-  color: #ff6655;
-}

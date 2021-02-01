@@ -1,0 +1,52 @@
+<!--pages/refnudDetail/refundDetail.wxml-->
+<navbar parameter='{{parameter}}'></navbar>
+<view class="shoppingCart">
+  <view class='acea-row1 goodsDetailBox' wx:for="{{list}}" wx:key="{{index}}">
+    <checkbox checked="{{item.check}}" catchtap="checkbox" value="{{item.goodsId}}" data-id="{{index}}" />
+    <view class="goodsContent acea-row1">
+      <view class='pictrue'>
+        <image class="goodsImg" mode="aspectFit" src='{{item.goodsImg || "../../images/default.png"}}'></image>
+      </view>
+      <view class='text'>
+        <view class='line1'>
+          <text>{{item.goodsName}}/{{item.goodsUnit}}</text>
+          <text class="count">x{{item.goodsCnt}}</text>
+        </view>
+        <view>
+          <text class="fontColor" style="font-size:24rpx">￥</text>
+          <text class="money-number fontColor">{{item.deliveryPrice  || item.wholesalePrice}}</text>
+          <text class="unit">/{{item.goodsUnit}}</text>
+        </view>
+        <view class='carnum acea-row'>
+          <view class="reduce btn-style" catchtap='subCart' data-id="{{index}}">—</view>
+          <view class='num'>
+            <input type="number" value="{{item.sales}}" data-id="{{index}}" bindinput="onInput" bindblur="onBlur"></input>
+          </view>
+          <view class="plus btn-style" catchtap='addCart' data-id="{{index}}">+</view>
+          <view class="salesNum">已退货数量:{{"1"}}</view>
+        </view>
+        <!-- <view class='infor line1 acea-row1'>
+            退货数量：<input type="number" value="{{item.sales}}" placeholder="请输入退货数量" data-id="{{index}}"  bindinput="onInput" bindblur="onBlur"/>
+          </view> -->
+      </view>
+    </view>
+  </view>
+
+  <view class='footer acea-row row-between-wrapper'>
+    <view>
+      <checkbox-group bindchange="checkboxAllChange">
+        <checkbox value="all" checked="{{isAllSelect}}" />
+        <text class='checkAll'>全选</text>
+      </checkbox-group>
+    </view>
+    <view class='money acea-row row-middle'>
+      <text class="money-symbol">￥</text>
+      <text class='money-number'>{{totalMoney}}</text>
+      <div class='placeOrder' catchtap="sales" wx:if="{{judgeSales}}">申请退货</div>
+    </view>
+  </view>
+</view>
+<view class="textareaBox">
+  <text>退货原因</text>
+  <textarea class="textareaStyle" placeholder="退货原因描述" show-confirm-bar="false" bindblur="textBlur" />
+  </view>

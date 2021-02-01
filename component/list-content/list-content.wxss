@@ -1,0 +1,33 @@
+/* components/list-content/list-content.wxss */
+
+.border_bottom {
+  border-bottom: 1px solid #eee;
+}
+
+.list_box {
+  margin: 0 20px;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  line-height: 30px;
+  color: rgb(16, 16, 16);
+}
+
+.title_color {
+  width: 33%;
+  color: rgb(103, 102, 102);
+  display: flex;
+  align-items: center;
+}
+
+.pay_img {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+}
+
+.list_content {
+  flex: 1;
+  text-align: right;
+}

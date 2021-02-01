@@ -1,90 +1,71 @@
-import { login, loginSi } from '../../api/index.js'
+import {
+  loginAccount,
+  institutionDetail
+} from '../../api/index.js'
+import util from '../../utils/util.js';
+let app = getApp()
 
 Page({
   data: {
-    login: {}
-  },
-  
-  onLoad(options) {
-    wx.setNavigationBarColor({
-      frontColor: '#000000',
-      backgroundColor: '#ffffff',
-    })
-    wx.setNavigationBarTitle({
-      title: '收款小精灵商户通',
-    })
+    login: {},
   },
 
-  // 权限
-  canModify(permission){
-    // 	0：有权限，1：无权限 。
-    // 排序：0退款权限 refund，1调整余额 balance，2积分变更 point，3等级变更 level，4经验变更exp，5发送礼券 coupon，6商品新建 skuNew，7商品删除 skuDelete，8商品编辑 skuModify，9商品上下架skuUpdate
-    const arr = ["refund", "balance", "point", "level", "exp", "coupon", "skuNew", "skuDelete", "skuEdit", "skuUpdate"]
-    let modify = {}
-    arr.forEach((item, index) => {
-      modify['can' + item] = permission[index] == '0' ? true : false
-    })
-    wx.setStorageSync('canModify', modify)
+  onLoad(options) {
+
   },
 
   // 登录
   login(e) {
-    console.log("111")
     let parmas = e.detail.value
-    login(parmas)
-      .then(res => {
-        console.log(res,"登录")
+    loginAccount(parmas).then(res => {
+      console.log(res)
+      if (res.appId == "EW_N6247753906") {
+        wx.navigateTo({
+          url: '/pages/home/home',
+        })
+        wx.setStorage({
+          key: 'loginInfo',
+          data: res // 要缓存的数据
+        });
+      } else {
         if (res.code == 'FAILED') {
           wx.showToast({
             title: res.subMsg,
             icon: 'none'
           })
         } else if (res.code == 'SUCCESS') {
-
-          if(res.role == 2 && (res.appId === res.merchantCode)){
-            // 总部员工标识
-            res.headOfficeStaff = 2
-          }else{
-            res.headOfficeStaff = ""
-          }
-          wx.setStorageSync("loginParams", parmas)
-          wx.setStorageSync("login", res)
-          this.canModify(res.permission.split(''))
-          wx.setStorageSync("loginName", parmas.userName)
-          this.loginSi(parmas)
-            .then(res => {
-              wx.reLaunch({
-                url: '/pages/index/index',
-              })
-            })
-        }
-      })
-  },
-  loginSi(parmas) {
-    let arg = {
-      loginName: parmas.userName,
-      password: parmas.passWord
-    }
-    return loginSi(arg)
-      .then((res) => {
-        // console.log("::::LOGIN&SI::::", res)
-        let loginData = res
-        if (loginData.state == -1) {
           wx.showToast({
-            title: loginData.obj,
-            icon: "none"
+            title: "登录中",
+            icon: 'none'
           })
-        } else if (loginData.state == 1) {
-          wx.setStorageSync("loginData", loginData.obj)
-          wx.setStorageSync("siKey", loginData.partnerKey)
+          console.log(res)
+          app.globalData.merchantCode = res.merchantCode
+          wx.setStorageSync("login", res)
+          wx.setStorageSync("merchantType", res.merchantType)
+          let merchantCode = res.merchantCode
+          institutionDetail({ appId: res.appId, merchantCode }).then(data => {
+            console.log(res)
+            if (data.code == "SUCCESS") {
+              app.globalData.merchantType = data.result.merchantType
+              wx.setStorageSync("institutionDetail", data.result)
+              wx.switchTab({
+                url: `/pages/goods_cate/goods_cate`,
+              })
+            } else if (data.code == "FAILED") {
+              wx.switchTab({
+                url: '/pages/login/login',
+              })
+              wx.showToast({
+                title: res.msg,
+                icon: 'none'
+              })
+            }
+          })
         }
-      })
-      .catch(err => {
-        // console.log(err)
-      })
+      }
+    })
   },
   clearInput(e) {
-    // console.log(e)
     let login = this.data.login
     login[e.target.dataset.id] = ''
     this.setData({

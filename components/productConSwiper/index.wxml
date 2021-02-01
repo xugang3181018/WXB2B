@@ -1,0 +1,16 @@
+<view class='product-bg'>
+  <swiper indicator-active-color="#e93323" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" bindchange="change">
+    <navbar parameter='{{parameter}}'></navbar>
+  <!-- <view style = "height:120rpx;background:#ffffff;display:flex;justify-content: center;align-items:flex-end; font-size:40rpx;font-weight:600;">{{title || "商品详情"}}</view> -->
+    <swiper-item wx:if='{{videoline}}'>
+      <video id="myVideo" src='{{videoline}}' objectFit="cover" id="mdcVideo" controls poster="{{imgUrls[0]}}" style="width:100%;height:100% " show-center-play-btn show-mute-btn="true" auto-pause-if-navigate custom-cache="{{false}}">
+      </video>
+    </swiper-item>
+    <block>
+      <swiper-item>
+        <image mode="aspectFit" src="{{imgUrls || '../../images/default.png'}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- <view class='pages'>{{currents}}/{{imgUrls.length || 1}}</view> -->
+</view>

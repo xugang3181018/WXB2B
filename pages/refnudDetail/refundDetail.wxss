@@ -1,0 +1,97 @@
+/* pages/refnudDetail/refundDetail.wxss */
+@import "../order_addcart//order_addcart.wxss";
+.shoppingCart{
+  background:#fff;
+}
+.goodsDetailBox{
+  padding: 20rpx 0;
+  margin:0 20rpx;
+  align-items:center;
+  border-top: 1px solid #eee;
+}
+.goodsDetailBox .goodsContent{
+  margin:20rpx;
+
+}
+.goodsDetailBox .goodsContent .text{
+  width:490rpx;
+}
+.goodsDetailBox .goodsContent .text .count{
+  float:right;
+}
+.pictrue{
+  width:120rpx;
+  height:120rpx;
+  margin-right:30rpx;
+}
+.pictrue .goodsImg{
+  width:100%;
+  height:100%;
+}
+
+
+.money-number {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.unit {
+  font-size: 20rpx;
+  color: #999
+}
+
+.fontColor{
+  color:#B19361;
+}
+
+
+.carnum {
+  margin-top:20rpx;
+}
+
+.carnum .reduce {
+  font-size: 16rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.carnum .reduce.on {
+  border-color: #e3e3e3;
+  color: #dedede;
+}
+
+.carnum .plus {
+  color: #fff;
+  line-height: 36rpx;
+}
+
+.carnum .num {
+  width: 60rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.carnum .num input {
+  z-index: 0;
+  text-align: center;
+}
+
+.salesNum{
+  flex:1;
+  text-align: right;
+  font-size:26rpx;
+  color:#ccc;
+}
+.textareaBox{
+  padding:20rpx;
+  margin-top:20rpx;
+  background:#fff;
+}
+.textareaStyle{
+  width:100%;
+  height:120rpx;
+  margin-top:20rpx;
+  border:1px solid #eee;
+  text-indent:30rpx;
+  line-height:40rpx;
+}

@@ -1,0 +1,18 @@
+<!--components/list-content/list-content.wxml-->
+<view class="border_bottom">
+  <view class="list_box">
+    <view class="title_color">
+      <image class='pay_img' src="{{img}}" />
+      <text>{{title}}</text>
+    </view>
+    <view class="list_content">
+      <text>{{number1}}</text>
+      <text>{{content1}}</text>
+    </view>
+    <view class="list_content">
+      <text>{{number2}}</text>
+      <text>{{content2}}</text>
+    </view>
+  </view>
+  <slot/>
+</view>
