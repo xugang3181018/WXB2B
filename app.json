@@ -1,0 +1,37 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/mall/mall",
+    "pages/welcome/welcome",
+    "pages/paySuccess/paySuccess",
+    "pages/orderDetail/orderDetail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "usingComponents": {
+    "panel": "/component/panel/index",
+    "load": "/component/loading/index",
+    "goods-item": "/component/goodsItem/index",
+    "cart-item": "/component/cartItem/index",
+    "mall-bar": "/component/mallBar/index",
+    "cart-spec": "/component/cartSpec/index",
+    "cart-amount": "/component/cartAmount/index",
+    "ym-button": "/component/button/index",
+    "button-corner": "/component/buttonCorner/index",
+    "price":"/component/price/index",
+    "page-bar":"/component/pageBar/index",
+    "page-panel":"/component/panel/index",
+    "empty-status":"/component/emptyStatus/index",
+    "order-item":"/component/orderItem/index"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
+}

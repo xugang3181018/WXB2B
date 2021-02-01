@@ -1,0 +1,54 @@
+/* compontent/button-corner/index.wxss */
+.button-corner{
+  width: 300rpx;
+  height: 300rpx;
+  background: #FF3939;
+  color: #fff;
+  border-radius: 100px;
+  position: relative;
+}
+.button-corner-inner{
+  position: relative;
+  z-index: 1;
+}
+.button-corner-txt{
+  text-align: center;
+  font-size: 28rpx;
+  margin-top:10rpx;
+}
+.ico{
+  font-size: 100rpx;
+  margin-bottom: 4rpx;
+}
+.loading::after,.loading::before{
+  content: '';
+  position: absolute;
+  left:0;
+  right: 0;
+  top:0;
+  bottom: 0;
+  border-radius: 200px;
+  /* animation: zoom .6s ease-in infinite; */
+  z-index: -1;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 4, 4, 0.66) 0%, rgba(255, 39, 39, 0) 100%);
+}
+.loading::before{
+  animation: zoom .5s ease-in infinite;
+}
+@keyframes zoom{
+  0%{
+    transform: scale(1);
+  }
+  25%{
+    transform: scale(1.5);
+  }
+  50%{
+    transform: scale(1.8);
+  }
+  75%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}

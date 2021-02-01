@@ -1,0 +1,16 @@
+{
+  "extEnable": true,
+  "extAppid": "wxa859ed19295c01b0",
+  "directCommit": false,
+  "ext": {
+    "merchantId":"10115614",
+    "merchantCode": "EW_N0017769728",
+    "storeMerchantCode": "EW_N4964677636",
+    "host": "https://testmall.liantuobank.com",
+    "domain": "https://testclubmall.liantuobank.com",
+    "clubHost":"https://open.liantuobank.cn",
+    "openHost":"https://testclubshop.liantuobank.com/",
+    "appId": "wxa859ed19295c01b0",
+    "key": "0fd6488a9e221c3f2d5430bace7dd1b1"
+  }
+}

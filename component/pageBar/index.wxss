@@ -1,0 +1,32 @@
+/* component/pageBar/index.wxss */
+.page-bar{
+  position:fixed;
+  height:50px;
+  left:0;
+  right:0;
+  bottom:0;
+  background: #fff;
+  z-index: 90;
+}
+.page-bar::before{
+  content:'';
+  overflow:hidden;
+  height:1px;
+  display: block;
+}
+.page-bar-inner{
+  background: #fff;
+  padding:0 30rpx;
+  height:110rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-bar-px{
+  height:84px;
+}
+.page-bar-inner{
+  height:50px;
+  display: flex;
+  align-items: center;
+}

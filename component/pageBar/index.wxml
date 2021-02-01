@@ -1,0 +1,5 @@
+<view class="page-bar {{isIphoneX && !hasBar ? 'page-bar-px' : ''}}" style="bottom:{{hasBar ? (isIphoneX ? '84' : '50') : ''}}px;">
+  <view class="page-bar-inner">
+    <slot />
+  </view>
+</view>
